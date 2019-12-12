@@ -1,15 +1,36 @@
-    <section class="interduction"> <!-- 只在尚未登入時顯示 -->
-      <div class="interductionBanner">
-        <h1>Buy and sell cryptocurrency</h1>
-        <p>Maibee is the easiest place to buy, sell, and manage your cryptocurrency portfolio.</p>
-      </div>
-      <div class="create_account">
-        <a href="#">Create account</a>
-        <a href="#">Sign in</a>
+<!-- 之後放到別的地方 -->
+    <style>     
+      .introduction{
+        height: 60vh;
+        color: white;
+        line-height: 4;
+      }
+      .create_account{
+        line-height: 0;
+      }
+      .price{
+        position: relative;
+        top: -50px;
+        border-radius: 5px;
+        background-color: #fff;
+      }
+    </style>
+
+    <section class="introduction d-flex justify-content-center align-items-center bg-primary"> <!-- 只在尚未登入時顯示 -->
+      <div class="introductionBanner">
+        <div class="container text-center">
+              <h1>Buy and sell cryptocurrency</h1>
+              <p>Maibee is the easiest place to buy, sell, and manage your cryptocurrency portfolio.</p>
+            <div class="create_account d-flex justify-content-center h-50">
+              <input type="text" class="w-10">
+              <a href="#" class="btn btn-success">Create account</a>
+            </div>
+        </div>
       </div>
     </section>
-    <section>
-     <div class="prices">
+
+    <section class="position-relative container d-flex justify-content-center align-items-center">
+     <div class="price">
        <h1>Current prices</h1>
        <table>
          <tr>
@@ -31,14 +52,14 @@
      
      </div>
     </section>
-    <section class="event">
-      <div class="launch_special">
+    <section class="event ">
+      <div class="launch_special container text-xl-center">
         <h1>Maibee launch special</h1>
         <h2>Register now and get 20 Honey Coin for free</h2>
         <p>New member who is registered before 2020 May will get 10 Honey Coin.</p>
         <p>New member who made a first transaction will receive another 10 Honey Coin!</p>
       </div>
-      <div class="create_account">
+      <div class="create_account container text-xl-center">
         <h2>Join new to get upto 20 Honey Coin!</h2>
         <a href="#">Create account</a>
         <a href="#">Sign in</a>
