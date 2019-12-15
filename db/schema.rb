@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_15_031441) do
+ActiveRecord::Schema.define(version: 2019_12_15_035041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "wallets", force: :cascade do |t|
-    t.decimal "twd"
+    t.decimal "ntd"
     t.decimal "xpr"
     t.decimal "honey"
     t.datetime "created_at", precision: 6, null: false
