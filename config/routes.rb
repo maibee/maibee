@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  # devise
+  devise_for :users
+  get 'dashboard/index'
+  
+  # wallet
   get 'wallets/show'
+  
   # 首頁
   root 'dashboard#index'
 
