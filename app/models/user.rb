@@ -6,4 +6,11 @@ class User < ApplicationRecord
   #驗證
   validates :last_name, presence: true
   validates :first_name, presence: true
+
+  before_save do
+    if self.wallet_id == nil
+      wallet = Wallet.create
+      self.wallet_id = wallet.id
+    end
+  end
 end
