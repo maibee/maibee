@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_12_16_105729) do
 
-ActiveRecord::Schema.define(version: 2019_12_14_055233) do
-  
-    # These are extensions that must be enabled in order to support this database
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "currencies", force: :cascade do |t|
+    t.string "name"
+    t.decimal "last_rate"
+    t.datetime "update_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,19 +33,11 @@ ActiveRecord::Schema.define(version: 2019_12_14_055233) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.bigint "wallet_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["wallet_id"], name: "index_users_on_wallet_id"
   end
-end
-  
-  
-  
-
-ActiveRecord::Schema.define(version: 2019_12_15_035041) do
-
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
 
   create_table "wallets", force: :cascade do |t|
     t.decimal "ntd"
@@ -47,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_12_15_035041) do
     t.decimal "honey"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-
   end
 
+  add_foreign_key "users", "wallets"
 end
