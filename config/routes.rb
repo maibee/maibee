@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  get 'exchange/index'
   # devise
   devise_for :users
   get 'dashboard/index'
   
   # wallet
   get 'wallets/show'
+
+  # exchange
+  get 'exchange/:currency', to: 'exchange#index', as: :exchange
   
   # 首頁
   root 'dashboard#index'
