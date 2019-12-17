@@ -5,16 +5,10 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   
   # wallet
-  resource :wallet, only: [:show]
+  resources :wallets, only: [:index]
 
-  # exchange
-  get ':currency', to: 'exchange#index', as: :exchange
-  # get 'exchange/:currency', to: 'exchange#index', as: :exchange
-  
   # 首頁
   root 'dashboard#index'
 
-  # 錢包頁面 User wallet path
-  # get 'wallet', to: 'wallets#show', as: :wallet
   
 end

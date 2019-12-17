@@ -27,7 +27,7 @@
             
               <%= link_to current_user.email,class: "btn btn-primary"%>
               <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "btn btn-primary" %>
-              <%= link_to Wallet, wallet_path,class: 'nav-link' %>
+              <%= link_to Wallet, wallets_path,class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Notification</a>

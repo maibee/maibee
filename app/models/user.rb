@@ -13,4 +13,5 @@ class User < ApplicationRecord
       self.wallet_id = wallet.id
     end
   end
+  has_many :wallets
 end
