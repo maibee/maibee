@@ -8,11 +8,7 @@ Rails.application.routes.draw do
   resource :wallet, only: [:show]
 
   # exchange
-  resources :exchanges, only: [:index] do
-    collection do
-      get ':currency', to: 'exchange#index', as: :exchange
-    end
-  end
+  get ':currency', to: 'exchange#index', as: :exchange
   # get 'exchange/:currency', to: 'exchange#index', as: :exchange
   
   # 首頁
