@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Buy <%= @currency.name %></h1>
+  <ul>
+    <li>Current Pcrice: <%= @currency.last_rate %></li>
+    <li>Account <%= @currency.name %> Balance: WIP </li>
+  </ul>
+
+  <%= form_with model: @order do |form| %>
+    <%= form.select(:currency_id, @currencies) %>
+    <%= form.label :amount %>
+    <%= form.number_field :amount %>
+    <%= form.submit %>
+
+  <% end %>
+
+  
+
+</div>
