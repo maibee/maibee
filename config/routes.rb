@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
+
+  get 'orders/show'
   # devise
   devise_for :users
   get 'dashboard/index'
   
   # wallet
-  get 'wallets/show'
-  
+  resources :wallets, only: [:index]
+  # exchange
+  resources :exchanges, only: [:index, :show]
+  # order
+  resources :orders, only: [:create, :show]
+
   # 首頁
   root 'dashboard#index'
 
-  # 錢包頁面 User wallet path
-  get 'wallet', to: 'wallets#show', as: :wallet
   
 end

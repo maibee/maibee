@@ -1,7 +1,7 @@
 <header class="bg-light">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Maibee</a>
+      <%= link_to 'Maibee', root_path,class:'navbar-brand' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -9,37 +9,37 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <%= link_to 'Home', root_path, class:'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Price</a>
+            <%= link_to 'Prices', exchanges_path, class:'nav-link' %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Invite friends</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Trade</a>
-          </li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <% if user_signed_in?%>
-            
-              <%= link_to current_user.email,class: "btn btn-primary"%>
+          <% if user_signed_in?%>
+            <li class="nav-item">
+              <%= link_to 'Wallet', wallets_path,class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to current_user.email, "/", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Notification</a>
+            </li>
+            <li class="nav-item">
               <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "btn btn-primary" %>
-              <%= link_to Wallet, wallet_path,class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Notification</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">User</a>
-            
-            <% else %>
+            </li>
+          <% else %>
+            <li class="nav-item">
               <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary"%>
+            </li>
+            <li class="nav-item">
               <%= link_to "Log in", new_user_session_path, class: "btn btn-primary"%>
-            <% end %>
-          </li>
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav>

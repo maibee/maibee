@@ -1,0 +1,14 @@
+<section class="wallet">
+  <div class="launch_special container text-xl-center">
+    <h1>Wallet info</h1>
+    <table class="mx-auto table col-lg-6">
+      <% @wallets.each do |wallet| %>
+      <tr>
+        <td><%= @currencies.find_by(id: wallet.currency_id).name %></td>
+        <td><%= wallet.amount %></td>
+        <td><%= link_to 'Buy', exchange_path(@currencies.find_by(id: wallet.currency_id)) %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</section>

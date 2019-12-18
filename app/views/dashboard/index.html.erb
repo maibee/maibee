@@ -1,20 +1,3 @@
-<!-- 之後放到別的地方 -->
-    <style>     
-      .introduction{
-        height: 60vh;
-        color: white;
-        line-height: 4;
-      }
-      .create_account{
-        line-height: 0;
-      }
-      .price{
-        position: relative;
-        top: -50px;
-        border-radius: 5px;
-        background-color: #fff;
-      }
-    </style>
 
     <section class="introduction d-flex justify-content-center align-items-center bg-primary"> <!-- 只在尚未登入時顯示 -->
       <div class="introductionBanner">
@@ -29,29 +12,13 @@
       </div>
     </section>
 
-    <section class="position-relative container d-flex justify-content-center align-items-center">
-     <div class="price">
-       <h1>Current prices</h1>
-       <table>
-         <tr>
-           <th>Name</th>
-           <th>Price</th>
-           <th>Change</th>
-           <th>Chart</th>
-           <th>Trade</th>
-         </tr>
-         <tr>
-           <td>Bitcoin</td>
-           <td>219470NTD</td>
-           <td>-1.96%</td>
-           <td>起伏圖</td>
-           <td>Buy</td>
-         </tr>
-       </table>
-     
-     
-     </div>
+    <section class="coin_list container">
+      <div class="col-lg-8 mx-auto price">
+        <h1>Current Prices</h1>
+        <%= render 'shared/coin_list', currencies: @currencies %>
+      </div>
     </section>
+
     <section class="event ">
       <div class="launch_special container text-xl-center">
         <h1>Maibee launch special</h1>

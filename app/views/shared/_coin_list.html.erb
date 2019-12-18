@@ -1,0 +1,18 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Current Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% currencies.each do |currency| %>
+    <tr>
+      <td><%= currency.name %></td>
+      <td><%= currency.last_rate %></td>
+      <td><%= link_to 'BUY', exchange_path(currency) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
