@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   # devise
   devise_for :users
   get 'dashboard/index'
+  # users account page
+  resources :users, only: [:show]
   
   # wallet
   resources :wallets, only: [:index]
+  
+
   # exchange
   resources :exchanges, only: [:index, :show]
   # order
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
 
   # 首頁
   root 'dashboard#index'
+
 
   
 end

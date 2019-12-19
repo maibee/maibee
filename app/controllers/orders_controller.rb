@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.user_id = current_user.id
 
     wallet = Wallet.find_by(user_id: current_user, currency_id: @order.currency_id) || Wallet.new(user_id: current_user.id, currency_id: @order.currency_id)
     wallet.amount ||= 0
