@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
     wallet.save
     if @order.save
       current_user.records.create(content: "Order Created")
+        current_user.unread += (1)
+        current_user.save
       redirect_to wallets_path, notice: 'Order Created'
       
     else
