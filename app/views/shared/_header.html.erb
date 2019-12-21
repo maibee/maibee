@@ -29,8 +29,8 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to edit_user_registration_path, class: "nav-link" do%>
-              (<%= Record.where(user_id: current_user.id).length%>) 
+              <%= link_to record_path(current_user.id),method: "patch" , class: "nav-link" do%>
+              (<%= current_user.unread%>) 
               <% end %>
             </li>
             <li class="nav-item">

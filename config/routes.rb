@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   # order
   resources :orders, only: [:create, :show]
   #notice_records
-  resources :notice_records, only: [:create, :show]
-
+  resources :records, only: [:update, :show]
   # 首頁
   root 'dashboard#index'
 
