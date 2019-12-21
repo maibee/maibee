@@ -32,6 +32,10 @@
               <%= link_to record_path(current_user.id),method: "patch" , class: "nav-link" do%>
               (<%= current_user.unread%>) 
               <% end %>
+              <%= link_to 'Orders', orders_path,class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to current_user.email, "/", class: "nav-link" %>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Notification</a>

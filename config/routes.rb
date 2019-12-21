@@ -4,17 +4,30 @@ Rails.application.routes.draw do
   # devise
   devise_for :users
   get 'dashboard/index'
+  # users account page
+  resources :users, only: [:show]
   
   # wallet
   resources :wallets, only: [:index]
+  
+
   # exchange
   resources :exchanges, only: [:index, :show]
   # order
-  resources :orders, only: [:create, :show]
+
   #notice_records
   resources :records, only: [:update, :show]
+
+  # order
+  resources :orders, only: [:create, :show, :index] do
+    member do
+      post :pay
+    end
+  end
+
   # 首頁
   root 'dashboard#index'
+
 
   
 end
