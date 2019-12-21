@@ -4,6 +4,14 @@ class OrdersController < ApplicationController
     @orders = Order.where(user_id: current_user)
   end
   def show
+    @order = Order.find(params[:id])
+  end
+  def pay
+    @order = Order.find(params[:id])
+    @order.status = :finished
+    @order.save
+    redirect_to order_path(@order)
+
   end
 
   def create
@@ -19,7 +27,7 @@ class OrdersController < ApplicationController
 
 
     if @order.save
-      redirect_to wallets_path, notice: 'Order Created'
+      redirect_to order_path(@order), notice: 'Order Created'
     else
       render 'exchanges/show', notice: 'Something went wrong'
     end
