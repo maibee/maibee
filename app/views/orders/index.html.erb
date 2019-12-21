@@ -1,0 +1,11 @@
+<% @orders.each do |order| %>
+  <article>
+    <h2>Order Number: <%= order.number %></h2>
+    <ul>
+      <li>Amount: <%= order.amount %></li>
+      <li>Created Date: <%= order.created_at %></li>
+      <li>Deal Price <%= order.price %></li>
+      <li>Total Price <%= order.price * order.amount %></li>
+    </ul>
+  </article>
+<% end %>

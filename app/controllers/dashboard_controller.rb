@@ -3,4 +3,7 @@ class DashboardController < ApplicationController
     @currencies = Currency.all
 
   end
+  def member
+
+  end
 end
