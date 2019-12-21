@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
 
 
     if @order.save
-      redirect_to wallets_path, notice: 'Order Created'
+      redirect_to order_path(@order), notice: 'Order Created'
     else
       render 'exchanges/show', notice: 'Something went wrong'
     end

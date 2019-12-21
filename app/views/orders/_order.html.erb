@@ -6,7 +6,7 @@
       <li>Deal Price <%= order.price %></li>
       <li>Total Price <%= order.price * order.amount %></li>
       <li>Status: <%= order.status %></li>
-      <% if order.status == :unpaid %>
+      <% if order.status == 'unpaid'%>
       <li><%= link_to 'Pay now', pay_order_path(order), method: 'post' %></li>
       <% end %>
     </ul>
