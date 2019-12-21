@@ -24,6 +24,14 @@
               <%= link_to 'Wallet', wallets_path,class: 'nav-link' %>
             </li>
             <li class="nav-item">
+              <%= link_to edit_user_registration_path, class: "nav-link" do%>
+               <%= current_user.first_name%>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to record_path(current_user.id),method: "patch" , class: "nav-link" do%>
+              (<%= current_user.unread%>) 
+              <% end %>
               <%= link_to 'Orders', orders_path,class: 'nav-link' %>
             </li>
             <li class="nav-item">

@@ -24,9 +24,10 @@ class OrdersController < ApplicationController
     wallet.amount ||= 0
     wallet.amount += (@order.amount)
     wallet.save
-
-
     if @order.save
+      current_user.records.create(content: "Order Created")
+      current_user.unread += 1
+      current_user.save
       redirect_to order_path(@order), notice: 'Order Created'
     else
       render 'exchanges/show', notice: 'Something went wrong'

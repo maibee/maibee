@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   # exchange
   resources :exchanges, only: [:index, :show]
   # order
+
+  #notice_records
+  resources :records, only: [:update, :show]
+
+  # order
   resources :orders, only: [:create, :show, :index] do
     member do
       post :pay
