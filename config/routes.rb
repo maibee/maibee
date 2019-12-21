@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # exchange
   resources :exchanges, only: [:index, :show]
   # order
-  resources :orders, only: [:create, :show]
+  resources :orders, only: [:create, :show, :index]
 
   # 首頁
   root 'dashboard#index'
