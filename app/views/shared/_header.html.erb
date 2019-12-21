@@ -24,7 +24,14 @@
               <%= link_to 'Wallet', wallets_path,class: 'nav-link' %>
             </li>
             <li class="nav-item">
-              <%= link_to current_user.email, "/", class: "nav-link" %>
+              <%= link_to edit_user_registration_path, class: "nav-link" do%>
+               <%= current_user.first_name%>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to edit_user_registration_path, class: "nav-link" do%>
+              (<%= Record.where(user_id: current_user.id).length%>) 
+              <% end %>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Notification</a>
