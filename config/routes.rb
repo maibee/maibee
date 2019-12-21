@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   # exchange
   resources :exchanges, only: [:index, :show]
   # order
-  resources :orders, only: [:create, :show, :index]
+  resources :orders, only: [:create, :show, :index] do
+    member do
+      post :pay
+    end
+  end
 
   # 首頁
   root 'dashboard#index'

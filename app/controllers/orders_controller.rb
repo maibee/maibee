@@ -4,6 +4,14 @@ class OrdersController < ApplicationController
     @orders = Order.where(user_id: current_user)
   end
   def show
+    @order = Order.find(params[:id])
+  end
+  def pay
+    @order = Order.find(params[:id])
+    @order.status = :finished
+    @order.save
+    redirect_to order_path(@order)
+
   end
 
   def create

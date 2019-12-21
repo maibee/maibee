@@ -1,0 +1,13 @@
+  <article>
+    <h2>Order Number<%= link_to order.number, order_path(order) %></h2>
+    <ul>
+      <li>Amount: <%= order.amount %></li>
+      <li>Created Date: <%= order.created_at %></li>
+      <li>Deal Price <%= order.price %></li>
+      <li>Total Price <%= order.price * order.amount %></li>
+      <li>Status: <%= order.status %></li>
+      <% if order.status == :unpaid %>
+      <li><%= link_to 'Pay now', pay_order_path(order), method: 'post' %></li>
+      <% end %>
+    </ul>
+  </article>
