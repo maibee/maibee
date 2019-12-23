@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get 'orders/show'
   # devise
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
   get 'dashboard/index'
   # users account page
   resources :users, only: [:show]
