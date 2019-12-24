@@ -8,8 +8,9 @@ class OrdersController < ApplicationController
   end
   def pay
     @order = Order.find(params[:id])
-    @order.status = :finished
-    @order.save
+    if @order.save
+      @order.pay!
+    end
     redirect_to order_path(@order)
 
   end
