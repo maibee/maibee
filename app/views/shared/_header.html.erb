@@ -28,13 +28,22 @@
             </li>
 
 
-            <li class="nav-item">
-              <%= link_to record_path(current_user),method: "patch" , class: "nav-link" do%>
-                <i class="fas fa-bell"></i>
-                <%= current_user.unread%> 
-              <% end %>
-            </li>
 
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell"></i>
+                <%= current_user.unread%>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Clear', record_path(current_user),method: "patch" , class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <% @records.each do |record| %>
+                <%= link_to record.content, '#', class: "dropdown-item" %>
+              <% end %>
+              <div class="dropdown-divider"></div>
+              <%= link_to 'All Notifications', record_path(current_user),method: "patch" , class: "dropdown-item" %>
+              </div>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user"></i>
