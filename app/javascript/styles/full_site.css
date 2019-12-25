@@ -18,4 +18,9 @@
   left: 0;
   right:0;
 }
-
+@media (min-width: 992px){
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  right: 0;
+  left: auto;
+  top: 120%;
+}}

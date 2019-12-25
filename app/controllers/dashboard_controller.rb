@@ -6,4 +6,7 @@ class DashboardController < ApplicationController
   def member
 
   end
+  def permit
+
+  end
 end
