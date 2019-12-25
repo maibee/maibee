@@ -11,6 +11,8 @@ import 'styles/full_site.css'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
+import '@fortawesome/fontawesome-free/css/all.css'
+
 
 // footer置底
 document.addEventListener("turbolinks:load", ()=>{

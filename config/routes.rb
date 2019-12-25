@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
 
-  get 'orders/show'
   # devise
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
-  get 'dashboard/index'
+  #dashboard
+  resources :dashboard, only: :index do
+    collection do
+      get :permit
+    end
+  end
+
+
   # users account page
   resources :users, only: [:show]
   
