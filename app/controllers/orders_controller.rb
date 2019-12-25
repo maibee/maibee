@@ -24,9 +24,8 @@ class OrdersController < ApplicationController
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
     @order.number = @order.generate_order_number
     if @order.save
-      current_user.records.create(content: "Order Created")
-      current_user.unread += 1
-      current_user.save
+      ConfirmationMailer.confirmation_letter(current_user.email).deliver
+      create_unread_record
       redirect_to order_path(@order), notice: 'Order Created'
     else
       render 'exchanges/show', notice: 'Something went wrong'
@@ -36,5 +35,15 @@ class OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(:amount, :currency_id)
+  end
+  def last_order_number
+    return '' unless Order.last
+    Order.last.number
+  end
+
+  def create_unread_record
+    current_user.records.create(content: "Order Created")
+    current_user.unread += 1
+    current_user.save
   end
 end
