@@ -1,3 +1,6 @@
+main>*:first-child{
+  padding-top: 30px;
+}
 .introduction{
   height: 60vh;
   color: white;

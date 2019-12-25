@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'orders/show'
   # devise
   devise_for :users
   #dashboard

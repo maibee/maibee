@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  layout 'user_menu'
   require 'digest'
   def index
     @orders = Order.where(user_id: current_user)
