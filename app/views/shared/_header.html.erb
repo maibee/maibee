@@ -37,9 +37,17 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'Clear', record_path(current_user),method: "patch" , class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
+
               <% @records.each do |record| %>
-                <%= link_to record.content, '#', class: "dropdown-item" %>
+                <div class="dropdown-item d-flex">
+                <%= link_to record.content, '#', class: "nav-link" %>
+                <%= link_to '#', class: "nav-link ml-auto" do %>
+                  <i class="far fa-window-close"></i>
+                <% end %>
+                </div>
+
               <% end %>
+
               <div class="dropdown-divider"></div>
               <%= link_to 'All Notifications', record_path(current_user),method: "patch" , class: "dropdown-item" %>
               </div>
