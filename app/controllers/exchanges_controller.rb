@@ -8,5 +8,4 @@ class ExchangesController < ApplicationController
     @order = Order.new
     @currencies = Currency.all.map{|c| [c.name, c.id] }
   end
-
 end

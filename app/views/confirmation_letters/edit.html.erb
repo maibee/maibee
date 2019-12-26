@@ -1,0 +1,10 @@
+
+<div class="container">
+<%= form_for @user, url: confirmation_letter_path do |f|%>
+  <div class="form-group">
+    <%= f.label :first_name, "Passcode" %>
+    <%= f.text_field :first_name, value: '',class: "form-control" %>
+  </div>
+  <%= f.submit "Varify",class: "btn btn-primary"%>
+<% end %>
+</div>

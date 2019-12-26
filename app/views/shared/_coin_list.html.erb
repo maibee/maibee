@@ -11,7 +11,11 @@
     <tr>
       <td><%= currency.name %></td>
       <td><%= currency.last_rate %></td>
+      <% if current_user.status %>
       <td><%= link_to 'BUY', exchange_path(currency) %></td>
+      <% else %>
+      <td><%= link_to 'BUY', edit_confirmation_letter_path(current_user) %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

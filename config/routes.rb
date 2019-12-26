@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     end
   end
 
+  # confirmation letter
+  resources :confirmation_letters, only: [:edit, :update] 
   # 首頁
   root 'dashboard#index'
 
