@@ -1,0 +1,6 @@
+
+<div class="container">
+click this to activate your account
+
+<%= link_to "maibee.comfirmation_letters/#{current_user.email}/#{@checknum}"  , confirmation_letter_path(current_user), method: 'put'%>
+</div>

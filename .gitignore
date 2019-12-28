@@ -31,8 +31,4 @@ yarn-debug.log*
 .yarn-integrity
 
 # dotenv
-/.env.*.local
-/.env.local
-/.env.*
-!/.env.sample
-!/.env.*.sample
+.env
