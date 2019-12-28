@@ -1,13 +1,18 @@
 class ConfirmationLettersController < ApplicationController
+  
+  require 'securerandom'
+
+  def index
+  end
+
   def edit
-    #update varification colum
-    # ConfirmationMailer.confirmation_letter(current_user.email).deliver
-    @user = current_user
+    # ConfirmationMailer.confirmation_letter(current_user).deliver
+    @checknum = SecureRandom.hex(6)
   end
 
   def update
     @user = User.find_by(id: params[:id])
-    if params[:user][:first_name] == @user.first_name
+    if params
       @user.update(status: true)
       redirect_to root_path, notice: "Activated!!"
     else

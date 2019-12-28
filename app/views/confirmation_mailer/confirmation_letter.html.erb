@@ -1,7 +1,18 @@
-<h1>Hi! <%= current_user.first_name %> <%= current_user.last_name %></h1>
 
-<div>
-  <p>Maibee: <%= current_user.first_name%> is your varification code.</p>
-  <br>
-  <p>Please dno't share with anyone</p>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, <%= @user.first_name %></h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: <%= @user.last_name %>.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
