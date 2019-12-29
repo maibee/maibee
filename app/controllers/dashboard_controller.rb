@@ -3,10 +3,16 @@ class DashboardController < ApplicationController
     @currencies = Currency.all
 
   end
-  def member
+  def career
 
   end
-  def permit
+  def legal
+
+  end
+  def language
+
+  end
+  def help
 
   end
 end

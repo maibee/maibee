@@ -7,11 +7,11 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-import 'styles/full_site.css'
 
-import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import '@fortawesome/fontawesome-free/css/all.css'
+import 'styles/full_site.scss'
+import 'styles/custom.scss'
 
 
 // footer置底
