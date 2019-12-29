@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
   end
   def records
-    @records = current_user.records.last(10).reverse
+    @records = current_user.records.last(10).reverse if current_user
 
   end
 end
