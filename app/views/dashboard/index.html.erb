@@ -1,40 +1,22 @@
+<section class="dashboard container">
+  <div class="row">
+    <div class="asset col-lg-6 col-12">
+      <h1>My Assets</h1>
 
-    <section class="introduction d-flex justify-content-center align-items-center bg-primary"> <!-- 只在尚未登入時顯示 -->
-      <div class="introductionBanner">
-        <div class="container text-center">
-              <h1>Buy and sell cryptocurrency</h1>
-              <p>Maibee is the easiest place to buy, sell, and manage your cryptocurrency portfolio.</p>
-            <div class="create_account d-flex justify-content-center h-50">
-              <input type="text" class="w-10">
-              <a href="#" class="btn btn-success">Create account</a>
-            </div>
-        </div>
-      </div>
-    </section>
+    </div>
+    <div class="news col-lg-6 col-12">
+      <h1>News</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="chart col-lg-6 col-12">
+      <h1>Chart</h1>
 
-    <section class="coin_list container-fluid bg-light">
-      <div class="row">
-        <div class="col-lg-8 mx-auto price">
-          <h1>Current Prices</h1>
-          <%= render 'shared/coin_list', currencies: @currencies %>
-        </div>
-      </div>
-    </section>
 
-    <section class="event">
-      <div class="container">
-        <div class="launch_special text-lg-center row">
-          <div class="col-lg-10 mx-auto">
-            <h1>Maibee launch special</h1>
-            <h2>Register now and get 20 Honey Coin for free</h2>
-            <p>New member who is registered before 2020 May will get 10 Honey Coin.</p>
-            <p>New member who made a first transaction will receive another 10 Honey Coin!</p>
-          </div>
-          <div class="create_account container text-xl-center">
-            <h2>Join new to get upto 20 Honey Coin!</h2>
-            <a href="#">Create account</a>
-            <a href="#">Sign in</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+    <div class="orders col-lg-6 col-12">
+      <h1>My Orders</h1>
+
+    </div>
+  </div>
+</section>

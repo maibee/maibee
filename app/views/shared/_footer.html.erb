@@ -2,11 +2,19 @@
   <div class="container">
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <ul class="navbar-nav d-flex mx-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Legal & Privacy</a></li>
+        <li class="nav-item">
+          <%= link_to 'Career', career_path,class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Legal & Privacy',legal_path, class: 'nav-link' %>
+        </li>
         <li class="nav-item"><p class="nav-link disabled">©2019 Maibee</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Language</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Need Help</a></li>
+        <li class="nav-item">
+          <%= link_to 'Language',language_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Need Help?',help_path, class: 'nav-link' %>
+        </li>
       </ul>
     </nav>
   </div>
