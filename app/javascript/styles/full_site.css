@@ -1,5 +1,10 @@
+h1, h2, h3, h4, h5{
+  font-size: 70%;
+}
 main>*:first-child{
   padding-top: 30px;
+}
+.launch_special{
 }
 .introduction{
   height: 60vh;
@@ -11,9 +16,12 @@ main>*:first-child{
 }
 .price{
   position: relative;
-  top: -50px;
+  top: 0px;
   border-radius: 5px;
   background-color: #fff;
+}
+footer{
+  margin-top: 50px;
 }
 .bottem_footer{
   position: fixed;
@@ -22,8 +30,15 @@ main>*:first-child{
   right:0;
 }
 @media (min-width: 992px){
-.navbar-expand-lg .navbar-nav .dropdown-menu {
-  right: 0;
-  left: auto;
-  top: 120%;
-}}
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    right: 0;
+    left: auto;
+    top: 120%;
+  }
+h1, h2, h3, h4, h5{
+  font-size: 100%;
+}
+.price{
+  top: -50px;
+}
+}

@@ -25,7 +25,9 @@ class OrdersController < ApplicationController
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
     @order.number = @order.generate_order_number
     if @order.save
-      create_unread_record
+
+      create_unread_record(@order)
+
       redirect_to order_path(@order), notice: 'Order Created'
     else
       render 'exchanges/show', notice: 'Something went wrong'
@@ -41,8 +43,8 @@ class OrdersController < ApplicationController
     Order.last.number
   end
 
-  def create_unread_record
-    current_user.records.create(content: "Order Created")
+  def create_unread_record(order)
+    current_user.records.create(content: "#{order.amount} of #{Currency.find_by(id: order.currency_id).name}s purchased")
     current_user.unread += 1
     current_user.save
   end
