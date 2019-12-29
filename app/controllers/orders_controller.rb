@@ -25,8 +25,9 @@ class OrdersController < ApplicationController
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
     @order.number = @order.generate_order_number
     if @order.save
-      # ConfirmationMailer.confirmation_letter(current_user.email).deliver
+
       create_unread_record(@order)
+
       redirect_to order_path(@order), notice: 'Order Created'
     else
       render 'exchanges/show', notice: 'Something went wrong'

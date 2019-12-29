@@ -32,7 +32,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -64,9 +64,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.mailgun.org',
     port:                 587,
-    domain:               'localhost:3000',
-    user_name:            'postmaster@sandboxa4af0e3ac2974b7dabd177e0eac27350.mailgun.org',
-    password:             'da1f89c7a85fe6f97712c761d00d9014-a9919d1f-f3a478b0',
+    domain:               '',
+    user_name:            '',
+    password:             '',
     authentication:       'plain',
     enable_starttls_auto: true  
   }
