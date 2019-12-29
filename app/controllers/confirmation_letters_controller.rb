@@ -6,8 +6,8 @@ class ConfirmationLettersController < ApplicationController
   end
 
   def edit
-    # ConfirmationMailer.confirmation_letter(current_user).deliver
     @checknum = SecureRandom.hex(6)
+    # ConfirmEmailJob.perform(current_user)
   end
 
   def update
