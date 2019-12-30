@@ -14,7 +14,7 @@ class ExchangesController < ApplicationController
   def active?
     
     if current_user.status == false
-      redirect_to confirmation_letters_path(current_user)
+      redirect_to confirmation_letters_path
     end
   end
 

@@ -9,6 +9,5 @@ class ApplicationController < ActionController::Base
   end
   def records
     @records = current_user.records.last(10).reverse if current_user
-
   end
 end
