@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'transfers/index'
+  get 'transfers/show'
   # devise
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -48,6 +50,9 @@ Rails.application.routes.draw do
 
   # confirmation letter
   resources :confirmation_letters, only: [:index, :show, :edit, :update] 
+
+  # transfers
+  resources :transfers, only: [:index, :show, :create, :new]
 
   
 

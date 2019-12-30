@@ -1,0 +1,36 @@
+<section class="container">
+  <div class="row">
+    <div class="col-lg-5 col-0"></div>
+    <div class="col-lg-7 col-12 content">
+    <h1>new transfer</h1>
+      <%= form_with model: @transfer do |form| %>
+      <table class="table">
+        <tr>
+          <td>
+            <%= form.select(:currency_id, @currencies) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= form.label :target, 'Target address' %>
+          </td>
+          <td>
+            <%= form.text_area :target %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= form.label :amount %>
+          </td>
+          <td>
+            <%= form.number_field :amount %>
+          </td>
+        </tr>
+      </table>
+            <%= form.submit %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+
