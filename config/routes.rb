@@ -47,8 +47,11 @@ Rails.application.routes.draw do
   end
 
   # confirmation letter
-  resources :confirmation_letters, only: [:index, :show, :edit, :update] 
-
+  resources :confirmation_letters, only: [:index, :show, :edit, :update]  do 
+    collection do 
+      post :upgrade
+    end
+  end
   
 
   
