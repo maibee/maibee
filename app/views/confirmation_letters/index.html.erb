@@ -1,6 +1,19 @@
 <h1></h1>
-<p>your account is not activated yet</p>
+<div class="col-md-4 col-6 mx-auto">
+  
+<% if current_user.first_name != nil && current_user.last_name != nil %>
+<%= link_to "Get Varify Link", edit_confirmation_letter_path(current_user), class: 'btn btn-primary'%>
 
-<%= link_to "Varify Now", edit_confirmation_letter_path(current_user)%>
-<br>
-<%= link_to "go back to dashboard", root_path%>
+<% else %>
+  <%= form_tag upgrade_confirmation_letters_path do %>
+    <div class="">First Name</div>
+    <%= text_field_tag :first_name%>
+    <div class="">Last Name</div>
+    <%= text_field_tag :last_name%>
+    <%= submit_tag "Varify Now",class: "btn btn-primary"%>
+  <% end %>
+<% end %>
+
+<%= link_to "go back to dashboard", root_path, class: 'btn btn-primary'%>
+
+</div>

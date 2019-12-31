@@ -17,15 +17,12 @@ Rails.application.routes.draw do
   #help
   get 'help', to: 'dashboard#help', as: :help
 
-
   #dashboard
   resources :dashboard, only: :index do
     collection do
       get :permit
     end
   end
-
-
 
   # users account page
   resources :users, only: [:show]
@@ -48,13 +45,13 @@ Rails.application.routes.draw do
     end
   end
 
-  # confirmation letter
-  resources :confirmation_letters, only: [:index, :show, :edit, :update] 
-
   # transfers
   resources :transfers, only: [:index, :show, :create, :new]
 
-  
-
-  
+  # confirmation letter
+  resources :confirmation_letters, only: [:index, :show, :edit, :update]  do 
+    collection do 
+      post :upgrade
+    end
+  end
 end

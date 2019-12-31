@@ -3,6 +3,17 @@ class ConfirmationLettersController < ApplicationController
   require 'securerandom'
 
   def index
+    @user = current_user 
+  end
+
+  def upgrade
+    @user = current_user
+    if  (params["first_name"] =~ /^[A-Z|a-z]+$/) != nil && (params["last_name"] =~ /^[A-Z|a-z]+$/) != nil
+    @user.update(first_name: params["first_name"], last_name: params["last_name"])
+    redirect_to edit_confirmation_letter_path(@user)
+    else
+      render :index
+    end
   end
 
   def edit
