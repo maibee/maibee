@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_12_31_033611) do
+=======
+ActiveRecord::Schema.define(version: 2019_12_31_080004) do
+>>>>>>> rspec v1
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_12_31_033611) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "sell_price"
+    t.string "num"
     t.index ["currency_id"], name: "index_limit_orders_on_currency_id"
     t.index ["user_id"], name: "index_limit_orders_on_user_id"
   end

@@ -42,6 +42,8 @@ group :development, :test do
   gem 'foreman', '~> 0.86.0'
   gem 'hirb', '~> 0.7.3'
   gem 'rspec-rails', '~> 3.9'
+  gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
+  gem 'faker', '~> 2.8', '>= 2.8.1'
 end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
