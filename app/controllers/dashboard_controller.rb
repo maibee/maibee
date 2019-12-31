@@ -1,6 +1,5 @@
 class DashboardController < ApplicationController
   def index
-    GetCurrencyJob.perform_later
     @currencies = Currency.all
   end
 
