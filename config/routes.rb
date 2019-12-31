@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-
   # devise
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
+
   #homepage
   root 'homepage#index'
   #careers
@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   #help
   get 'help', to: 'dashboard#help', as: :help
 
-
   #dashboard
   resources :dashboard, only: :index do
     collection do
@@ -23,15 +22,12 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   # users account page
   resources :users, only: [:show]
   
   # wallet
   resources :wallets, only: [:index]
   
-
   # exchange
   resources :exchanges, only: [:index, :show]
   # order
@@ -46,13 +42,13 @@ Rails.application.routes.draw do
     end
   end
 
+  # transfers
+  resources :transfers, only: [:index, :show, :create, :new]
+
   # confirmation letter
   resources :confirmation_letters, only: [:index, :show, :edit, :update]  do 
     collection do 
       post :upgrade
     end
   end
-  
-
-  
 end

@@ -16,7 +16,8 @@ import 'styles/custom.scss'
 
 // footer置底
 document.addEventListener("turbolinks:load", ()=>{
+    document.querySelector("footer").classList.remove('bottom_footer');
     if (document.querySelector('main').offsetHeight < screen.height) {
-        document.querySelector("footer").classList.add('bottem_footer');
+        document.querySelector("footer").classList.add('bottom_footer');
     }
 }, false);

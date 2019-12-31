@@ -16,5 +16,6 @@ class User < ApplicationRecord
   # end
   has_many :wallets
   has_many :records
+  has_many :transfers
 
 end
