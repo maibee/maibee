@@ -14,19 +14,17 @@ class TransfersController < ApplicationController
     @currencies = Currency.all
     @transfer = Transfer.new(transfer_params)
     if @transfer.amount > current_user.wallets.find_by(currency_id: @transfer.currency_id).amount
-      p '---------------------------------------'
-      render :new, alert: "You don\'t have enough #{@transfer.currency.name}"
-      p @transfer.currency.name
-      p '---------------------------------------'
+      flash[:notice] = "Post successfully created"
+      render :new, notice: "You don\'t have enough #{@transfer.currency.name}"
     else
-      # @transfer.user_id = current_user.id
-      # @transfer.num = @transfer.generate_num
-      # if @transfer.save
-      #   TransferJob.perform_later(@transfer)
-      #   redirect_to transfers_path
-      # else
-      #   render :new
-      # end
+      @transfer.user_id = current_user.id
+      @transfer.num = @transfer.generate_num
+      if @transfer.save
+        TransferJob.perform_later(@transfer)
+        redirect_to transfers_path
+      else
+        render :new
+      end
     end
   end
   
