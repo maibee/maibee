@@ -45,13 +45,10 @@ Rails.application.routes.draw do
   # transfers
   resources :transfers, only: [:index, :show, :create, :new]
 
-<<<<<<< HEAD
-=======
   # confirmation letter
   resources :confirmation_letters, only: [:index, :show, :edit, :update]  do 
     collection do 
       post :upgrade
     end
   end
->>>>>>> 99a3a61f1e4fff81dc95c67cb0de3f65fc762f24
 end
