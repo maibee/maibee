@@ -10,24 +10,27 @@
   </head>
 
   <body>
-    <%= flash[:notice] %>
-    <%= render "shared/header" %>
-    <% if @show_menu == true %>
-      <main class="container">
-        <div class="row">
-          <div class="col-lg-5">
-            <%= render 'shared/user_menu' %>
-          </div>
-          <div class="col-lg-7">
+    <div class="d-flex flex-column vh-100">
+      <%= render "shared/header" %>
+      <div class="flex-fill">
+        <% if @show_menu == true %>
+          <main class="container">
+            <div class="row">
+              <div class="col-lg-5">
+                <%= render 'shared/user_menu' %>
+              </div>
+              <div class="col-lg-7">
+                <%= yield %>
+              </div>
+            </div>
+          </main>   
+        <% else %>
+          <main>
             <%= yield %>
-          </div>
-        </div>
-      </main>   
-    <% else %>
-      <main>
-        <%= yield %>
-      </main>   
-    <% end %>
-    <%= render "shared/footer" %>
+          </main>   
+        <% end %>
+      </div>
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>
