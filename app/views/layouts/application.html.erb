@@ -12,9 +12,22 @@
   <body>
     <%= flash[:notice] %>
     <%= render "shared/header" %>
-    <main>
-      <%= yield %>
-    </main>   
+    <% if @show_menu == true %>
+      <main class="container">
+        <div class="row">
+          <div class="col-lg-5">
+            <%= render 'shared/user_menu' %>
+          </div>
+          <div class="col-lg-7">
+            <%= yield %>
+          </div>
+        </div>
+      </main>   
+    <% else %>
+      <main>
+        <%= yield %>
+      </main>   
+    <% end %>
     <%= render "shared/footer" %>
   </body>
 </html>

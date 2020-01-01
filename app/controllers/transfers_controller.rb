@@ -1,8 +1,8 @@
 class TransfersController < ApplicationController
-  layout 'user_menu',except: [:new]
   require 'block_io'
 
   def index
+    show_menu
     @transfers = current_user.transfers
   end
 
@@ -35,11 +35,8 @@ class TransfersController < ApplicationController
 
   private
 
-  
   def transfer_params
     params.require(:transfer).permit(:amount, :target, :currency_id)
-
   end
-
 end
 
