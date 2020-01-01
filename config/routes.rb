@@ -51,4 +51,6 @@ Rails.application.routes.draw do
       post :upgrade
     end
   end
+  # invite friends
+  resources :invite_friend, only: [:index]
 end
