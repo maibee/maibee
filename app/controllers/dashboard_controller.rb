@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @currencies = Currency.all
+    @currencies = Currency.tradable
   end
 
   def career

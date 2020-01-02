@@ -67,7 +67,7 @@ class User < ApplicationRecord
     my_wallet = find_wallet(limit_order.currency_id, self.id)
     my_wallet.amount += limit_order.amount
     my_wallet.save
-    limit_order.deal
+    limit_order.deal!
     end
   end
 
