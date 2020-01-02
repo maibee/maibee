@@ -46,7 +46,7 @@
   </div>
 </div>
 </table>
-<%= render 'shared/limit_order_link'%>
+<%= render 'shared/limit_order_link' if user_signed_in?%>
 <script>
   var btn = document.getElementById('sign_link')
   
