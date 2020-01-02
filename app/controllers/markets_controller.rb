@@ -1,4 +1,7 @@
 class MarketsController < ApplicationController
+  
+  before_action :authenticate_user! 
+
   def index
     @limit_orders = LimitOrder.pending
   end
