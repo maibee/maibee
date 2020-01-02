@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 2019_12_31_033611) do
     t.string "codename"
   end
 
+  create_table "limit_orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "currency_id", null: false
+    t.decimal "amount"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.decimal "sell_price"
+    t.string "num"
+    t.index ["currency_id"], name: "index_limit_orders_on_currency_id"
+    t.index ["user_id"], name: "index_limit_orders_on_user_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "currency_id", null: false
     t.decimal "amount"
@@ -57,6 +70,13 @@ ActiveRecord::Schema.define(version: 2019_12_31_033611) do
     t.string "txid"
     t.index ["currency_id"], name: "index_transfers_on_currency_id"
     t.index ["user_id"], name: "index_transfers_on_user_id"
+  create_table "transaction_records", force: :cascade do |t|
+    t.bigint "limit_order_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["limit_order_id"], name: "index_transaction_records_on_limit_order_id"
+    t.index ["user_id"], name: "index_transaction_records_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,11 +106,15 @@ ActiveRecord::Schema.define(version: 2019_12_31_033611) do
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
+  add_foreign_key "limit_orders", "currencies"
+  add_foreign_key "limit_orders", "users"
   add_foreign_key "orders", "currencies"
   add_foreign_key "orders", "users"
   add_foreign_key "records", "users"
   add_foreign_key "transfers", "currencies"
   add_foreign_key "transfers", "users"
+  add_foreign_key "transaction_records", "limit_orders"
+  add_foreign_key "transaction_records", "users"
   add_foreign_key "wallets", "currencies"
   add_foreign_key "wallets", "users"
 end

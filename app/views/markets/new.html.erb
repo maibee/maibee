@@ -1,0 +1,11 @@
+<h1>新增賣單</h1>
+
+<%= form_with url: markets_path do |f|%>
+  <%= f.select(:currency_id, @currencies) %>
+  <%= f.label :amount%>
+  <%= f.number_field :amount%>
+  <%= f.label :sell_price%>
+  <%= f.number_field :sell_price%>
+
+  <%= f.submit%>
+<% end %>

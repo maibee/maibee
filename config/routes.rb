@@ -53,4 +53,11 @@ Rails.application.routes.draw do
   end
   # invite friends
   resources :invite_friend, only: [:index]
+
+  #market
+  resources :markets do 
+    member do 
+      post :bit
+    end
+  end
 end
