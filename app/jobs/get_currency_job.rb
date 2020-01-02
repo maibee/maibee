@@ -3,12 +3,14 @@ class GetCurrencyJob < ApplicationJob
   require 'block_io'
   def perform
     # Do something later
-  BlockIo.set_options :api_key=> ENV["DOGECOIN"], :pin => ENV["PIN"], :version => 2
-  dogecoin_currency = BlockIo.get_current_price["data"]["prices"][0]["price"].to_f*20
-    if Currency.find_by(name: 'DOGECOIN') 
-    Currency.find_by(name: 'DOGECOIN').update(last_rate: dogecoin_currency)
-    else
-      Currency.create(name: 'DOGECOIN',last_rate: dogecoin_currency)
+    ["Dogecoin", "Litecoin", "Bitcoin"].each do |name|
+      BlockIo.set_options :api_key=> ENV[name], :pin => ENV["PIN"], :version => 2
+      outsite_coin_currency = BlockIo.get_current_price["data"]["prices"][0]["price"].to_f*21
+      if Currency.find_by(name: name) 
+        Currency.find_by(name: name).update(last_rate: outsite_coin_currency)
+      else
+        Currency.create(name: name,last_rate: outsite_coin_currency)
+      end
     end
   end
 end
