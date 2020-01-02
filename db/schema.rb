@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_12_31_033611) do
-=======
-ActiveRecord::Schema.define(version: 2019_12_31_080004) do
->>>>>>> rspec v1
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +59,6 @@ ActiveRecord::Schema.define(version: 2019_12_31_080004) do
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
-<<<<<<< HEAD
   create_table "transfers", force: :cascade do |t|
     t.bigint "currency_id", null: false
     t.decimal "amount"
@@ -75,7 +70,6 @@ ActiveRecord::Schema.define(version: 2019_12_31_080004) do
     t.string "txid"
     t.index ["currency_id"], name: "index_transfers_on_currency_id"
     t.index ["user_id"], name: "index_transfers_on_user_id"
-=======
   create_table "transaction_records", force: :cascade do |t|
     t.bigint "limit_order_id", null: false
     t.bigint "user_id", null: false
@@ -83,7 +77,6 @@ ActiveRecord::Schema.define(version: 2019_12_31_080004) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["limit_order_id"], name: "index_transaction_records_on_limit_order_id"
     t.index ["user_id"], name: "index_transaction_records_on_user_id"
->>>>>>> rspec and transaction function
   end
 
   create_table "users", force: :cascade do |t|
@@ -118,13 +111,10 @@ ActiveRecord::Schema.define(version: 2019_12_31_080004) do
   add_foreign_key "orders", "currencies"
   add_foreign_key "orders", "users"
   add_foreign_key "records", "users"
-<<<<<<< HEAD
   add_foreign_key "transfers", "currencies"
   add_foreign_key "transfers", "users"
-=======
   add_foreign_key "transaction_records", "limit_orders"
   add_foreign_key "transaction_records", "users"
->>>>>>> rspec and transaction function
   add_foreign_key "wallets", "currencies"
   add_foreign_key "wallets", "users"
 end
