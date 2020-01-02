@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  require 'digest'
   include AASM
+  validates :amount, numericality: { greater_than: 0 }
 
 
   belongs_to :currency
