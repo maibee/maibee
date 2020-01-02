@@ -10,4 +10,7 @@ class ApplicationController < ActionController::Base
   def records
     @records = current_user.records.last(10).reverse if current_user
   end
+  def show_menu
+    @show_menu = true
+  end
 end

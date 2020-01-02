@@ -6,8 +6,6 @@ h1, h2, h3, h4, h5{
 main>*:first-child{
   padding-top: 30px;
 }
-.launch_special{
-}
 .introduction{
   height: 60vh;
   color: white;
@@ -24,15 +22,6 @@ main>*:first-child{
 }
 footer{
   margin-top: 50px;
-}
-.bottom_footer{
-  position: fixed;
-  bottom:0;
-  left: 0;
-  right:0;
-}
-.content{
-  
 }
 @media (min-width: 992px){
   .navbar-expand-lg .navbar-nav .dropdown-menu {
