@@ -4,7 +4,7 @@ class MarketsController < ApplicationController
   end
 
   def new
-    @currencies = Currency.all.map{|c| [c.name, c.id] }
+    @currencies = Currency.tradable.map{|c| [c.name, c.id] }
   end
 
   def create

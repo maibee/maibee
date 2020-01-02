@@ -1,13 +1,13 @@
 class ExchangesController < ApplicationController
   def index
     
-    @currencies = Currency.all
+    @currencies = Currency.tradable
   end
   def show
     active?
     @currency = Currency.find_by(id: params[:id])
     @order = Order.new
-    @currencies = Currency.all.map{|c| [c.name, c.id] }
+    @currencies = Currency.tradable.map{|c| [c.name, c.id] }
   end
 
   private

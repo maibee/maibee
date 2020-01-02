@@ -1,68 +1,76 @@
-<h1>My selling List</h1>
-
-
-<table>
-  <thead>
-    <tr>
-      <td>幣別</td>
-      <td>數量</td>
-      <td>單價</td>
-      <td>總價</td>
-    </tr>
-  </thead>  
-  <tbody> 
-    <% @limit_orders.each do |order|%>
-      <tr>
-        <td><%= order.currency[:name]%></td>
-        <td><%= order.amount%></td>
-        <td><%= order.sell_price%></td>
-        <td><%= order.price%></td>
-        <td><%= link_to "cancel", edit_market_path(order)%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<table>
-  <h1>Cancelled Orders</h1>
-  <thead>
-    <tr>
-      <td>幣別</td>
-      <td>數量</td>
-      <td>單價</td>
-      <td>總價</td>
-    </tr>
-  </thead>  
-  <tbody> 
-    <% @limit_orders_cancelled.each do |order|%>
-      <tr>
-        <td><%= order.currency[:name]%></td>
-        <td><%= order.amount%></td>
-        <td><%= order.sell_price%></td>
-        <td><%= order.price%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<table>
-  <h1>Deal</h1>
-  <thead>
-    <tr>
-      <td>幣別</td>
-      <td>數量</td>
-      <td>單價</td>
-      <td>總價</td>
-    </tr>
-  </thead>  
-  <tbody> 
-    
-    <% @limit_orders_deal.each do |order|%>
-      <tr>
-        <td><%= order.currency[:name]%></td>
-        <td><%= order.amount%></td>
-        <td><%= order.sell_price%></td>
-        <td><%= order.price%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="d-flex">
+    <div class="col-md-4">
+      <h1>My selling List</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>幣別</td>
+            <td>數量</td>
+            <td>單價</td>
+            <td>總價</td>
+            <td></td>
+          </tr>
+        </thead>  
+        <tbody> 
+          <% @limit_orders.each do |order|%>
+            <tr>
+              <td><%= order.currency[:name]%></td>
+              <td><%= order.amount%></td>
+              <td><%= order.sell_price%></td>
+              <td><%= order.price%></td>
+              <td><%= link_to "cancel", edit_market_path(order)%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table">
+        <h1>Deal</h1>
+        <thead>
+          <tr>
+            <td>幣別</td>
+            <td>數量</td>
+            <td>單價</td>
+            <td>總價</td>
+          </tr>
+        </thead>  
+        <tbody> 
+        
+        <% @limit_orders_deal.each do |order|%>
+          <tr>
+            <td><%= order.currency[:name]%></td>
+            <td><%= order.amount%></td>
+            <td><%= order.sell_price%></td>
+            <td><%= order.price%></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table">
+        <h1>Cancelled Orders</h1>
+        <thead>
+          <tr>
+            <td>幣別</td>
+            <td>數量</td>
+            <td>單價</td>
+            <td>總價</td>
+          </tr>
+        </thead>  
+        <tbody> 
+          <% @limit_orders_cancelled.each do |order|%>
+            <tr>
+              <td><%= order.currency[:name]%></td>
+              <td><%= order.amount%></td>
+              <td><%= order.sell_price%></td>
+              <td><%= order.price%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

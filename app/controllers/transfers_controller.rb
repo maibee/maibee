@@ -11,7 +11,7 @@ class TransfersController < ApplicationController
   end
   
   def create
-    @currencies = Currency.all
+    @currencies = Currency.tradable
     @transfer = Transfer.new(transfer_params)
     if @transfer.amount > current_user.wallets.find_by(currency_id: @transfer.currency_id).amount
       flash[:notice] = "Post successfully created"
@@ -29,7 +29,7 @@ class TransfersController < ApplicationController
   end
   
   def new
-    @currencies = Currency.all.map{|c| [c.name, c.id] }
+    @currencies = Currency.tradable.map{|c| [c.name, c.id] }
     @transfer = Transfer.new
   end
 
