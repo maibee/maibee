@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user_id = current_user.id
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
+    @order.number = @order.generate_order_number
     if @order.save
       create_unread_record(@order)
       redirect_to order_path(@order), notice: 'Order Created'

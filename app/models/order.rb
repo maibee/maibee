@@ -2,7 +2,6 @@ class Order < ApplicationRecord
   include AASM
   validates :amount, numericality: { greater_than: 0 }
 
-  before_create :generate_order_number
 
   belongs_to :currency
   belongs_to :user

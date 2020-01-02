@@ -51,6 +51,16 @@ Rails.application.routes.draw do
       post :upgrade
     end
   end
+<<<<<<< HEAD
   # invite friends
   resources :invite_friend, only: [:index]
+=======
+
+  #market
+  resources :markets do 
+    member do 
+      post :bit
+    end
+  end
+>>>>>>> inside_trade
 end

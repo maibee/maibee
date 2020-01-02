@@ -1,6 +1,8 @@
 class LimitOrder < ApplicationRecord
   include AASM
   
+  validates :amount, :sell_price, numericality: { greater_than: 0 }
+
   belongs_to :user
   belongs_to :currency
 
