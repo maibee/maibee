@@ -1,15 +1,15 @@
-<section class="wallet">
-  <div class="launch_special container text-xl-center">
-    <h1>Wallet info</h1>
+<section class="wallet container">
+  <div class=" text-lg-center">
+    <h1>Your currencies</h1>
     <table class="mx-auto table col-lg-6">
       <% @wallets.each do |wallet| %>
       <tr>
         <td><%= @currencies.find_by(id: wallet.currency_id).name %></td>
         <td><%= wallet.amount %></td>
         <td><%= link_to 'Buy', exchange_path(@currencies.find_by(id: wallet.currency_id)) %></td>
+          <td><%= link_to 'Send', new_transfer_path %></td>
       </tr>
     <% end %>
     </table>
   </div>
-  <%= render 'shared/show', records: @records%>
 </section>
