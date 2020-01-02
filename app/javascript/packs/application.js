@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+require.context('../images', true)
+
 import 'bootstrap/dist/js/bootstrap.js'
 import '@fortawesome/fontawesome-free/css/all.css'
 import 'styles/full_site.scss'
