@@ -60,4 +60,8 @@ Rails.application.routes.draw do
       post :bit
     end
   end
+
+  #demo special entrance
+  get '/demo', to: 'demo#new'
+
 end
