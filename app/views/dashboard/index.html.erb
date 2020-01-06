@@ -1,21 +1,19 @@
 <section class="dashboard container">
   <div class="row">
-    <div class="asset col-lg-6 col-12">
-      <h1>My Assets</h1>
-
-    </div>
-    <div class="news col-lg-6 col-12">
-      <h1>News</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="chart col-lg-6 col-12">
-      <h1>Chart</h1>
-
-
+    <div class="col-lg-6 col-12">
+      <div class="asset col-12">
+        <h1>My Assets</h1>
+        <%= render 'shared/wallet'%>
+      </div>
+      <div class="chart col-12">
+        <h1>Chart</h1>
+      </div>
     </div>
     <div class="orders col-lg-6 col-12">
-      <h1>My Orders</h1>
+      <h1>Orders</h1>
+        <% @orders.each do |order| %>
+          <%= render 'orders/order', order: order %>
+        <% end %>
 
     </div>
   </div>

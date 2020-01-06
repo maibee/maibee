@@ -19,13 +19,13 @@
 
     <section class="coin_list container-fluid bg-light">
       <div class="row">
-        <div class="col-lg-8 mx-auto price shadow">
-          <h1>Current Prices</h1>
+        <div class="col-lg-8 col-10 mx-auto price shadow px-0">
           <%= render 'shared/coin_list', currencies: @currencies %>
         </div>
       </div>
     </section>
-    <div class="cointainer-fluid pt-5">
-      <%= render 'invite_friend/invite' %>
+
+    <div class="cointainer-fluid pt-5 invite">
+        <%= render 'invite_friend/invite' %>
     </div>
 

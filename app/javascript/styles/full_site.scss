@@ -23,9 +23,10 @@ main>*:first-child{
   border-radius: 5px;
   background-color: #fff;
 }
-footer{
-  margin-top: 50px;
+.invite{
+  background: linear-gradient(#22445E, #22445E, #22445E, #32546E, #5DB7FC);
 }
+
 @media (min-width: 992px){
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     right: 0;
@@ -39,3 +40,4 @@ h1, h2, h3, h4, h5{
   top: -50px;
 }
 }
+
