@@ -1,3 +1,5 @@
-<% @orders.each do |order| %>
-  <%= render 'order', order: order %>
-<% end %>
+<div class="list-group">
+  <% @orders.each do |order| %>
+    <%= render 'order', order: order %>
+  <% end %>
+</div>

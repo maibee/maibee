@@ -1,1 +1,20 @@
-<%= render 'order', order: @order %>
+<div class="col-12 col-lg-10 text-center mx-auto">
+  <div class="card">
+    <h2>Order Details</h2>
+    <table class="table table-striped">
+      <tbody>
+        <tr><th>Order Number</td> <td><%= @order.number %></td></tr>
+        <tr><th>Created Date</td> <td><%= @order.created_at %></td></tr>
+        <tr><th>Amount</td> <td><%= @order.amount %></td></tr>
+        <tr><th>Deal Price</td> <td><%= @order.price %></td></tr>
+        <tr><th>Total Price</td> <td><%= @order.price * @order.amount %></td></tr>
+        <tr>
+          <th>Status</td>
+          <td>
+            <%= @order.state %> <%= link_to 'Pay now', pay_order_path(@order), method: 'post', class: 'btn btn-primary btn-sm' if @order.state == 'unpaid'%>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
