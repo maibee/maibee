@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :transfers
   has_many :limit_orders
   has_many :transaction_records
+  has_many :orders
 
   after_create do
     self.wallets.create(currency_id: Currency.find_by(name:"NTD").id, amount: 0)
