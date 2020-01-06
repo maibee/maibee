@@ -1,31 +1,30 @@
-
-    <section class="introduction d-flex justify-content-center align-items-center bg-primary"> <!-- 只在尚未登入時顯示 -->
-      <div class="introductionBanner">
-        <div class="container text-center">
-              <h1>Buy and sell cryptocurrency</h1>
-              <p>Maibee is the easiest place to buy, sell, and manage your cryptocurrency portfolio.</p>
-              <h3>Join new and get 10 Honey Coin!</h2>
-            <div class="create_account d-flex justify-content-center h-50">
-              <div class="input-group col-6">
-                <input type="text" class="form-control" placeholder="email">
-                <div class="input-group-append">
-                  <button class="btn btn-success" type="button">Join</button>
-                </div>
-              </div>
+<section class="text-white d-flex justify-content-center align-items-center bg-primary pb-5">
+  <div class="introductionBanner py-5">
+    <div class="text-center">
+      <h1 class="display-4 font-weight-bold">Buy and sell cryptocurrency</h1>
+      <p>Maibee is the easiest place to buy, sell, and manage your cryptocurrency portfolio.</p>
+      <h3>Join new and get 10 Honey Coin!</h2>
+      <div class="create_account">
+        <div class="input-group input-group-lg col-6 mx-auto">
+          <input type="text" class="form-control" placeholder="email">
+            <div class="input-group-append">
+              <button class="btn btn-success" type="button">Join</button>
             </div>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="coin_list container-fluid bg-light">
-      <div class="row">
-        <div class="col-lg-8 col-10 mx-auto price shadow px-0">
-          <%= render 'shared/coin_list', currencies: @currencies %>
-        </div>
-      </div>
-    </section>
-
-    <div class="cointainer-fluid pt-5 invite">
-        <%= render 'invite_friend/invite' %>
     </div>
+  </div>
+</section>
+
+<section class="coin_list container-fluid bg-light">
+  <div class="row">
+    <div class="col-lg-8 col-10 mx-auto price shadow px-0">
+      <%= render 'shared/coin_list', currencies: @currencies %>
+    </div>
+  </div>
+</section>
+
+<div class="cointainer-fluid pt-5 invite">
+  <%= render 'invite_friend/invite' %>
+</div>
 
