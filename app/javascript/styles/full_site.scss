@@ -1,17 +1,11 @@
 .logo{
   width: 25px;
 }
-.create_account{
-  line-height: 0;
+.invite{
+  background: url('../images/space.jpg');
 }
 .price{
-  position: relative;
-  top: 0px;
-  border-radius: 5px;
-  background-color: #fff;
-}
-.invite{
-  background: linear-gradient(#22445E, #22445E, #22445E, #32546E, #5DB7FC);
+  top: -20px;
 }
 
 @media (min-width: 992px){
@@ -20,8 +14,8 @@
     left: auto;
     top: 120%;
   }
-.price{
-  top: -50px;
-}
+  .price{
+    top: -50px;
+  }
 }
 
