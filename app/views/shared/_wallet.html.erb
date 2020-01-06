@@ -1,14 +1,21 @@
-    <table class="table">
-      <% @wallets.each do |wallet| %>
-      <tr>
-        <% if @currencies.find_by(id: wallet.currency_id).name == "NTD"%>
-        <% else %>
-        <td><%= @currencies.find_by(id: wallet.currency_id).name %></td>
-        <td><%= wallet.amount %></td>
-        <td><%= link_to 'Buy', exchange_path(@currencies.find_by(id: wallet.currency_id)) %></td>
-        <td><%= link_to 'Send', new_transfer_path %></td>
-        <% end %>
-      </tr>
-    <% end %>
-    </table>
-    <%= render 'shared/limit_order_link'%>
+
+<ul class="list-group">
+  <% @wallets.each do |wallet| %>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <span>
+      <%= wallet.currency.name %>
+    </span>
+    <span>
+      <%= wallet.amount %> <%= wallet.currency.codename %>
+    </span>
+    <span class="">
+      <%= link_to 'Buy', exchange_path(wallet.currency), class: 'btn btn-primary btn-sm' %>
+      <%= link_to 'Send', new_transfer_path(wallet.currency),  class: 'btn btn-primary btn-sm'%>
+    </span>
+  </li>
+<% end %>
+</ul>
+
+<div class="my-3 container">
+  <%= render 'shared/limit_order_link'%>
+</div>
