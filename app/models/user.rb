@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :transaction_records
   has_many :orders
 
+  enum state: [:uncertified, :basic, :advenced, :removed, :demo]
+
   after_create do
     self.wallets.create(currency_id: Currency.find_by(name:"NTD").id, amount: 0)
   end

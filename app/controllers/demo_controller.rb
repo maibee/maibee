@@ -10,6 +10,7 @@ class DemoController < ApplicationController
     else
       demo_number = SecureRandom.hex(5)
       demo_user = User.new(email: "#{demo_number}_demo_day@maibee.online", password: demo_number, password_confirmation: demo_number)
+      demo_user.state = 'demo'
       if demo_user.save
         sign_in(demo_user)
         flash[:notice] = "You are now using demo account."
