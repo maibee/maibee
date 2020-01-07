@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-lg-6 col-12">
       <div class="asset col-12">
-        <h1 class="h4">My Assets</h1>
+        <h1 class="h4"><%= t('.my_assets') %></h1>
         <%= render 'shared/wallet'%>
       </div>
       <div class="chart col-12">
-        <h1 class="h4">Chart</h1>
+        <h1 class="h4"><%= t('.chart') %></h1>
       </div>
     </div>
     <div class="orders col-lg-6 col-12">
-      <h1 class="h4">Orders</h1>
+      <h1 class="h4"><%= t('.orders') %></h1>
         <% @orders.each do |order| %>
           <%= render 'orders/order', order: order %>
         <% end %>

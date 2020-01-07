@@ -5,10 +5,10 @@
       <table class="table">
         <thead>
           <tr>
-            <td>幣別</td>
-            <td>數量</td>
-            <td>單價</td>
-            <td>總價</td>
+            <td><%= t('.currency') %></td>
+            <td><%= t('.amount') %></td>
+            <td><%= t('.sell_price') %></td>
+            <td><%= t('.total_price') %></td>
             <td></td>
           </tr>
         </thead>  
@@ -19,7 +19,7 @@
               <td><%= order.amount%></td>
               <td><%= order.sell_price%></td>
               <td><%= order.price%></td>
-              <td><%= link_to "cancel", edit_market_path(order)%></td>
+              <td><%= link_to t('.cancel'), edit_market_path(order)%></td>
             </tr>
           <% end %>
         </tbody>
@@ -27,13 +27,13 @@
     </div>
     <div class="col-md-12">
       <table class="table">
-        <h1>Deal</h1>
+        <h1 class="h4"><%= t('.deal') %></h1>
         <thead>
           <tr>
-            <td>幣別</td>
-            <td>數量</td>
-            <td>單價</td>
-            <td>總價</td>
+            <td><%= t('.currency') %></td>
+            <td><%= t('.amount') %></td>
+            <td><%= t('.sell_price') %></td>
+            <td><%= t('.total_price') %></td>
           </tr>
         </thead>  
         <tbody> 
@@ -51,13 +51,13 @@
     </div>
     <div class="col-md-12">
       <table class="table">
-        <h1>Cancelled Orders</h1>
+        <h1 class="h4"><%= t('.cancelled_orders') %></h1>
         <thead>
           <tr>
-            <td>幣別</td>
-            <td>數量</td>
-            <td>單價</td>
-            <td>總價</td>
+            <td><%= t('.currency') %></td>
+            <td><%= t('.amount') %></td>
+            <td><%= t('.sell_price') %></td>
+            <td><%= t('.total_price') %></td>
           </tr>
         </thead>  
         <tbody> 

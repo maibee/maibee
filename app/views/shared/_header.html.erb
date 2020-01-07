@@ -12,40 +12,33 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <%= link_to 'Dashboard', dashboard_index_path, class:'nav-link' %>
+            <%= link_to t('.dashboard'), dashboard_index_path, class:'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Buy/Sell', exchanges_path, class:'nav-link' %>
+            <%= link_to t('.buy_and_sell'), exchanges_path, class:'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Market', markets_path, class:'nav-link' %>
+            <%= link_to t('.market'), markets_path, class:'nav-link' %>
           </li>
           <li class="nav-item">
             <%= link_to invite_friend_index_path, class: 'nav-link' do %>
-              Invite friends <span class="badge badge-warning">Earn up to 20</span>
+              <%= t('.invite_friends') %><span class="badge badge-warning"><%= t('.earn_up_to') %> 20HC</span>
             <% end %>
           </li>
         </ul>
         <ul class="navbar-nav">
-
-
           <% if user_signed_in?%>
-
             <li class="nav-item">
-              <%= link_to 'Wallet', wallets_path,class: 'nav-link' %>
+              <%= link_to t('.wallet'), wallets_path,class: 'nav-link' %>
             </li>
-
-
-
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell"></i>
                 <%= current_user.unread%>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to 'Clear', record_path(current_user),method: "patch" , class: "dropdown-item" %>
+              <%= link_to t('.clear'), record_path(current_user),method: "patch" , class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
-
               <% @records.each do |record| %>
                 <div class="dropdown-item d-flex">
                 <%= link_to record.content, '#', class: "nav-link" %>
@@ -53,11 +46,9 @@
                   <i class="far fa-window-close"></i>
                 <% end %>
                 </div>
-
               <% end %>
-
               <div class="dropdown-divider"></div>
-              <%= link_to 'All Notifications', record_path(current_user),method: "patch" , class: "dropdown-item" %>
+              <%= link_to t('.all_notifications'), record_path(current_user),method: "patch" , class: "dropdown-item" %>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -69,9 +60,9 @@
                   <%= current_user.email%>
                 <% end %>
                 <div class="dropdown-divider"></div>
-                <%= link_to 'Orders', orders_path, class: 'dropdown-item' %>
-                <%= link_to 'Tranfers', transfers_path, class: 'dropdown-item' %>
-                <%= link_to 'Log out', destroy_user_session_path, method: 'delete', class: "dropdown-item" %>
+                <%= link_to t('.orders'), orders_path, class: 'dropdown-item' %>
+                <%= link_to t('.transfers'), transfers_path, class: 'dropdown-item' %>
+                <%= link_to t('.log_out'), destroy_user_session_path, method: 'delete', class: "dropdown-item" %>
               </div>
             </li>
 
@@ -79,11 +70,11 @@
           <% else %>
 
             <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: "nav-link"%>
+              <%= link_to t('.sign_up'), new_user_registration_path, class: "nav-link"%>
             </li>
 
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: "nav-link"%>
+              <%= link_to t('.log_in'), new_user_session_path, class: "nav-link"%>
             </li>
 
           <% end %>

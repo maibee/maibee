@@ -5,10 +5,10 @@
     <table class="table">
       <thead>
         <tr>
-          <td>幣別</td>
-          <td>數量</td>
-          <td>單價</td>
-          <td>總價</td>
+          <td><%= t('.currency') %></td>
+          <td><%= t('.amount') %></td>
+          <td><%= t('.sell_price') %></td>
+          <td><%= t('.total_price') %></td>
           <td></td>
         </tr>
       </thead>  
@@ -22,7 +22,7 @@
             <% if order.user_id == current_user.id%>
             <td>My Orders</td>
             <% else %>
-            <td><%= link_to "Buy", bit_market_path(order.id), method: 'post'%></td>
+            <td><%= link_to t('.buy'), bit_market_path(order.id), method: 'post'%></td>
             <% end %>
           </tr>
         <% end %>

@@ -1,4 +1,3 @@
-
 <ul class="list-group">
   <% @wallets.each do |wallet| %>
   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -8,14 +7,13 @@
     <span>
       <%= wallet.amount %> <%= wallet.currency.codename %>
     </span>
-    <span class="">
-      <%= link_to 'Buy', exchange_path(wallet.currency), class: 'btn btn-primary btn-sm' %>
-      <%= link_to 'Send', new_transfer_path(wallet.currency),  class: 'btn btn-primary btn-sm'%>
+    <span>
+      <%= link_to t('.buy'), exchange_path(wallet.currency), class: 'btn btn-primary btn-sm' %>
+      <%= link_to t('.send'), new_transfer_path(wallet.currency),  class: 'btn btn-primary btn-sm'%>
     </span>
   </li>
 <% end %>
 </ul>
-
 <div class="my-3 container">
   <%= render 'shared/limit_order_link'%>
 </div>
