@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'aasm', '~> 5.0', '>= 5.0.6'
 gem 'block_io', '~> 1.0', '>= 1.0.3'
+gem 'rails-i18n', '~> 6.0'
+gem 'devise-i18n', '~> 1.9'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

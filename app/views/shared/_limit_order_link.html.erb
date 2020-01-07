@@ -1,4 +1,4 @@
 <% if current_user.status == true && params[:controller] != "homepage"%>
-<%= link_to "Sell Coins In Maibee Market", new_market_path, class: 'btn btn-primary'%>
-<%= link_to "View My Information", market_path(current_user.id), class: 'btn btn-primary'%>
+<%= link_to t('.sell_coins_in_market'), new_market_path, class: 'btn btn-primary'%>
+<%= link_to t('.view_my_information'), market_path(current_user.id), class: 'btn btn-primary'%>
 <% end %>

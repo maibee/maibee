@@ -1,9 +1,9 @@
 <div class="list-group">
   <button type="button" class="list-group-item list-group-item-action active">
-    Profile
+   <%= t('.profile') %> 
   </button>
-  <%= link_to 'Orders', orders_path, class: 'list-group-item list-group-item-action' %>
-  <%= link_to 'User Info', edit_user_registration_path, class: "list-group-item list-group-item-action" %>
-  <%= link_to 'Transfers', transfers_path, class: "list-group-item list-group-item-action" %>
-  <button type="button" class="list-group-item list-group-item-action">Account info</button>
+  <%= link_to t('.orders'), orders_path, class: 'list-group-item list-group-item-action' %>
+  <%= link_to t('.user_info'), edit_user_registration_path, class: "list-group-item list-group-item-action" %>
+  <%= link_to t('.transfers'), transfers_path, class: "list-group-item list-group-item-action" %>
+  <button type="button" class="list-group-item list-group-item-action"><%= t('.account_info') %></button>
 </div>

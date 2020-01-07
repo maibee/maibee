@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-5 col-0"></div>
     <div class="col-lg-7 col-12 content">
-    <h1>new transfer</h1>
+    <h1 class="h3"><%= t('.new_transfer') %></h1>
       <%= form_with model: @transfer do |form| %>
       <table class="table">
         <tr>
@@ -12,7 +12,7 @@
         </tr>
         <tr>
           <td>
-            <%= form.label :target, 'Target address' %>
+            <%= form.label :target, t('.target_address') %>
           </td>
           <td>
             <%= form.text_area :target %>
@@ -27,7 +27,7 @@
           </td>
         </tr>
       </table>
-            <%= form.submit %>
+        <%= form.submit %>
       <% end %>
     </div>
   </div>

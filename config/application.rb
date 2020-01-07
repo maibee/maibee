@@ -12,6 +12,8 @@ module Maibee
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.time_zone = 'Asia/Taipei'
+    config.i18n.default_locale = 'zh-TW'
+    # config.i18n.available_locales = ['zh-TW', :en]
     config.generators do |g|
       g.helper false
       g.test_framework false

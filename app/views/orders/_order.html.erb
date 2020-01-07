@@ -1,16 +1,16 @@
 <div class="list-group-item">
   <div class="d-flex w-100 justify-content-between">
 <%= link_to order_path(order) do %>
-    <h5 class="mb-1">Order Number: <%= order.number %></h5>
+    <h5 class="mb-1"><%= t('.order_number') %>: <%= order.number %></h5>
 <% end %>
     <small class="text-muted">
       <%= time_ago_in_words(order.created_at) %></small>
   </div>
   <div class="row">
   </div>
-  <p class="mb-1">Amount: <%= order.amount %></p>
-  <p class="mb-1">Deal Price: <%= order.price %></p>
-  <p class="mb-1">Total Price: <%= order.price * order.amount%></p>
-  <p class="mb-1">Status: <%= order.state %></p>
-  <p class="mb-1"><%= link_to 'Pay now', pay_order_path(order), method: 'post'  if order.state == 'unpaid'%></p>
+  <p class="mb-1"><%= t('.amount') %>: <%= order.amount %></p>
+  <p class="mb-1"><%= t('.deal_price') %>: <%= order.price %></p>
+  <p class="mb-1"><%= t('.total_price') %>: <%= order.price * order.amount%></p>
+  <p class="mb-1"><%= t('.status') %>: <%= order.state %></p>
+  <p class="mb-1"><%= link_to t('.pay_now'), pay_order_path(order), method: 'post'  if order.state == 'unpaid'%></p>
 </div>
