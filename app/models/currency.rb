@@ -1,3 +1,3 @@
 class Currency < ApplicationRecord
-  scope :tradable, ->{where.not(name: "NTD")}
+  scope :tradable, ->{where.not(name: "HONEYCOIN")}
 end

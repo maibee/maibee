@@ -38,7 +38,7 @@ class MarketsController < ApplicationController
     if current_user.bit_limit_order(@limit_order)
     redirect_to market_path, notice: 'Succeed'
     else
-      redirect_to markets_path, notice: 'NTD not enough'
+      redirect_to markets_path, notice: 'HONEYCOIN not enough'
     end
   end
 end

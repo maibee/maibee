@@ -56,11 +56,11 @@ class User < ApplicationRecord
 
   def bit_limit_order(limit_order)
     currency = Currency.find(limit_order.currency_id)
-    ntd = Currency.find_by(name: "NTD")
+    honey_coin = Currency.find_by(name: "HONEYCOIN")
     seller = User.find(limit_order.user_id)
-    ntd_price = limit_order.price
+    honey_coin_price = limit_order.price
     
-    if self.remit(seller, ntd, ntd_price)
+    if self.remit(seller, honey_coin, honey_coin_price)
     my_wallet = find_wallet(limit_order.currency_id, self.id)
     my_wallet.amount += limit_order.amount
     my_wallet.save

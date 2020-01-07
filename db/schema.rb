@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 2020_01_06_142125) do
     t.index ["user_id"], name: "index_limit_orders_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "currency_id", null: false
     t.decimal "amount"
