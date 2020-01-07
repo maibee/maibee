@@ -15,7 +15,7 @@ class MarketsController < ApplicationController
     if current_user.make_limit_order(order_content) 
       redirect_to markets_path
     else
-      render :new
+      render :new, notice: 'Please check your balance'
     end 
   end
 
