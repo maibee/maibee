@@ -1,15 +1,31 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+<<<<<<< HEAD
 
   before_action :records #for notifications on header
   before_action :demo_rank #for DemoDay event only
 
+=======
+<<<<<<< HEAD
+  before_action :records
+=======
+  before_action :records #for notifications on header
+  before_action :demo_rank #for DemoDay event only
+
+  private
+>>>>>>> setup event
+>>>>>>> setup event
 
   def demo_rank
-    Wallet.all.map{|w| [w.user_id, (w.amount * get_rate(w.currency_id))]}
-      .reduce([[]]){|accu, w| accu[0] == w[0] ? }
+    @rank = Wallet.all.map{|w| [w.user_id, (w.amount * get_rate(w.currency_id))]}
+      .sort{|x,y| x[0] <=> y[0]}
+      .reduce([[]]){|accu, w| (accu[-1][0] == w[0]) ? accu[0..-2].push([w[0],(accu[-1][1] + w[1])]) : accu.push(w)}[1..]
+      .sort{|x,y| x[1] <=> y[1]}
+      .first(10)
+      .reverse
   end
 
+<<<<<<< HEAD
   private
 
 <<<<<<< HEAD
@@ -24,6 +40,8 @@ class ApplicationController < ActionController::Base
 
 =======
 >>>>>>> show accets rank
+=======
+>>>>>>> setup event
   def get_rate(currency_id)
     Currency.find_by(id: currency_id).last_rate
   end
