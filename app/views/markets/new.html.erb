@@ -1,6 +1,6 @@
 <h1 class="h4"><%= t('.new_limit_order') %></h1>
 
-<%= form_with url: markets_path do |f|%>
+<%= form_with url: markets_path, remote: true do |f|%>
   <%= f.select(:currency_id, @currencies) %>
   <%= f.label :amount%>
   <%= f.number_field :amount%>

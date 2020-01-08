@@ -1,6 +1,5 @@
 class ConfirmationLettersController < ApplicationController
-  
-  require 'securerandom'
+  before_action :authenticate_user!
 
   def index
     @user = current_user 

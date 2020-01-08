@@ -1,9 +1,10 @@
 class MarketsController < ApplicationController
   
   before_action :authenticate_user! 
+  before_action :active?
 
   def index
-    @limit_orders = LimitOrder.pending
+    @limit_orders = LimitOrder.pending.reverse
   end
 
   def new
@@ -12,23 +13,25 @@ class MarketsController < ApplicationController
 
   def create
     order_content = {currency_id: params[:currency_id].to_i, amount: params[:amount].to_f, sell_price: params[:sell_price].to_f}
-    if current_user.make_limit_order(order_content) 
+    if current_user.make_limit_order(order_content)
+      @currency = LimitOrder.last.currency[:name]
+      ActionCable.server.broadcast 'room_channel', content: [LimitOrder.last, @currency, LimitOrder.last.price] 
       redirect_to markets_path
     else
-      render :new
+      render :new, notice: 'Please check your balance'
     end 
   end
 
   def show
-    @limit_orders = LimitOrder.where(user_id: current_user.id).pending
-    @limit_orders_cancelled = LimitOrder.where(user_id: current_user.id).cancelled
-    @limit_orders_deal = LimitOrder.where(user_id: current_user.id).closed_deal
+    @limit_orders = LimitOrder.where(user_id: current_user.id).pending.reverse
+    @limit_orders_cancelled = LimitOrder.where(user_id: current_user.id).cancelled.reverse
+    @limit_orders_deal = LimitOrder.where(user_id: current_user.id).closed_deal.reverse
   end
 
   def edit
     @limit_order = LimitOrder.find(params[:id])
-    if
-      current_user.cancel_limit_order(@limit_order)
+    if current_user.cancel_limit_order(@limit_order)
+      ActionCable.server.broadcast 'remove_channel', content: @limit_order
       redirect_to market_path, notice: 'Order cancelled!'
     end
   end
@@ -36,9 +39,17 @@ class MarketsController < ApplicationController
   def bit
     @limit_order = LimitOrder.find(params[:id])
     if current_user.bit_limit_order(@limit_order)
-    redirect_to market_path, notice: 'Succeed'
+      ActionCable.server.broadcast 'remove_channel', content: @limit_order
+      redirect_to market_path, notice: 'Succeed'
     else
-      redirect_to markets_path, notice: 'NTD not enough'
+      redirect_to markets_path, notice: 'HoneyPoints not enough'
+    end
+  end
+
+  private
+  def active?
+    if current_user.status == false
+      redirect_to confirmation_letters_path
     end
   end
 end

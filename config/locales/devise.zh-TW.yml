@@ -101,6 +101,7 @@ zh-TW:
         we_need_your_current_password_to_confirm_your_changes: 我們需要您的目前的密碼以確認您的更改
       new:
         sign_up: 註冊
+        already_have_an_account: 已經有買幣帳號
       signed_up: 註冊成功，歡迎！
       signed_up_but_inactive: 您已註冊成功。然而因為您的帳號尚未啓動，暫時無法登入，抱歉！
       signed_up_but_locked: 您已註冊成功。 然而因為您的帳號已被鎖定，暫時無法登入，抱歉！
