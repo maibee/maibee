@@ -2,7 +2,7 @@
   <h1 class="h3"><%= t('.name') %><%= @currency.name %></h1>
   <ul>
     <li><%= t('.current_prices') %>: <%= @currency.last_rate %></li>
-    <li><%= t('.account_balance') %>: <%=  %></li>
+    <li><%= t('.account_balance') %>: <%= @amount %></li>
   </ul>
   <%= form_with model: @order do |form| %>
     <%= form.select(:currency_id, @currencies) %>
