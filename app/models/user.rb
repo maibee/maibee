@@ -9,8 +9,14 @@ class User < ApplicationRecord
   has_many :transaction_records
   has_many :orders
 
+  enum state: [:uncertified, :basic, :advenced, :removed, :demo]
+
   after_create do
-    self.wallets.create(currency_id: Currency.find_by(name:"NTD").id, amount: 0)
+    if self.state == 'demo'
+      self.wallets.create(currency_id: Currency.find_by(codename:"HC").id, amount: 1000000)
+    else
+      self.wallets.create(currency_id: Currency.find_by(codename:"HC").id, amount: 0)
+    end
   end
 
   def make_limit_order(order_content)
@@ -33,7 +39,6 @@ class User < ApplicationRecord
     if my_wallet.amount >= amount
       my_wallet.amount -= amount
       my_wallet.save
-      
       target_wallet.amount += amount
       target_wallet.save
     end
@@ -64,6 +69,7 @@ class User < ApplicationRecord
   end
 
   private
+
   def find_wallet(currency_id, user_id)
     my_wallet = Wallet.find_by(currency_id: currency_id, user_id: user_id)
   end
