@@ -23,7 +23,7 @@ class ConfirmationLettersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     if params
-      @user.update(status: true)
+      @user.update(state: 'basic')
       redirect_to root_path, notice: "Activated!!"
     else
       render :edit, notice: "try again"

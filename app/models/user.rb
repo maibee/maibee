@@ -13,10 +13,18 @@ class User < ApplicationRecord
 
   after_create do
     if self.state == 'demo'
-      self.wallets.create(currency_id: Currency.find_by(codename:"HC").id, amount: 1000000)
+      self.wallets.create(currency_id: Currency.find_by(codename:"HP").id, amount: 1000000)
     else
-      self.wallets.create(currency_id: Currency.find_by(codename:"HC").id, amount: 0)
+      self.wallets.create(currency_id: Currency.find_by(codename:"HP").id, amount: 0)
     end
+  end
+
+  def honey_point
+    self.wallets.find_by(currency_id: Currency.find_by(codename: 'HP').id)
+  end
+
+  def balance
+    honey_point.amount
   end
 
   def make_limit_order(order_content)

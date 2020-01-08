@@ -1,7 +1,6 @@
 class MarketsController < ApplicationController
   
-  before_action :authenticate_user! 
-  before_action :active?
+  before_action :check_user_state
 
   def index
     @limit_orders = LimitOrder.pending.reverse
