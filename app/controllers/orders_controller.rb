@@ -17,6 +17,11 @@ class OrdersController < ApplicationController
       wallet.amount += (@order.amount)
       wallet.save
       @order.pay!
+      if @order.currency.codename == 'SPQ'
+        spq = @order.currency
+        spq.last_rate += 5
+        spq.save
+      end
     end
     redirect_to order_path(@order)
   end
