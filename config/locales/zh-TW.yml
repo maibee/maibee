@@ -34,6 +34,9 @@ zh-TW:
       amount: '數量'
       sell_price: '售價'
       total_price: '總價'
+      order_number: '單號'
+      buy: '購買'
+      my_order: '我的賣單'
     new:
       new_limit_order: '新掛單交易'
     show:

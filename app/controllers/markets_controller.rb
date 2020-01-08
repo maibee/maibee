@@ -1,9 +1,10 @@
 class MarketsController < ApplicationController
   
   before_action :authenticate_user! 
+  before_action :active?
 
   def index
-    @limit_orders = LimitOrder.pending
+    @limit_orders = LimitOrder.pending.reverse
   end
 
   def new
@@ -20,9 +21,9 @@ class MarketsController < ApplicationController
   end
 
   def show
-    @limit_orders = LimitOrder.where(user_id: current_user.id).pending
-    @limit_orders_cancelled = LimitOrder.where(user_id: current_user.id).cancelled
-    @limit_orders_deal = LimitOrder.where(user_id: current_user.id).closed_deal
+    @limit_orders = LimitOrder.where(user_id: current_user.id).pending.reverse
+    @limit_orders_cancelled = LimitOrder.where(user_id: current_user.id).cancelled.reverse
+    @limit_orders_deal = LimitOrder.where(user_id: current_user.id).closed_deal.reverse
   end
 
   def edit
@@ -39,6 +40,13 @@ class MarketsController < ApplicationController
     redirect_to market_path, notice: 'Succeed'
     else
       redirect_to markets_path, notice: 'HONEYCOIN not enough'
+    end
+  end
+
+  private
+  def active?
+    if current_user.status == false
+      redirect_to confirmation_letters_path
     end
   end
 end
