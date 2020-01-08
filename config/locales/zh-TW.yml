@@ -26,8 +26,8 @@ zh-TW:
       maibee_launch_special: 'Maibee開站特別活動'
       register_now_and_get: '馬上註冊並免費獲得'
       for_free: ''
-      new_member_who_is_registered_before_2020_may_will_get_10_honey_coin: '只要在2020年五月前註冊，即可馬上獲得 10 HoneyCoin'
-      new_member_who_made_a_first_transaction_will_receive_another_10_honey_coin: '再做出第一筆交易後，可獲得另外 10 HoneyCoin'
+      new_member_who_is_registered_before_2020_may_will_get_10_honey_coin: '只要在2020年五月前註冊，即可馬上獲得 10 HoneyPoints'
+      new_member_who_made_a_first_transaction_will_receive_another_10_honey_coin: '再做出第一筆交易後，可獲得另外 10 HoneyPoints'
   markets:
     index:
       currency: '幣別'

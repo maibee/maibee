@@ -42,7 +42,7 @@ class MarketsController < ApplicationController
       ActionCable.server.broadcast 'remove_channel', content: @limit_order
       redirect_to market_path, notice: 'Succeed'
     else
-      redirect_to markets_path, notice: 'HONEYCOIN not enough'
+      redirect_to markets_path, notice: 'HoneyPoints not enough'
     end
   end
 

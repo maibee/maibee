@@ -56,7 +56,7 @@ class User < ApplicationRecord
 
   def bit_limit_order(limit_order)
     currency = Currency.find(limit_order.currency_id)
-    honey_coin = Currency.find_by(name: "HONEYCOIN")
+    honey_coin = Currency.find_by(name: "HoneyPoint")
     seller = User.find(limit_order.user_id)
     honey_coin_price = limit_order.price
     
