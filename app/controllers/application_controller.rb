@@ -5,8 +5,14 @@ class ApplicationController < ActionController::Base
   before_action :demo_rank #for DemoDay event only
 
 
+  def demo_rank
+    Wallet.all.map{|w| [w.user_id, (w.amount * get_rate(w.currency_id))]}
+      .reduce([[]]){|accu, w| accu[0] == w[0] ? }
+  end
+
   private
 
+<<<<<<< HEAD
   def demo_rank
     @rank = Wallet.all.map{|w| [w.user_id, (w.amount * get_rate(w.currency_id))]}
       .sort{|x,y| x[0] <=> y[0]}
@@ -16,6 +22,8 @@ class ApplicationController < ActionController::Base
       .reverse
   end
 
+=======
+>>>>>>> show accets rank
   def get_rate(currency_id)
     Currency.find_by(id: currency_id).last_rate
   end
