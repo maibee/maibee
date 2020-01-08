@@ -14,8 +14,9 @@
         </tr>
       </thead>  
       <tbody> 
+        <tbody class="table" id="new_order"></tbody>
         <% @limit_orders.each do |order|%>
-          <tr>
+          <tr id="market<%= order.id%>">
             <td><%= order.currency[:name]%></td>
             <td><%= order.amount%></td>
             <td><%= order.sell_price%></td>

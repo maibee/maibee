@@ -13,7 +13,9 @@ class MarketsController < ApplicationController
 
   def create
     order_content = {currency_id: params[:currency_id].to_i, amount: params[:amount].to_f, sell_price: params[:sell_price].to_f}
-    if current_user.make_limit_order(order_content) 
+    if current_user.make_limit_order(order_content)
+      @currency = LimitOrder.last.currency[:name]
+      ActionCable.server.broadcast 'room_channel', content: [LimitOrder.last, @currency, LimitOrder.last.price] 
       redirect_to markets_path
     else
       render :new, notice: 'Please check your balance'
@@ -28,8 +30,8 @@ class MarketsController < ApplicationController
 
   def edit
     @limit_order = LimitOrder.find(params[:id])
-    if
-      current_user.cancel_limit_order(@limit_order)
+    if current_user.cancel_limit_order(@limit_order)
+      ActionCable.server.broadcast 'remove_channel', content: @limit_order
       redirect_to market_path, notice: 'Order cancelled!'
     end
   end
@@ -37,7 +39,8 @@ class MarketsController < ApplicationController
   def bit
     @limit_order = LimitOrder.find(params[:id])
     if current_user.bit_limit_order(@limit_order)
-    redirect_to market_path, notice: 'Succeed'
+      ActionCable.server.broadcast 'remove_channel', content: @limit_order
+      redirect_to market_path, notice: 'Succeed'
     else
       redirect_to markets_path, notice: 'HONEYCOIN not enough'
     end
