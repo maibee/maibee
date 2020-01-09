@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.amount *= -1 if @order.sell
     @order.user_id = current_user.id
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
     @order.number = @order.generate_order_number
@@ -48,7 +49,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:amount, :currency_id)
+    params.require(:order).permit(:amount, :currency_id, :sell)
   end
 
   def last_order_number
