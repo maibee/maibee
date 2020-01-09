@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       .sort{|x,y| x[0] <=> y[0]}
       .reduce([[]]){|accu, w| (accu[-1][0] == w[0]) ? accu[0..-2].push([w[0],(accu[-1][1] + w[1])]) : accu.push(w)}[1..]
       .sort{|x,y| x[1] <=> y[1]}
-      .first(10)
+      .last(10)
       .reverse
   end
 

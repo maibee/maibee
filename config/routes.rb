@@ -29,7 +29,11 @@ Rails.application.routes.draw do
   resources :wallets, only: [:index]
   
   # exchange
-  resources :exchanges, only: [:index, :show]
+  resources :exchanges, only: [:index, :show] do
+    member do
+      get :sell
+    end
+  end
   # order
 
   #notice_records
