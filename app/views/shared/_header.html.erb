@@ -60,9 +60,12 @@
               <div class="dropdown-divider"></div>
               <% @records.each do |record| %>
                 <div class="dropdown-item d-flex">
-                <%= link_to record.content, '#', class: "nav-link" %>
-                <%= link_to '#', class: "nav-link ml-auto" do %>
-                  <i class="far fa-window-close"></i>
+                <% if record.order_type == "order"%>
+                  <%= link_to record.content, orders_path, class: "nav-link" %>
+                <% elsif record.order_type == "transfer" %>
+                  <%= link_to record.content, transfers_path, class: "nav-link" %>
+                <% else %>
+                  <%= link_to record.content, market_path(current_user.id), class: "nav-link" %>
                 <% end %>
                 </div>
               <% end %>

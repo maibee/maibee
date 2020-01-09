@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_01_10_060532) do
+=======
+ActiveRecord::Schema.define(version: 2020_01_09_101927) do
+>>>>>>> record new column and href
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_01_10_060532) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "order_type"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
