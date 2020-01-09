@@ -20,9 +20,15 @@ class OrdersController < ApplicationController
       wallet.amount += (@order.amount)
       wallet.save
       @order.pay!
+      if @order.currency.codename == 'SPQ'
+        spq = @order.currency
+        spq.last_rate += 5
+        spq.save
+      end
       redirect_to order_path(@order), notice: I18n.t('purchase completed')
     else
       redirect_to order_path(@order), notice: I18n.t('you_dont_have_enough_honey_point')
+
     end
   end
 
