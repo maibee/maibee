@@ -13,10 +13,18 @@ class User < ApplicationRecord
 
   after_create do
     if self.state == 'demo'
-      self.wallets.create(currency_id: Currency.find_by(codename:"HC").id, amount: 1000000)
+      self.wallets.create(currency_id: Currency.find_by(codename:"HP").id, amount: 1000000)
     else
-      self.wallets.create(currency_id: Currency.find_by(codename:"HC").id, amount: 0)
+      self.wallets.create(currency_id: Currency.find_by(codename:"HP").id, amount: 0)
     end
+  end
+
+  def honey_point
+    self.wallets.find_by(currency_id: Currency.find_by(codename: 'HP').id)
+  end
+
+  def balance
+    honey_point.amount
   end
 
   def make_limit_order(order_content)
@@ -56,11 +64,11 @@ class User < ApplicationRecord
 
   def bit_limit_order(limit_order)
     currency = Currency.find(limit_order.currency_id)
-    ntd = Currency.find_by(name: "NTD")
+    honey_coin = Currency.find_by(name: "HoneyPoint")
     seller = User.find(limit_order.user_id)
-    ntd_price = limit_order.price
+    honey_coin_price = limit_order.price
     
-    if self.remit(seller, ntd, ntd_price)
+    if self.remit(seller, honey_coin, honey_coin_price)
     my_wallet = find_wallet(limit_order.currency_id, self.id)
     my_wallet.amount += limit_order.amount
     my_wallet.save

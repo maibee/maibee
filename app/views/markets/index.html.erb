@@ -9,18 +9,21 @@
           <td><%= t('.amount') %></td>
           <td><%= t('.sell_price') %></td>
           <td><%= t('.total_price') %></td>
+          <td><%= t('.order_number')%></td>
           <td></td>
         </tr>
       </thead>  
       <tbody> 
+        <tbody class="table" id="new_order"></tbody>
         <% @limit_orders.each do |order|%>
-          <tr>
+          <tr id="market<%= order.id%>">
             <td><%= order.currency[:name]%></td>
             <td><%= order.amount%></td>
             <td><%= order.sell_price%></td>
             <td><%= order.price%></td>
+            <td><%= order.num%></td>
             <% if order.user_id == current_user.id%>
-            <td>My Orders</td>
+            <td><%=t('.my_order')%></td>
             <% else %>
             <td><%= link_to t('.buy'), bit_market_path(order.id), method: 'post'%></td>
             <% end %>

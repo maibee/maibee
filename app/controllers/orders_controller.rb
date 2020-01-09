@@ -11,7 +11,10 @@ class OrdersController < ApplicationController
 
   def pay
     @order = Order.find(params[:id])
-    if @order.save
+    if current_user.balance >= (@order.amount * @order.price)
+      honey_point = current_user.honey_point
+      honey_point.amount -= (@order.amount * @order.price)
+      honey_point.save
       wallet = Wallet.find_or_create(@order, current_user)
       wallet.amount ||= 0
       wallet.amount += (@order.amount)
@@ -22,8 +25,11 @@ class OrdersController < ApplicationController
         spq.last_rate += 5
         spq.save
       end
+      redirect_to order_path(@order), notice: I18n.t('purchase completed')
+    else
+      redirect_to order_path(@order), notice: I18n.t('you_dont_have_enough_honey_point')
+
     end
-    redirect_to order_path(@order)
   end
 
   def create

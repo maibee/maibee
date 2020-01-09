@@ -1,4 +1,5 @@
 class TransfersController < ApplicationController
+  before_action :check_user_state
   require 'block_io'
 
   def index

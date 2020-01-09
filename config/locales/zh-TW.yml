@@ -2,7 +2,7 @@ zh-TW:
   homepage:
     index:
       maibee: '買幣是一個容易買賣，且容易管理數位資產的平台'
-      join_new_and_get_10_honey_coin: '加入並得到10HonyCoin'
+      join_new_and_get_10_honey_point: '加入並得到10HonyCoin'
       buy_and_sell_cryptocurrency: '買賣你的虛擬貨幣'
   exchanges:
     show:
@@ -26,14 +26,17 @@ zh-TW:
       maibee_launch_special: 'Maibee開站特別活動'
       register_now_and_get: '馬上註冊並免費獲得'
       for_free: ''
-      new_member_who_is_registered_before_2020_may_will_get_10_honey_coin: '只要在2020年五月前註冊，即可馬上獲得 10 HoneyCoin'
-      new_member_who_made_a_first_transaction_will_receive_another_10_honey_coin: '再做出第一筆交易後，可獲得另外 10 HoneyCoin'
+      new_member_who_is_registered_before_2020_may_will_get_10_honey_coin: '只要在2020年五月前註冊，即可馬上獲得 10 HoneyPoints'
+      new_member_who_made_a_first_transaction_will_receive_another_10_honey_coin: '再做出第一筆交易後，可獲得另外 10 HoneyPoints'
   markets:
     index:
       currency: '幣別'
       amount: '數量'
       sell_price: '售價'
       total_price: '總價'
+      order_number: '單號'
+      buy: '購買'
+      my_order: '我的賣單'
     new:
       new_limit_order: '新掛單交易'
     show:
