@@ -34,6 +34,6 @@ class ApplicationController < ActionController::Base
 
   def check_user_state
     authenticate_user!
-    redirect_to confirmation_letters_path if current_user == 'uncertified'
+    redirect_to confirmation_letters_path if current_user.state == 'uncertified'
   end
 end
