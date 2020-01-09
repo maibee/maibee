@@ -11,30 +11,33 @@ class OrdersController < ApplicationController
 
   def pay
     @order = Order.find(params[:id])
-    if current_user.balance >= (@order.amount * @order.price)
-      honey_point = current_user.honey_point
+    honey_point = current_user.honey_point
+    wallet = Wallet.find_or_create(@order, current_user)
+    wallet.amount ||= 0
+    if @order.is_sell
+      honey_point.amount += (@order.amount * @order.price)
+      wallet.amount -= (@order.amount)
+    else
+      if current_user.balance < (@order.amount * @order.price)
+        redirect_to order_path(@order), notice: I18n.t('dont_have_enough_honey_point')
+      end
       honey_point.amount -= (@order.amount * @order.price)
-      honey_point.save
-      wallet = Wallet.find_or_create(@order, current_user)
-      wallet.amount ||= 0
       wallet.amount += (@order.amount)
-      wallet.save
+    end
+    if honey_point.save && wallet.save
       @order.pay!
       if @order.currency.codename == 'SPQ'
         spq = @order.currency
-        spq.last_rate += 5
+        spq.last_rate += @order.amount*0.01 unless @order.is_sell
+        spq.last_rate += @order.amount*0.01 if @order.is_sell
         spq.save
       end
-      redirect_to order_path(@order), notice: I18n.t('purchase completed')
-    else
-      redirect_to order_path(@order), notice: I18n.t('you_dont_have_enough_honey_point')
-
+      redirect_to order_path(@order), notice: I18n.t('order completed')
     end
   end
 
   def create
     @order = Order.new(order_params)
-    @order.amount *= -1 if @order.sell
     @order.user_id = current_user.id
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
     @order.number = @order.generate_order_number
@@ -49,7 +52,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:amount, :currency_id, :sell)
+    params.require(:order).permit(:amount, :currency_id, :is_sell)
   end
 
   def last_order_number

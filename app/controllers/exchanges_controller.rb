@@ -9,7 +9,7 @@ class ExchangesController < ApplicationController
     @currency = Currency.find_by(id: params[:id])
     @order = Order.new
     @currencies = Currency.tradable.map{|c| [c.name, c.id] }
-    @amount = check_amount
+    @amount = get_wallet ? get_wallet.amount : 0
   end
 
   def sell
