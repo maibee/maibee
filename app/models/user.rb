@@ -13,14 +13,14 @@ class User < ApplicationRecord
 
   after_create do
     if self.state == 'demo'
-      self.wallets.create(currency_id: Currency.find_by(codename:"HP").id, amount: 1000000)
+      self.wallets.create(currency_id: Currency.find_by(name:"HoneyPoint").id, amount: 1000000)
     else
-      self.wallets.create(currency_id: Currency.find_by(codename:"HP").id, amount: 0)
+      self.wallets.create(currency_id: Currency.find_by(name:"HoneyPoint").id, amount: 0)
     end
   end
 
   def honey_point
-    self.wallets.find_by(currency_id: Currency.find_by(codename: 'HP').id)
+    self.wallets.find_by(currency_id: Currency.find_by(name: 'HoneyPoint').id)
   end
 
   def balance
@@ -79,6 +79,7 @@ class User < ApplicationRecord
   private
 
   def find_wallet(currency_id, user_id)
-    my_wallet = Wallet.find_by(currency_id: currency_id, user_id: user_id)
+    my_wallet = Wallet.where(currency_id: currency_id, user_id: user_id).first
+    return my_wallet ? my_wallet : Wallet.create(currency_id: currency_id, user_id: user_id, amount: 0) 
   end
 end

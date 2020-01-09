@@ -11,7 +11,7 @@ class ConfirmationLettersController < ApplicationController
     @user.update(first_name: params["first_name"], last_name: params["last_name"])
     redirect_to edit_confirmation_letter_path(@user)
     else
-      render :index
+      render :index, notice: "Unacceptble input"
     end
   end
 

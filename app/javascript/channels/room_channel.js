@@ -11,7 +11,7 @@ consumer.subscriptions.create("RoomChannel", {
                           `
     let node = document.createElement('tr')
     node.innerHTML= MarketTemplate
-    node.id = data.content.id
+    node.id = "market" + data.content[0].id
     node.className = "table"
     node.href = "/markets/"+ data.content.id +"/bit"
     console.log(node);
