@@ -1,36 +1,55 @@
+<style>
+.testt{
+  background-color: green;
+  width: 100%;
+  height: 1000px;
+}
+.overflow-auto{
+  height: 75vh;
+}
+</style>
+
 <div class="container">
-  <div class="col-lg-8 mx-auto">
-    <h1 class="h4"><%= t('.Maibee_Market') %></h1>
-      
-    <table class="table">
-      <thead>
-        <tr>
-          <td><%= t('.currency') %></td>
-          <td><%= t('.amount') %></td>
-          <td><%= t('.sell_price') %></td>
-          <td><%= t('.total_price') %></td>
-          <td><%= t('.order_number')%></td>
-          <td></td>
-        </tr>
-      </thead>  
-      <tbody> 
-        <tbody class="table" id="new_order"></tbody>
-        <% @limit_orders.each do |order|%>
-          <tr id="market<%= order.id%>">
-            <td><%= order.currency[:name]%></td>
-            <td><%= order.amount%></td>
-            <td><%= order.sell_price%></td>
-            <td><%= order.price%></td>
-            <td><%= order.num%></td>
-            <% if order.user_id == current_user.id%>
-            <td><%=t('.my_order')%></td>
-            <% else %>
-            <td><%= link_to t('.buy'), bit_market_path(order.id), method: 'post'%></td>
+  <div class="row">
+    <div class="col-md-6 col-12 mx-auto">
+      <h1 class="h4"><%= t('.Maibee_Market') %></h1>
+      <%= render 'shared/limit_order_link'%>
+      <div class="overflow-auto">
+        <table class="table">
+          <thead>
+            <tr>
+              <td><%= t('.currency') %></td>
+              <td><%= t('.amount') %></td>
+              <td><%= t('.sell_price') %></td>
+              <td><%= t('.total_price') %></td>
+              <td><%= t('.order_number')%></td>
+              <td></td>
+            </tr>
+          </thead>  
+          <tbody> 
+            <tbody class="table" id="new_order"></tbody>
+            <% @limit_orders.each do |order|%>
+              <tr id="market<%= order.id%>">
+                <td><%= order.currency[:name]%></td>
+                <td><%= order.amount%></td>
+                <td><%= order.sell_price%></td>
+                <td><%= order.price%></td>
+                <td><%= order.num%></td>
+                <% if order.user_id == current_user.id%>
+                <td><%=t('.my_order')%></td>
+                <% else %>
+                <td><%= link_to t('.buy'), bit_market_path(order.id), method: 'post'%></td>
+                <% end %>
+              </tr>
             <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= render 'shared/limit_order_link'%>
+          </tbody>
+        </table>
+        <div class="testt"></div>
+      </div>
+    </div>
+  
+    <div class="col-md-6 col-12 mx-auto vh-100 overflow-auto">
+      <div class="testt"></div>
+    </div>
   </div>
 </div>

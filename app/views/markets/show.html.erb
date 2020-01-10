@@ -1,76 +1,81 @@
 <div class="container">
-  <div class="d-flex flex-column">
-    <div class="col-md-12">
-      <h1>My selling List</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <td><%= t('.currency') %></td>
-            <td><%= t('.amount') %></td>
-            <td><%= t('.sell_price') %></td>
-            <td><%= t('.total_price') %></td>
-            <td></td>
-          </tr>
-        </thead>  
-        <tbody> 
-          <% @limit_orders.each do |order|%>
-            <tr>
-              <td><%= order.currency[:name]%></td>
-              <td><%= order.amount%></td>
-              <td><%= order.sell_price%></td>
-              <td><%= order.price%></td>
-              <td><%= link_to t('.cancel'), edit_market_path(order)%></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-md-12">
-      <table class="table">
-        <h1 class="h4"><%= t('.deal') %></h1>
-        <thead>
-          <tr>
-            <td><%= t('.currency') %></td>
-            <td><%= t('.amount') %></td>
-            <td><%= t('.sell_price') %></td>
-            <td><%= t('.total_price') %></td>
-          </tr>
-        </thead>  
-        <tbody> 
-        
-        <% @limit_orders_deal.each do |order|%>
-          <tr>
-            <td><%= order.currency[:name]%></td>
-            <td><%= order.amount%></td>
-            <td><%= order.sell_price%></td>
-            <td><%= order.price%></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-md-12">
-      <table class="table">
-        <h1 class="h4"><%= t('.cancelled_orders') %></h1>
-        <thead>
-          <tr>
-            <td><%= t('.currency') %></td>
-            <td><%= t('.amount') %></td>
-            <td><%= t('.sell_price') %></td>
-            <td><%= t('.total_price') %></td>
-          </tr>
-        </thead>  
-        <tbody> 
-          <% @limit_orders_cancelled.each do |order|%>
-            <tr>
-              <td><%= order.currency[:name]%></td>
-              <td><%= order.amount%></td>
-              <td><%= order.sell_price%></td>
-              <td><%= order.price%></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <div class=" w-100 ">
+    <div class="row">
+      <div class="col-2">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><%= t('.my_selling_list') %></a>
+          <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"><%= t('.deal') %></a>
+          <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages"><%= t('.cancelled_orders') %></a>
+        </div>
+      </div>
+      <div class="col-10">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><table class="table">
+            <thead>
+              <tr>
+                <td><%= t('.currency') %></td>
+                <td><%= t('.amount') %></td>
+                <td><%= t('.sell_price') %></td>
+                <td><%= t('.total_price') %></td>
+                <td></td>
+              </tr>
+            </thead>  
+            <tbody> 
+              <% @limit_orders.each do |order|%>
+                <tr id="market<%= order.id%>">
+                  <td><%= order.currency[:name]%></td>
+                  <td><%= order.amount%></td>
+                  <td><%= order.sell_price%></td>
+                  <td><%= order.price%></td>
+                  <td><%= link_to t('.cancel'), edit_market_path(order)%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table></div>
+          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><table class="table">
+            <thead>
+              <tr>
+                <td><%= t('.currency') %></td>
+                <td><%= t('.amount') %></td>
+                <td><%= t('.sell_price') %></td>
+                <td><%= t('.total_price') %></td>
+              </tr>
+            </thead>  
+            <tbody> 
+            
+            <% @limit_orders_deal.each do |order|%>
+              <tr>
+                <td><%= order.currency[:name]%></td>
+                <td><%= order.amount%></td>
+                <td><%= order.sell_price%></td>
+                <td><%= order.price%></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table></div>
+          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list"><table class="table">
+            <thead>
+              <tr>
+                <td><%= t('.currency') %></td>
+                <td><%= t('.amount') %></td>
+                <td><%= t('.sell_price') %></td>
+                <td><%= t('.total_price') %></td>
+              </tr>
+            </thead>  
+            <tbody> 
+              <% @limit_orders_cancelled.each do |order|%>
+                <tr>
+                  <td><%= order.currency[:name]%></td>
+                  <td><%= order.amount%></td>
+                  <td><%= order.sell_price%></td>
+                  <td><%= order.price%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

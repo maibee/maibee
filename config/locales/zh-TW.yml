@@ -46,6 +46,7 @@ zh-TW:
       sell_price: '售價'
       total_price: '總價'
       cancel: '取消'
+      my_selling_list: '待成交掛單'
       deal: '已成交掛單'
       cancelled_orders: '已取消掛單'
   orders:
