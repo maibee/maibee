@@ -50,11 +50,10 @@
             <li class="nav-item">
               <%= link_to t('.wallet'), wallets_path,class: 'nav-link' %>
             </li>
-            <li class="nav-item dropdown">
-              <%= link_to '', record_path(current_user),method: "patch" %>
-              <a class="nav-link dropdown-toggle" rel="nofollow" data-method="patch" href="/records/<%= current_user.id%>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown" id="notice_record" data-record-status= "true">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell"></i>
-                <%= current_user.unread%>
+                <p class=" d-inline-block my-0 " id="bell"><%= current_user.unread%></p>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <% @records.each do |record| %>
@@ -68,9 +67,6 @@
                 <% end %>
                 </div>
               <% end %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t('.all_notifications'), record_path(current_user),method: "patch" , class: "dropdown-item" %>
-              </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
