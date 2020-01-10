@@ -6,11 +6,11 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order = Order.friendly.find(params[:id])
   end
 
   def pay
-    @order = Order.find(params[:id])
+    @order = Order.friendly.find(params[:id])
     if current_user.balance >= (@order.amount * @order.price)
       honey_point = current_user.honey_point
       honey_point.amount -= (@order.amount * @order.price)

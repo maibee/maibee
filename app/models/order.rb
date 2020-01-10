@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   include AASM
   validates :amount, numericality: { greater_than: 0 }
+  extend FriendlyId
+  friendly_id :number, use: :slugged
 
 
   belongs_to :currency

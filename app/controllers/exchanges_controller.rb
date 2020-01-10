@@ -6,7 +6,7 @@ class ExchangesController < ApplicationController
   end
   
   def show
-    @currency = Currency.find_by(id: params[:id])
+    @currency = Currency.friendly.find((params[:id]).downcase)
     @order = Order.new(currency_id: params[:id])
     @currencies = Currency.tradable.map{ |c| [c.name, c.id] }
     @amount = get_wallet ? get_wallet.amount : 0
