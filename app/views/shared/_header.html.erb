@@ -50,7 +50,7 @@
             <li class="nav-item">
               <%= link_to t('.wallet'), wallets_path,class: 'nav-link' %>
             </li>
-            <li class="nav-item dropdown" id="notice_record" data-record-status= "true">
+            <li class="nav-item dropdown" id="notice_record" name = "unread">
               <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell"></i>
                 <p class=" d-inline-block my-0 " id="bell"><%= current_user.unread%></p>
