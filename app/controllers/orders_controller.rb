@@ -6,11 +6,11 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order = Order.friendly.find(params[:id])
   end
 
   def pay
-    @order = Order.find(params[:id])
+    @order = Order.friendly.find(params[:id])
     honey_point = current_user.honey_point
     wallet = Wallet.find_or_create(@order, current_user)
     wallet.amount ||= 0

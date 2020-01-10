@@ -7,9 +7,9 @@
     <span>
       <%= currency.last_rate %>
     </span>
-    <span class="">
-      <%= link_to t('.buy'), exchange_path(currency), class: 'btn btn-primary btn-sm' %>
-      <%= link_to t('.sell'), sell_exchange_path(currency), class: 'btn btn-primary btn-sm' %>
+    <span>
+      <%= link_to t('.buy'), exchange_path(currency.codename), class: 'btn btn-primary btn-sm' %>
+      <%= link_to t('.sell'), sell_exchange_path(currency.codename), class: 'btn btn-primary btn-sm' %>
     </span>
   </li>
 <% end %>
