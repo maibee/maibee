@@ -51,13 +51,12 @@
               <%= link_to t('.wallet'), wallets_path,class: 'nav-link' %>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= link_to '', record_path(current_user),method: "patch" %>
+              <a class="nav-link dropdown-toggle" rel="nofollow" data-method="patch" href="/records/<%= current_user.id%>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell"></i>
                 <%= current_user.unread%>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to t('.clear'), record_path(current_user),method: "patch" , class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
               <% @records.each do |record| %>
                 <div class="dropdown-item d-flex">
                 <% if record.order_type == "order"%>
