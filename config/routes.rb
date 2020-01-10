@@ -37,7 +37,11 @@ Rails.application.routes.draw do
   # order
 
   #notice_records
-  resources :records, only: [:update, :show]
+  resources :records, only: [] do 
+    collection do 
+      post :zeroing
+    end
+  end
 
   # order
   resources :orders, only: [:create, :show, :index] do

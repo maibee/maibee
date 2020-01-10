@@ -52,7 +52,7 @@ RSpec.describe User do
         "currency_id": c1.id
       }
       u1.make_limit_order(order_content)
-      o1 = LimitOrder.find_by(user_id: u1.id)
+      o1 = LimitOrder.find_by(user_id: u1.id, currency_id: c1)
 
       u1.cancel_limit_order(o1)
       expect(LimitOrder.find_by(user_id: u1.id)[:status]).to eq "cancelled"

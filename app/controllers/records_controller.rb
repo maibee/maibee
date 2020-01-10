@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  def update
+  def zeroing
     current_user.update(unread: 0)
   end
 end

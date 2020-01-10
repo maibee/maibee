@@ -61,7 +61,7 @@ class OrdersController < ApplicationController
   end
 
   def create_unread_record(order)
-    current_user.records.create(content: "#{order.amount} of #{Currency.find_by(id: order.currency_id).name}s purchased")
+    current_user.records.create(content: "#{order.amount} #{Currency.find_by(id: order.currency_id).name}s purchased", order_type: 'order')
     current_user.unread += 1
     current_user.save
   end

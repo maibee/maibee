@@ -1,5 +1,5 @@
 class ExchangesController < ApplicationController
-  before_action :check_user_state
+  
   
   def index
     @currencies = Currency.tradable

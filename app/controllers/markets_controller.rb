@@ -14,7 +14,8 @@ class MarketsController < ApplicationController
     order_content = {currency_id: params[:currency_id].to_i, amount: params[:amount].to_f, sell_price: params[:sell_price].to_f}
     if current_user.make_limit_order(order_content)
       @currency = LimitOrder.last.currency[:name]
-      ActionCable.server.broadcast 'room_channel', content: [LimitOrder.last, @currency, LimitOrder.last.price] 
+      ActionCable.server.broadcast 'room_channel', content: [LimitOrder.last, @currency, LimitOrder.last.price]
+      create_unread_record(LimitOrder.last) 
       redirect_to markets_path
     else
       render :new, notice: 'Please check your balance'
@@ -46,9 +47,9 @@ class MarketsController < ApplicationController
   end
 
   private
-  def active?
-    if current_user.status == false
-      redirect_to confirmation_letters_path
-    end
+  def create_unread_record(order)
+    current_user.records.create(content: "#{Currency.find_by(id: order.currency_id).name} limit order created", order_type: 'limit order')
+    current_user.unread += 1
+    current_user.save
   end
 end
