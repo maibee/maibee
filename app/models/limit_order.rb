@@ -32,3 +32,13 @@ private
     self.num = SecureRandom.hex(6)
   end
 end
+
+class BigDecimal
+  def to_currency
+    if self - self.round == 0
+      self.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+    else
+      self - self.ceil + self.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+    end
+  end
+end

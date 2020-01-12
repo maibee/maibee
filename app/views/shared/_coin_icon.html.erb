@@ -20,6 +20,7 @@
   </td>
 <% else %>
   <td>
+    <div class="no_img currency_image"><%= order.currency[:name][0] %></div>
     <%= order.currency[:name] %>
   </td>
 <% end %>
