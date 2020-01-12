@@ -33,4 +33,8 @@ class Currency < ApplicationRecord
     self.latest_prices.last
   end
 
+  def last_rate
+    self.latest.price
+  end
+
 end
