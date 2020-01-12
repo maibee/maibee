@@ -5,7 +5,7 @@
       <%= currency.name %>
     </span>
     <span>
-      <%= currency.last_rate %>
+      <%= currency.latest_prices.last.price %>
     </span>
     <span>
       <%= link_to t('.buy'), exchange_path(currency.codename), class: 'btn btn-primary btn-sm' %>
