@@ -6,6 +6,7 @@ class Currency < ApplicationRecord
 
 
   def latest
+    return honey_point_price if self.codename == 'HP'
     unless self.latest_prices.last
       update_price
     else
@@ -23,6 +24,13 @@ class Currency < ApplicationRecord
       Currency.find_by(codename: 'DOGE')
     ])
     query.get_price
+  end
+
+  def honey_point_price
+    if self.latest_prices.last == nil
+      self.latest_prices.create(price: 1)
+    end
+    self.latest_prices.last
   end
 
 end
