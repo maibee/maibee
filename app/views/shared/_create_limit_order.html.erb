@@ -1,0 +1,12 @@
+<div class="col-md-8 col12 mx-auto">
+  <%= render 'shared/notice'%>
+  <%= form_with url: markets_path, remote: true do |f|%>
+    <%= f.select(:currency_id, currencies) %>
+    <%= f.label :amount%>
+    <%= f.number_field :amount%>
+    <%= f.label :sell_price%>
+    <%= f.number_field :sell_price%>
+
+    <%= f.submit%>
+  <% end %>
+</div>

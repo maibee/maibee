@@ -23,6 +23,7 @@ class MarketsController < ApplicationController
   end
 
   def show
+    @currencies = Currency.tradable.map{|c| [c.name, c.id] }
     @limit_orders = LimitOrder.where(user_id: current_user.id).pending.reverse
     @limit_orders_cancelled = LimitOrder.where(user_id: current_user.id).cancelled.reverse
     @limit_orders_deal = LimitOrder.where(user_id: current_user.id).closed_deal.reverse
