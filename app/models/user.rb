@@ -34,7 +34,7 @@ class User < ApplicationRecord
        self.limit_orders.create(currency_id: order_content[:currency_id],
                                 amount:      order_content[:amount],
                                 status:      "pending",
-                                sell_price:  order_content[:sell_price]))
+                                sell_price:  order_content[:sell_price]).id != nil)
        my_wallet.amount -= order_content[:amount]
        my_wallet.save
     end

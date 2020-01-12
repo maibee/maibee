@@ -11,14 +11,15 @@ class MarketsController < ApplicationController
   end
 
   def create
+    @currencies = Currency.tradable.map{|c| [c.name, c.id] }
     order_content = {currency_id: params[:currency_id].to_i, amount: params[:amount].to_f, sell_price: params[:sell_price].to_f}
     if current_user.make_limit_order(order_content)
-      @currency = LimitOrder.last.currency[:name]
-      ActionCable.server.broadcast 'room_channel', content: [LimitOrder.last, @currency, LimitOrder.last.price]
+      @order_currency = LimitOrder.last.currency[:name]
+      ActionCable.server.broadcast 'room_channel', content: [LimitOrder.last, @order_currency, LimitOrder.last.price]
       create_unread_record(LimitOrder.last) 
       redirect_to markets_path
     else
-      render :new, notice: 'Please check your balance'
+      redirect_to new_market_path, notice: '*Please check your balance or input value'
     end 
   end
 
