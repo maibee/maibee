@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_01_10_060532) do
-=======
-ActiveRecord::Schema.define(version: 2020_01_09_101927) do
->>>>>>> record new column and href
+ActiveRecord::Schema.define(version: 2020_01_12_031043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +35,18 @@ ActiveRecord::Schema.define(version: 2020_01_09_101927) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "latest_prices", force: :cascade do |t|
+    t.bigint "currency_id", null: false
+    t.decimal "price"
+    t.decimal "volume_24h"
+    t.decimal "percent_change_1h"
+    t.decimal "percent_change_24h"
+    t.decimal "percent_change_7d"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["currency_id"], name: "index_latest_prices_on_currency_id"
   end
 
   create_table "limit_orders", force: :cascade do |t|
@@ -132,6 +140,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_101927) do
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
+  add_foreign_key "latest_prices", "currencies"
   add_foreign_key "limit_orders", "currencies"
   add_foreign_key "limit_orders", "users"
   add_foreign_key "orders", "currencies"
