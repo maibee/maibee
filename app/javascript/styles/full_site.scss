@@ -32,7 +32,7 @@ main > :first-child{
   text-align: center;
   border-radius: 999em;
   background-color: salmon;
-  margin-right: 5px;
+  margin-right: 3px;
 }
 .account_balance{
   height: 30px;
@@ -43,6 +43,34 @@ main > :first-child{
 }
 .market_info{
   height: 35vh;
+}
+.table_for_currency{
+  width: 100%;
+  border-radius: 5px;
+  background-color: white;
+}
+.table_for_currency tr{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+.table_for_currency td{
+  overflow: scroll;
+}
+.table_for_currency td:first-child{
+  width: 30%;
+}
+.table_for_currency td:nth-child(2){
+  width: 10%;
+}
+.table_for_currency td:nth-child(3){
+  width: 20%;
+}
+.table_for_currency td:nth-child(4){
+  width: 20%;
+}
+.table_for_currency td:nth-child(5){
+  width: 20%;
 }
 @media (min-width: 992px){
   .navbar-expand-lg .navbar-nav .dropdown-menu {
