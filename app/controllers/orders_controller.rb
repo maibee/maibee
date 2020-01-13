@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       wallet.amount -= (@order.amount)
     else
       if current_user.balance < (@order.amount * @order.price)
-        redirect_to order_path(@order), notice: I18n.t('dont_have_enough_honey_point')
+        redirect_to order_path(@order), notice: 'dont_have_enough_honey_point'
       end
       honey_point.amount -= (@order.amount * @order.price)
       wallet.amount += (@order.amount)
@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
         spq.last_rate += @order.amount*0.01 if @order.is_sell
         spq.save
       end
-      redirect_to order_path(@order), notice: I18n.t('order completed')
+      redirect_to order_path(@order), notice: 'order completed'
     end
   end
 

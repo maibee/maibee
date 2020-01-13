@@ -1,0 +1,18 @@
+<div class="col-12 mx-auto">
+  <%= form_with model: order do |form| %>
+    <div class=" d-flex justify-content-between">
+      <%= form.select(:currency_id, currencies, {},  { :class => 'btn btn-warning w-25' })  %>
+      <div>
+        <div><%= t('.current_prices') %>: <%= currency.last_rate %></div>
+        <div><%= t('.account_balance') %>: <%= amount %></div>
+      </div>
+    </div>
+    <% if params["action"] == "sell"%>
+      <%= form.number_field :amount ,in: [0..amount], step: 0.0001, class:"col-12 form-control mt-3",placeholder:"#{t('.amount')}"%>
+      <%= form.hidden_field :is_sell, value: 'true' %>
+    <% else %>
+      <%= form.number_field :amount ,in: [0..amount], step: 0.0001, class:"col-12 form-control mt-3",placeholder:"#{t('.amount')}"%>
+    <% end %>
+    <%= form.submit "#{t('.submit')}",class:"btn btn-primary w-100 mt-3" %>
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
 <div class="col-12 mx-auto">
   <%= form_with url: markets_path, remote: true do |f|%>
-    <div class="d-flex justify-content-between JJ">
+    <div class="d-flex justify-content-between">
       <%= f.select(:currency_id, currencies, {},  { :class => 'btn btn-warning w-25' }) %>
       <div class="d-flex">
         <div class="d-flex justify-content-center align-items-center h-100 w-25 mr-1">
@@ -23,6 +23,6 @@
     </div>
     <%= f.number_field :amount, step: :any,class:"col-12 form-control mt-3",placeholder:"#{t('.amount')}"%>
     <%= f.number_field :sell_price, step: :any,class:"col-12 form-control mt-3",placeholder:"#{t('.sell_price')}"%>
-    <%= f.submit "送出", class:"btn btn-primary w-100 mt-3" %>
+    <%= f.submit "#{t('.submit_order')}", class:"btn btn-primary w-100 mt-3" %>
   <% end %>
 </div>

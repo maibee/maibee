@@ -32,7 +32,7 @@
                 </tr>
               </thead>  
               <tbody> 
-                <% @limit_orders.each do |order|%>
+                <% @limit_orders.pending.reverse.each do |order|%>
                   <tr id="market<%= order.id%>">
                     <%= render 'shared/coin_icon', order: order%>
                     <td><%= order.amount%></td>
@@ -55,7 +55,7 @@
               </thead>  
               <tbody> 
               
-              <% @limit_orders_deal.each do |order|%>
+              <% @limit_orders.closed_deal.reverse.each do |order|%>
                 <tr>
                   <%= render 'shared/coin_icon', order: order%>
                   <td><%= order.amount%></td>
@@ -76,7 +76,7 @@
                 </tr>
               </thead>  
               <tbody> 
-                <% @limit_orders_cancelled.each do |order|%>
+                <% @limit_orders.cancelled.reverse.each do |order|%>
                   <tr>
                     <%= render 'shared/coin_icon', order: order%>
                     <td><%= order.amount%></td>
