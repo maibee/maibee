@@ -1,19 +1,19 @@
-<ul class="list-group">
+<table class="table">
   <% @wallets.each do |wallet| %>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    <span>
+  <tr>
+    <td>
       <%= wallet.currency.name %>
-    </span>
-    <span>
-      <%= wallet.amount %> <%= wallet.currency.codename %>
-    </span>
-    <span>
+    </td>
+    <td>
+      <%= wallet.amount %>
+    </td>
+    <td>
       <%= link_to t('.buy'), exchange_path(wallet.currency), class: 'btn btn-primary btn-sm' %>
       <%= link_to t('.send'), new_transfer_path(wallet.currency),  class: 'btn btn-primary btn-sm'%>
-    </span>
-  </li>
-<% end %>
-</ul>
+    </td>
+  </tr>
+  <% end %>
+</table>
 <div class="my-3 container">
   <%= render 'shared/limit_order_link'%>
 </div>
