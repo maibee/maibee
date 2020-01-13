@@ -63,7 +63,7 @@
                 <% elsif record.order_type == "transfer" %>
                   <%= link_to record.content, transfers_path, class: "nav-link" %>
                 <% else %>
-                  <%= link_to record.content, market_path(current_user.id), class: "nav-link" %>
+                  <%= link_to record.content, markets_path, class: "nav-link" %>
                 <% end %>
                 </div>
               <% end %>

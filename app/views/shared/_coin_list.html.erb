@@ -1,19 +1,44 @@
-<ul class="list-group">
+<table class="table_for_currency">
   <% currencies.each do |currency| %>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    <span>
-      <%= currency.name %>
-    </span>
-    <span>
+  <tr>
+    <% if currency[:name] == "Bitcoin"%>
+      <td>
+        <img class="currency_image" src="https://dynamic-assets.coinbase.com/e785e0181f1a23a30d9476038d9be91e9f6c63959b538eabbc51a1abc8898940383291eede695c3b8dfaa1829a9b57f5a2d0a16b0523580346c6b8fab67af14b/asset_icons/b57ac673f06a4b0338a596817eb0a50ce16e2059f327dc117744449a47915cb2.png">
+        <%= currency[:name] %>
+      </td>
+    <% elsif currency[:name] == "Dogecoin"%>
+      <td>
+        <%= currency[:name] %>
+        <img class="currency_image" src="https://assets.coingecko.com/coins/images/5/small/dogecoin.png?1547792256">
+      </td>
+    <% elsif currency[:name] == "Litecoin"%>
+      <td>
+        <img class="currency_image" src="https://dynamic-assets.coinbase.com/f018870b721574ef7f269b9fd91b36042dc05ebed4ae9dcdc340a1bae5b359e8760a8c224bc99466db704d10a3e23cf1f4cd1ff6f647340c4c9c899a9e6595cd/asset_icons/984a4fe2ba5b2c325c06e4c2f3ba3f1c1fef1f157edb3b8ebbfe234340a157a5.png">
+        <%= currency[:name] %>
+      </td>
+    <% elsif currency[:name] == "炒作幣"%>
+      <td>
+        <img class="currency_image" src="http://163.20.160.14/~word/uploads/photos/19163.gif">
+        <%= currency[:name] %>
+      </td>
+    <% else %>
+      <td>
+        <div class="no_img currency_image"><%= currency[:name][0].downcase %></div>
+        <%= currency[:name] %>
+      </td>
+    <% end %>
+    <td>
       <%= currency.last_rate %>
-    </span>
-    <span>
-      <%= render 'shared/charts', currency: currency%>
-    </span>
-    <span>
+    </td>
+    <td>
+      <span>
+        <%= render 'shared/charts', currency: currency%>
+      </span>
+    </td>
+    <td class="w-25 ">
       <%= link_to t('.buy'), exchange_path(currency.codename), class: 'btn btn-primary btn-sm' %>
       <%= link_to t('.sell'), sell_exchange_path(currency.codename), class: 'btn btn-primary btn-sm' %>
-    </span>
-  </li>
+    </td>
+  </tr>
 <% end %>
-</ul>
+</table>

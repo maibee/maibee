@@ -1,11 +1,5 @@
-<h1 class="h4"><%= t('.new_limit_order') %></h1>
+<div class="col-md-4 col-12 mx-auto">
+  <h1 class="h4 text-center"><%= t('.new_limit_order') %></h1>
 
-<%= form_with url: markets_path, remote: true do |f|%>
-  <%= f.select(:currency_id, @currencies) %>
-  <%= f.label :amount%>
-  <%= f.number_field :amount%>
-  <%= f.label :sell_price%>
-  <%= f.number_field :sell_price%>
-
-  <%= f.submit%>
-<% end %>
+  <%= render 'shared/create_limit_order', currencies: @currencies_to_trade, account_balance: @account_balance %>  
+</div>

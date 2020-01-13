@@ -38,16 +38,24 @@ zh-TW:
       order_number: '單號'
       buy: '購買'
       my_order: '我的賣單'
+      my_selling_list: '待成交掛單'
+      deal: '已成交掛單'
+      cancelled_orders: '已取消掛單'
+      new_limit_order: '新增掛單交易'
+      global_market: '全球市場'
+      cancel: '取消'
     new:
-      new_limit_order: '新掛單交易'
+      new_limit_order: '新增掛單交易'
     show:
       currency: '幣別'
       amount: '數量'
       sell_price: '售價'
       total_price: '總價'
       cancel: '取消'
+      my_selling_list: '待成交掛單'
       deal: '已成交掛單'
       cancelled_orders: '已取消掛單'
+      new_limit_order: '新增掛單交易'
   orders:
     order:
       order_number: '訂單編號'
@@ -65,6 +73,10 @@ zh-TW:
       total_price: '總金額'
       status: '訂單狀態'
   shared:
+    create_limit_order: 
+      account_balance: '帳戶餘額'
+      amount: '數量'
+      sell_price: '價格'
     coin_list:
       buy: '購買'
       sell: '賣出'

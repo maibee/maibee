@@ -18,6 +18,61 @@ main > :first-child{
   width: 18em;
 }
 
+.notification{
+  color: red;
+}
+
+.currency_image{
+  height:30px; 
+  width: 30px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.no_img{
+  text-align: center;
+  border-radius: 999em;
+  background-color: salmon;
+  margin-right: 3px;
+}
+.account_balance{
+  height: 50px;
+  width: 200px;
+}
+.currency_flow{
+  height: 50vh;
+  border: 2px solid red;
+}
+.market_info{
+  height: 40vh;
+}
+.table_for_currency{
+  width: 100%;
+  border-radius: 5px;
+  background-color: white;
+}
+.table_for_currency tr{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+.table_for_currency td{
+  overflow: scroll;
+}
+.table_for_currency td:first-child{
+  width: 30%;
+}
+.table_for_currency td:nth-child(2){
+  width: 10%;
+}
+.table_for_currency td:nth-child(3){
+  width: 20%;
+}
+.table_for_currency td:nth-child(4){
+  width: 20%;
+}
+.table_for_currency td:nth-child(5){
+  width: 20%;
+}
 @media (min-width: 992px){
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     right: 0;

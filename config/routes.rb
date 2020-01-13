@@ -63,7 +63,7 @@ Rails.application.routes.draw do
   resources :invite_friend, only: [:index]
 
   #market
-  resources :markets do 
+  resources :markets, only: [:index, :new, :edit, :create] do 
     member do 
       post :bit
     end
