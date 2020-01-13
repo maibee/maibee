@@ -3,9 +3,9 @@
   <%= form_with url: markets_path, remote: true do |f|%>
     <%= f.select(:currency_id, currencies) %>
     <%= f.label :amount%>
-    <%= f.number_field :amount%>
+    <%= f.number_field :amount, step: :any%>
     <%= f.label :sell_price%>
-    <%= f.number_field :sell_price%>
+    <%= f.number_field :sell_price, step: :any%>
 
     <%= f.submit%>
   <% end %>
