@@ -43,6 +43,7 @@ zh-TW:
       cancelled_orders: '已取消掛單'
       new_limit_order: '新增掛單交易'
       global_market: '全球市場'
+      cancel: '取消'
     new:
       new_limit_order: '新增掛單交易'
     show:
@@ -73,6 +74,7 @@ zh-TW:
       status: '訂單狀態'
   shared:
     create_limit_order: 
+      account_balance: '帳戶餘額'
       amount: '數量'
       sell_price: '價格'
     coin_list:

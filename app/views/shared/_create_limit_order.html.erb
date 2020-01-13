@@ -1,10 +1,12 @@
 <div class="col-12 mx-auto">
   <%= render 'shared/notice'%>
   <%= form_with url: markets_path, remote: true do |f|%>
-    <div class="d-flex justify-content-between">
-      <%= f.select(:currency_id, currencies, {},  { :class => 'btn btn-warning' }) %>
+    <div class="d-flex justify-content-between JJ">
+      <%= f.select(:currency_id, currencies, {},  { :class => 'btn btn-warning w-25' }) %>
       <div class="d-flex">
-        <span class="mr-3">account balance</span>
+        <div class="d-flex justify-content-center align-items-center h-100 w-25 mr-1">
+          <span class="small"><%= t('.account_balance')%></span>
+        </div>
         <div class="account_balance overflow-auto">
           <table>
         <% account_balance.each do |b|%>

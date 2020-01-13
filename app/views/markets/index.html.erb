@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-md-7 col-12 mx-auto vh-100">
+    <div class="col-md-7 col-12 mx-lg-auto mb-5">
+      <%= render 'shared/charts', currency: @demo_currency%>
       <div class="w-100 currency_flow">
-
+       
       </div>
       <div class="w-100">
        <div class="row mt-3">
@@ -33,8 +34,8 @@
                   <tr id="market<%= order.id%>">
                     <%= render 'shared/coin_icon', order: order%>
                     <td><%= order.amount%></td>
-                    <td class="overflow-auto"><%= order.sell_price%></td>
-                    <td class="overflow-auto"><%= order.price%></td>
+                    <td><%= order.sell_price%></td>
+                    <td><%= order.price%></td>
                     <td><%= link_to t('.cancel'), edit_market_path(order)%></td>
                   </tr>
                 <% end %>
@@ -92,9 +93,9 @@
       </div>
     </div>
 
-    <div class="col-md-5 col-12 mx-auto" style="border-right: grey 2px solid;">
+    <div class="col-md-5 col-12 mx-auto">
       <h1 class="h4 text-center"><%= t('.Maibee_Market') %></h1>
-      <div class="overflow-auto" style="height: 45vh;">
+      <div class="overflow-auto" style="height: 44vh;">
         <table class="table_for_currency">
           <thead>
             <tr>
@@ -116,14 +117,14 @@
                 <% if order.user_id == current_user.id%>
                 <td><%=t('.my_order')%></td>
                 <% else %>
-                <td><%= link_to t('.buy'), bit_market_path(order.id), method: 'post'%></td>
+                <td><%= link_to t('.buy'), bit_market_path(order.id), method: 'post', class: 'btn btn-primary'%></td>
                 <% end %>
               </tr>
             <% end %>
           </tbody>
         </table>
       </div>
-      <h2 class="text-center mt-3"><%= t('.global_market')%></h2>
+      <h2 class=" h4 text-center mt-3"><%= t('.global_market')%></h2>
       <div class="overflow-auto" style="height: 35vh;">
         <%= render 'shared/coin_list', currencies: @currencies%>
       </div>

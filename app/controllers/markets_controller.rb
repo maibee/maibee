@@ -3,6 +3,7 @@ class MarketsController < ApplicationController
   before_action :check_user_state
 
   def index
+    @demo_currency = Currency.find_by(name: "炒作幣")
     @limit_orders_selling = LimitOrder.pending.reverse
     @currencies = Currency.tradable
     @limit_orders = LimitOrder.where(user_id: current_user.id).pending.reverse
@@ -28,9 +29,6 @@ class MarketsController < ApplicationController
     else
       redirect_to new_market_path, notice: '*Please check your balance or input value'
     end 
-  end
-
-  def show
   end
 
   def edit
