@@ -28,8 +28,8 @@ class OrdersController < ApplicationController
       @order.pay!
       if @order.currency.codename == 'SPQ'
         spq = @order.currency
-        spq.last_rate += @order.amount*0.01 unless @order.is_sell
-        spq.last_rate += @order.amount*0.01 if @order.is_sell
+        spq.last_rate += @order.amount*0.001 unless @order.is_sell
+        spq.last_rate -= @order.amount*0.001 if @order.is_sell
         spq.save
       end
       redirect_to order_path(@order), notice: 'order completed'
