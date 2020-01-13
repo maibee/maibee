@@ -3,11 +3,17 @@ class MarketsController < ApplicationController
   before_action :check_user_state
 
   def index
-    @limit_orders = LimitOrder.pending.reverse
+    @limit_orders_selling = LimitOrder.pending.reverse
+    @currencies = Currency.tradable
+    @limit_orders = LimitOrder.where(user_id: current_user.id).pending.reverse
+    @limit_orders_cancelled = LimitOrder.where(user_id: current_user.id).cancelled.reverse
+    @limit_orders_deal = LimitOrder.where(user_id: current_user.id).closed_deal.reverse
+    @account_balance = Wallet.where(user_id: current_user.id)
+    @currencies_to_trade = Currency.tradable.map{|c| [c.name, c.id] }
   end
 
   def new
-    @currencies = Currency.tradable.map{|c| [c.name, c.id] }
+    @currencies_to_trade = Currency.tradable.map{|c| [c.name, c.id] }
     @account_balance = Wallet.where(user_id: current_user.id)
   end
 
@@ -25,17 +31,13 @@ class MarketsController < ApplicationController
   end
 
   def show
-    @currencies = Currency.tradable.map{|c| [c.name, c.id] }
-    @limit_orders = LimitOrder.where(user_id: current_user.id).pending.reverse
-    @limit_orders_cancelled = LimitOrder.where(user_id: current_user.id).cancelled.reverse
-    @limit_orders_deal = LimitOrder.where(user_id: current_user.id).closed_deal.reverse
   end
 
   def edit
     @limit_order = LimitOrder.find(params[:id])
     if current_user.cancel_limit_order(@limit_order)
       ActionCable.server.broadcast 'remove_channel', content: @limit_order
-      redirect_to market_path, notice: 'Order cancelled!'
+      redirect_to markets_path, notice: 'Order cancelled!'
     end
   end
 

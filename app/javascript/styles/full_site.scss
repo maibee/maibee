@@ -37,6 +37,13 @@ main > :first-child{
 .account_balance{
   height: 30px;
 }
+.currency_flow{
+  height: 50vh;
+  border: 2px solid red;
+}
+.market_info{
+  height: 35vh;
+}
 @media (min-width: 992px){
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     right: 0;
