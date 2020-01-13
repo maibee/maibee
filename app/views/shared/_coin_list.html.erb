@@ -8,6 +8,9 @@
       <%= currency.last_rate %>
     </span>
     <span>
+      <%= render 'shared/charts', currency: currency%>
+    </span>
+    <span>
       <%= link_to t('.buy'), exchange_path(currency.codename), class: 'btn btn-primary btn-sm' %>
       <%= link_to t('.sell'), sell_exchange_path(currency.codename), class: 'btn btn-primary btn-sm' %>
     </span>

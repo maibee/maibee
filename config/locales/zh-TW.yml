@@ -67,6 +67,7 @@ zh-TW:
   shared:
     coin_list:
       buy: '購買'
+      sell: '賣出'
     footer:
       career: '職缺'
       legal_&_privacy: '隱私條款'
