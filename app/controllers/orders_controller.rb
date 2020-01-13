@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       wallet.amount -= (@order.amount)
     else
       if current_user.balance < (@order.amount * @order.price)
-        redirect_to order_path(@order), notice: 'dont_have_enough_honey_point'
+        redirect_to order_path(@order), notice: 'Dont have enough honey point'
       end
       honey_point.amount -= (@order.amount * @order.price)
       wallet.amount += (@order.amount)
@@ -41,11 +41,21 @@ class OrdersController < ApplicationController
     @order.user_id = current_user.id
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
     @order.number = @order.generate_order_number
-    if @order.save
+    my_wallet = Wallet.find_by(user_id: current_user.id, currency_id: @order.currency_id)
+    if @order.is_sell == true
+      if @order.amount <= my_wallet.amount && @order.save
       create_unread_record(@order)
       redirect_to order_path(@order), notice: 'Order Created'
+      else
+        render 'exchanges/sell', notice: 'Something went wrong'
+      end
     else
-      render 'exchanges/show', notice: 'Something went wrong'
+      if @order.save
+        create_unread_record(@order)
+        redirect_to order_path(@order), notice: 'Order Created'
+      else
+        render 'exchanges/show', notice: 'Something went wrong'
+      end
     end
   end
 
