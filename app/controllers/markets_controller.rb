@@ -6,9 +6,7 @@ class MarketsController < ApplicationController
     @demo_currency = Currency.find_by(name: "炒作幣")
     @limit_orders_selling = LimitOrder.pending.reverse
     @currencies = Currency.tradable
-    @limit_orders = LimitOrder.where(user_id: current_user.id).pending.reverse
-    @limit_orders_cancelled = LimitOrder.where(user_id: current_user.id).cancelled.reverse
-    @limit_orders_deal = LimitOrder.where(user_id: current_user.id).closed_deal.reverse
+    @limit_orders = LimitOrder.where(user_id: current_user.id)
     @account_balance = Wallet.where(user_id: current_user.id)
     @currencies_to_trade = Currency.tradable.map{|c| [c.name, c.id] }
   end

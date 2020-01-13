@@ -1,15 +1,4 @@
-<div class="container">
-  <h1 class="h3"><%= t('.name') %><%= @currency.name %></h1>
-  <ul>
-    <li><%= t('.current_prices') %>: <%= @currency.last_rate %></li>
-    <li><%= t('.account_balance') %>: <%= @amount %></li>
-  </ul>
-  <%= form_with model: @order do |form| %>
-    <%= form.select(:currency_id, @currencies) %>
-    <%= form.label :amount %>
-    <%= form.number_field :amount ,in: [0..@amount], step: 0.0001%>
-    <%= form.hidden_field :is_sell, value: 'true' %>
-    <%= form.submit %>
-  <% end %>
+<div class="col-lg-6 mx-auto col-12">
+  <span class="h3 d-flex justify-content-center align-items-center"><h5><%= t('.sell') %> </h5> <h1 class="mx-3"><%= @currency.name %></h1></span>
+  <%= render 'shared/sell_or_buy_currency', order: @order, amount: @amount, currencies: @currencies, currency: @currency%>
 </div>
-
