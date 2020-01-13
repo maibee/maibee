@@ -67,6 +67,9 @@ zh-TW:
       total_price: '總金額'
       status: '訂單狀態'
   shared:
+    create_limit_order: 
+      amount: '數量'
+      sell_price: '價格'
     coin_list:
       buy: '購買'
       sell: '賣出'

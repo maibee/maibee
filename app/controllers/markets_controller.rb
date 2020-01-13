@@ -8,6 +8,7 @@ class MarketsController < ApplicationController
 
   def new
     @currencies = Currency.tradable.map{|c| [c.name, c.id] }
+    @account_balance = Wallet.where(user_id: current_user.id)
   end
 
   def create
