@@ -123,10 +123,8 @@ ActiveRecord::Schema.define(version: 2020_01_12_031043) do
     t.integer "unread", default: 0
     t.boolean "status", default: false
     t.integer "state", default: 0
-    t.string "slug"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
   create_table "wallets", force: :cascade do |t|

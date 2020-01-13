@@ -11,22 +11,21 @@ class ConfirmationLettersController < ApplicationController
     @user.update(first_name: params["first_name"], last_name: params["last_name"])
     redirect_to edit_confirmation_letter_path(@user)
     else
-      render :index, notice: "Unacceptble input"
+      redirect_to confirmation_letters_path, notice: "Unacceptble input"
     end
   end
 
   def edit
     @checknum = SecureRandom.hex(6)
-    # ConfirmEmailJob.perform(current_user)
   end
 
   def update
     @user = User.find_by(id: params[:id])
-    if params
+    if params[:id].to_i == current_user.id
       @user.update(state: 'basic')
-      redirect_to root_path, notice: "Activated!!"
+      redirect_to markets_path
     else
-      render :edit, notice: "try again"
+      redirect_to confirmation_letters_path, notice: "try again"
     end
   end
 end

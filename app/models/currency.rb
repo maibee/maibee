@@ -4,6 +4,13 @@ class Currency < ApplicationRecord
   friendly_id :codename, use: :slugged
   has_many :latest_prices
 
+  # def last_rate
+  #   if self.latest == nil
+  #     1
+  #   else
+  #   self.latest.price
+  #   end
+  # end
 
   def latest
     return honey_point_price if self.codename == 'HP'
@@ -32,9 +39,4 @@ class Currency < ApplicationRecord
     end
     self.latest_prices.last
   end
-
-  def last_rate
-    self.latest.price
-  end
-
 end
