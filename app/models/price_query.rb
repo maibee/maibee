@@ -5,16 +5,19 @@ class PriceQuery
   end
 
   def get_price
-    info = get_price_from_cmc['data']
-    @currencies.each do |currency|
-      quote = info[currency.codename]['quote']['TWD']
-      currency.latest_prices.create(
-        price: quote['price'],
-        volume_24h: quote['volume_24h'],
-        percent_change_1h: quote['percent_change_1h'],
-        percent_change_24h: quote['percent_change_24h'],
-        percent_change_7d: quote['percent_change_7d']
-      )
+    begin
+      price_info = get_price_from_cmc['data']
+      @currencies.each do |currency|
+        quote = price_info[currency.codename]['quote']['TWD']
+        currency.latest_prices.create(
+          price: quote['price'],
+          volume_24h: quote['volume_24h'],
+          percent_change_1h: quote['percent_change_1h'],
+          percent_change_24h: quote['percent_change_24h'],
+          percent_change_7d: quote['percent_change_7d']
+        )
+      end
+    rescue => em
     end
   end
 
