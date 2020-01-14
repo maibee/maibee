@@ -1,6 +1,6 @@
 import ax from '../helpers/ax'
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("turbolinks:load", function(){
   console.log("ready");
   document.getElementById('notice_record').addEventListener("click", function(){
     
