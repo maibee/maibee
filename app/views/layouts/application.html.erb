@@ -12,6 +12,9 @@
   <body>
     <div class="d-flex flex-column vh-100">
       <%= render "shared/header" %>
+      <div class="container">
+        <%= render 'shared/notice' %>
+      </div>
       <div class="flex-fill">
         <% if @show_menu == true %>
           <main class="container">
