@@ -1,4 +1,9 @@
 zh-TW:
+  dont_have_enough_honey_point: '蜂蜜幣不足'
+  order_completed: '付款完成'
+  order_created: '下單成功'
+  please_check_order_amount: '請確認訂單內容'
+
   homepage:
     index:
       maibee: '買幣是一個容易買賣，且容易管理數位資產的平台'

@@ -1,5 +1,5 @@
 <div class="col-12 mx-auto">
-  <%= form_with model: order do |form| %>
+  <%= form_with model: order, local: true do |form| %>
     <div class=" d-flex justify-content-between">
       <%= form.select(:currency_id, currencies, {},  { :class => 'btn btn-warning w-25' })  %>
       <div>
