@@ -3,7 +3,10 @@ zh-TW:
   order_completed: '付款完成'
   order_created: '下單成功'
   please_check_order_amount: '請確認訂單內容'
-
+  limit_order_create_successfully: '掛單成功'
+  please_check_your_balance_or_input_value: '請確認您的餘額或是輸入額度'
+  order_cancelled!: '掛單交易取消'
+  bit_successfully: '購買成功!'
   homepage:
     index:
       maibee: '買幣是一個容易買賣，且容易管理數位資產的平台'

@@ -23,9 +23,9 @@ class MarketsController < ApplicationController
       @order_currency = LimitOrder.last.currency[:name]
       ActionCable.server.broadcast 'room_channel', content: [LimitOrder.last, @order_currency, LimitOrder.last.price]
       create_unread_record(LimitOrder.last) 
-      redirect_to markets_path
+      redirect_to markets_path, notice: I18n.t(:limit_order_create_successfully)
     else
-      redirect_to new_market_path, notice: '*Please check your balance or input value'
+      redirect_to new_market_path, notice: I18n.t(:please_check_your_balance_or_input_value)
     end 
   end
 
@@ -33,7 +33,7 @@ class MarketsController < ApplicationController
     @limit_order = LimitOrder.find(params[:id])
     if current_user.cancel_limit_order(@limit_order)
       ActionCable.server.broadcast 'remove_channel', content: @limit_order
-      redirect_to markets_path, notice: 'Order cancelled!'
+      redirect_to markets_path, notice: I18n.t(:order_cancelled!)
     end
   end
 
@@ -41,9 +41,9 @@ class MarketsController < ApplicationController
     @limit_order = LimitOrder.find(params[:id])
     if current_user.bit_limit_order(@limit_order)
       ActionCable.server.broadcast 'remove_channel', content: @limit_order
-      redirect_to markets_path, notice: 'Succeed'
+      redirect_to markets_path, notice: I18n.t(:bit_successfully)
     else
-      redirect_to markets_path, notice: 'HoneyPoints not enough'
+      redirect_to markets_path, notice: I18n.t(:dont_have_enough_honey_point)
     end
   end
 
