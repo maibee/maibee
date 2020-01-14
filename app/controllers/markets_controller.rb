@@ -41,7 +41,7 @@ class MarketsController < ApplicationController
     @limit_order = LimitOrder.find(params[:id])
     if current_user.bit_limit_order(@limit_order)
       ActionCable.server.broadcast 'remove_channel', content: @limit_order
-      redirect_to market_path, notice: 'Succeed'
+      redirect_to markets_path, notice: 'Succeed'
     else
       redirect_to markets_path, notice: 'HoneyPoints not enough'
     end

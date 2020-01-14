@@ -111,7 +111,7 @@
           <tbody> 
             <tbody id="new_order"></tbody>
             <% @limit_orders_selling.each do |order|%>
-              <tr id="market<%= order.id%>">
+              <tr id="tmarket<%= order.id%>">
                 <%= render 'shared/coin_icon', order: order%>
                 <td><%= order.amount%></td>
                 <td><%= order.sell_price.to_currency%></td>

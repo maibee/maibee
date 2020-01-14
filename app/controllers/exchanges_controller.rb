@@ -1,6 +1,7 @@
 class ExchangesController < ApplicationController
   
-  
+  before_action :authenticate_user!
+
   def index
     @currencies = Currency.tradable
   end
