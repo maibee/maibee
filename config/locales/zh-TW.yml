@@ -12,6 +12,7 @@ zh-TW:
       maibee: '買幣是一個容易買賣，且容易管理數位資產的平台'
       join_new_and_get_10_honey_point: '加入並得到10HonyPoints'
       buy_and_sell_cryptocurrency: '買賣你的虛擬貨幣'
+      join: '註冊'
   exchanges:
     show:
       buy: '購買'
@@ -49,7 +50,7 @@ zh-TW:
       my_selling_list: '待成交掛單'
       deal: '已成交掛單'
       cancelled_orders: '已取消掛單'
-      new_limit_order: '新增掛單交易'
+      new_limit_order: '新增掛單'
       global_market: '全球市場'
       cancel: '取消'
     new:

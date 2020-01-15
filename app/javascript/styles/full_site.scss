@@ -42,33 +42,35 @@ main > :first-child{
   height: 40vh;
 }
 .table_for_currency{
+  height: 500px;
   width: 100%;
-  border-radius: 5px;
-  background-color: white;
+  overflow: hidden;
 }
-.table_for_currency tr{
+.head_row, .body_row{
   display: flex;
-  justify-content: space-between;
-  margin: 5px;
+  margin-top: 2px;
 }
-.table_for_currency td{
-  overflow: scroll;
+.body_row div, .head_row div{
+  margin: auto;
+  width: 20%;
+  font-size: 10px;
+  text-align: center;
+  overflow: auto;
 }
-.table_for_currency td:first-child{
+.head_row div{
+  font-size: 15px;
+}
+.head_row div:nth-child(1){
   width: 30%;
 }
-.table_for_currency td:nth-child(2){
-  width: 10%;
+.body_row div:first-child{
+  font-size: 15px;
+  width: 30%;
 }
-.table_for_currency td:nth-child(3){
-  width: 20%;
+.body_row div:nth-child(3), .head_row div:nth-child(3){
+  display: none;
 }
-.table_for_currency td:nth-child(4){
-  width: 20%;
-}
-.table_for_currency td:nth-child(5){
-  width: 20%;
-}
+
 @media (min-width: 992px){
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     right: 0;
@@ -77,6 +79,12 @@ main > :first-child{
   }
   .price{
     top: -50px;
+  }
+  .head_row div:nth-child(3), .body_row div:nth-child(3){
+    display: block;
+  }
+  .body_row div:nth-child(2), .head_row div:nth-child(2){
+    width: 10%;
   }
 }
 

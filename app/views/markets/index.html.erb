@@ -18,71 +18,59 @@
         <div class="col-md-9 col-12 overflow-auto market_info">
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-              <table class=" table_for_currency ">
-              <thead>
-                <tr>
-                  <td><%= t('.currency') %></td>
-                  <td><%= t('.amount') %></td>
-                  <td><%= t('.sell_price') %></td>
-                  <td><%= t('.total_price') %></td>
-                  <td></td>
-                </tr>
-              </thead>  
-              <tbody> 
+              <div class="table_for_currency">
+                <div class="head_row">
+                  <div><%= t('.currency') %></div>
+                  <div><%= t('.amount') %></div>
+                  <div><%= t('.sell_price') %></div>
+                  <div><%= t('.total_price') %></div>
+                  <div></div>
+                </div> 
                 <% @limit_orders.pending.reverse.each do |order|%>
-                  <tr id="market<%= order.id%>">
-                    <%= render 'shared/coin_icon', order: order%>
-                    <td><%= order.amount%></td>
-                    <td><%= order.sell_price%></td>
-                    <td><%= order.price%></td>
-                    <td><%= link_to t('.cancel'), edit_market_path(order)%></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table></div>
-            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-              <table class="table_for_currency">
-              <thead>
-                <tr>
-                  <td><%= t('.currency') %></td>
-                  <td><%= t('.amount') %></td>
-                  <td><%= t('.sell_price') %></td>
-                  <td><%= t('.total_price') %></td>
-                </tr>
-              </thead>  
-              <tbody> 
-              
-              <% @limit_orders.closed_deal.reverse.each do |order|%>
-                <tr>
+                <div class="body_row" id="market<%= order.id%>">
                   <%= render 'shared/coin_icon', order: order%>
-                  <td><%= order.amount%></td>
-                  <td><%= order.sell_price%></td>
-                  <td><%= order.price%></td>
-                </tr>
+                  <div><%= order.amount%></div>
+                  <div><%= order.sell_price%></div>
+                  <div><%= order.price%></div>
+                  <div><%= link_to t('.cancel'), edit_market_path(order)%></div>
+                </div>
                 <% end %>
-              </tbody>
-            </table></div>
+            </div></div>
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+              <div class="table_for_currency">
+                <div class="head_row">
+                  <div><%= t('.currency') %></div>
+                  <div><%= t('.amount') %></div>
+                  <div><%= t('.sell_price') %></div>
+                  <div><%= t('.total_price') %></div>
+                </div>
+              <% @limit_orders.closed_deal.reverse.each do |order|%>
+                <div class="body_row">
+                  <%= render 'shared/coin_icon', order: order%>
+                  <div><%= order.amount%></div>
+                  <div><%= order.sell_price%></div>
+                  <div><%= order.price%></div>
+                </div>
+                <% end %>
+              </div>
+            </div>
             <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-              <table class="table_for_currency">
-              <thead>
-                <tr>
-                  <td><%= t('.currency') %></td>
-                  <td><%= t('.amount') %></td>
-                  <td><%= t('.sell_price') %></td>
-                  <td><%= t('.total_price') %></td>
-                </tr>
-              </thead>  
-              <tbody> 
+              <div class="table_for_currency">
+                <div class="head_row">
+                  <div><%= t('.currency') %></div>
+                  <div><%= t('.amount') %></div>
+                  <div><%= t('.sell_price') %></div>
+                  <div><%= t('.total_price') %></div>
+                </div>
                 <% @limit_orders.cancelled.reverse.each do |order|%>
-                  <tr>
+                  <div class="body_row">
                     <%= render 'shared/coin_icon', order: order%>
-                    <td><%= order.amount%></td>
-                    <td><%= order.sell_price%></td>
-                    <td><%= order.price%></td>
-                  </tr>
+                    <div><%= order.amount%></div>
+                    <div><%= order.sell_price%></div>
+                    <div><%= order.price%></div>
+                  </div>
                 <% end %>
-              </tbody>
-            </table></div>
+            </div></div>
             <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
               <%= render 'shared/create_limit_order', currencies: @currencies_to_trade, account_balance: @account_balance %>
             </div>
@@ -93,37 +81,33 @@
     </div>
 
     <div class="col-md-5 col-12 mx-auto">
-      <h1 class="h4 text-center"><%= t('.Maibee_Market') %></h1>
+      <h1 class="h5 text-center"><%= t('.Maibee_Market') %></h1>
       <div class="overflow-auto" style="height: 44vh;">
-        <table class="table_for_currency">
-          <thead>
-            <tr>
-              <td><%= t('.currency') %></td>
-              <td><%= t('.amount') %></td>
-              <td><%= t('.sell_price') %></td>
-              <td><%= t('.total_price') %></td>
-              <td></td>
-            </tr>
-          </thead>  
-          <tbody> 
-            <tbody id="new_order"></tbody>
+        <div class="table_for_currency">
+            <div class="head_row">
+              <div><%= t('.currency') %></div>
+              <div><%= t('.amount') %></div>
+              <div><%= t('.sell_price') %></div>
+              <div><%= t('.total_price') %></div>
+              <div></div>
+            </div>
+            <div class="body_row" id="new_order"></div>
             <% @limit_orders_selling.each do |order|%>
-              <tr id="tmarket<%= order.id%>">
+              <div class="body_row" id="tmarket<%= order.id%>">
                 <%= render 'shared/coin_icon', order: order%>
-                <td><%= order.amount%></td>
-                <td><%= order.sell_price.to_currency%></td>
-                <td><%= order.price.to_currency%></td>
+                <div><%= order.amount%></div>
+                <div><%= order.sell_price.to_currency%></div>
+                <div><%= order.price.to_currency%></div>
                 <% if order.user_id == current_user.id%>
-                <td><%=t('.my_order')%></td>
+                <div><%=t('.my_order')%></div>
                 <% else %>
-                <td><%= link_to t('.buy'), bit_market_path(order.id), method: 'post', class: 'btn btn-primary'%></td>
+                <div><%= link_to t('.buy'), bit_market_path(order.id), method: 'post'%></div>
                 <% end %>
-              </tr>
+              </div>
             <% end %>
-          </tbody>
-        </table>
+        </div>
       </div>
-      <h2 class=" h4 text-center mt-3"><%= t('.global_market')%></h2>
+      <h2 class="h5 text-center mt-3"><%= t('.global_market')%></h2>
       <div class="overflow-auto" style="height: 35vh;">
         <%= render 'shared/coin_list', currencies: @currencies%>
       </div>
