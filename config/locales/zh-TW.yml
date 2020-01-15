@@ -133,6 +133,7 @@ zh-TW:
       transfers: '匯出'
       to: '至'
     new:
+      amount: '金額'
       new_transfer: '匯出貨幣'
       target_address: '目標地址'
   wallets:
