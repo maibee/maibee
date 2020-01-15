@@ -76,19 +76,23 @@
           </div>
 
           <div class="tab-pane fade" id="list-balance" role="tabpanel" aria-labelledby="list-balance-list">
-            
+            <h5 class="text-center"><%= t('.balance')%> </h5>
+            <table class="table">
+              <% @account_balance.each do |b| %>
+              <tr>
+                <td>
+                  <%= b.currency[:name] %>
+                </td>
+                <td>
+                  <%= b[:amount] %>
+                </td>
+              </tr>
+              <% end %>
+            </table>
           </div>
-
-
-
-
             <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-              <%= render 'shared/create_limit_order', currencies: @currencies_to_trade, account_balance: @account_balance %>
+              <%= render 'shared/create_limit_order', currencies: @currencies_to_trade %>
             </div>
-
-
-
-
           </div>
         </div>
        </div>

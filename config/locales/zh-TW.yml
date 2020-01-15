@@ -39,6 +39,7 @@ zh-TW:
       new_member_who_made_a_first_transaction_will_receive_another_10_honey_coin: '再做出第一筆交易後，可獲得另外 10 HoneyPoints'
   markets:
     index:
+      balance: '帳戶餘額'
       Maibee_Market: '買幣站內市場' 
       currency: '幣別'
       amount: '數量'

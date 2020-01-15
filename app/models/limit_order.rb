@@ -32,9 +32,3 @@ private
     self.num = SecureRandom.hex(6)
   end
 end
-
-class BigDecimal
-  def to_currency
-    number_to_currency(self, unit: '$')
-  end
-end
