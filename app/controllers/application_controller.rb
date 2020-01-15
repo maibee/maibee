@@ -1,8 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :records #for notifications on header
+<<<<<<< HEAD
   before_action :demo_rank #for DemoDay event only
   before_action :set_locale
+=======
+>>>>>>> setup demo event page WIP
 
   def set_locale
     # 可以將 ["en", "zh-TW"] 設定為 VALID_LANG 放到 config/environment.rb 中
@@ -14,15 +17,6 @@ class ApplicationController < ActionController::Base
   end
   private
 
-  def demo_rank
-    @rank = Wallet.all
-                  .map{|w| [w.user_id, (w.amount * get_rate(w.currency_id))]}
-                  .sort{|x,y| x[0] <=> y[0]}
-                  .reduce([[]]){|accu, w| (accu[-1][0] == w[0]) ? accu[0..-2].push([w[0],(accu[-1][1] + w[1])]) : accu.push(w)}[1..]
-                  .sort{|x,y| x[1] <=> y[1]}
-                  .last(10)
-                  .reverse
-  end
 
   def get_rate(currency_id)
     Currency.find_by(id: currency_id).last_rate

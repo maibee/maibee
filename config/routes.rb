@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'demo_event/index'
   # devise
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -6,6 +7,9 @@ Rails.application.routes.draw do
 
   #homepage
   root 'homepage#index'
+
+  #demo event
+  get 'demo_event', to: 'demo_event#index', as: :demo_event
 
   #dashboard
   resources :dashboard, only: :index do
