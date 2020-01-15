@@ -32,3 +32,12 @@ private
     self.num = SecureRandom.hex(6)
   end
 end
+<<<<<<< HEAD
+=======
+
+class BigDecimal
+  def to_currency
+      self - self.ceil + self.ceil.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse.to_f
+  end
+end
+>>>>>>> setup demo event page WIP

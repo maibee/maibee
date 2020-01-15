@@ -1,6 +1,5 @@
 class HomepageController < ApplicationController
-  def index    
-    @demo_rank = demo_rank
+  def index
     @currencies = Currency.tradable
   end
 end

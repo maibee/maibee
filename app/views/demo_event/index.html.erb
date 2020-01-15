@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="h4">🔥Demo Day 炒幣大賽</h1>
+
+  <table class="table table-striped">
+  <% @rank.each_with_index do |rank, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= User.find_by(id: rank[0]).email[0..14] %></td>
+      <td><%= number_to_currency(rank[1], unit: '') %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

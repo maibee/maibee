@@ -25,24 +25,9 @@
               <%= t('.invite_friends') %><span class="badge badge-warning"><%= t('.earn_up_to') %> 20HP</span>
             <% end %>
           </li>
-          <!-- -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                🔥Demo Day 炒幣排行
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <table class="table table-borderless">
-                <% @rank.each_with_index do |rank, i| %>
-                  <tr>
-                    <td><%= i+1 %></td>
-                    <td><%= User.find_by(id: rank[0]).email[0..14] %></td>
-                    <td><%= rank[1] %></td>
-                  </tr>
-                <% end %>
-                </table>
-              </div>
-            </li>
-          <!-- -->
+          <li class="nav-item">
+            <%= link_to '🔥Demo Day 炒幣排行', demo_event_path, class: 'nav-link' %>
+          </li>
         </ul>
         <ul class="navbar-nav">
           <% if user_signed_in?%>
