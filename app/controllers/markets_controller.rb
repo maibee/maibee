@@ -32,7 +32,7 @@ class MarketsController < ApplicationController
   def edit
     @limit_order = LimitOrder.find(params[:id])
     if current_user.cancel_limit_order(@limit_order)
-      ActionCable.server.broadcast 'remove_channel', content: @limit_order
+      ActionCable.server.broadcast 'cancel_channel', content: @limit_order
       redirect_to markets_path, notice: I18n.t(:order_cancelled!)
     end
   end

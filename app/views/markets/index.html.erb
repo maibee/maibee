@@ -91,9 +91,9 @@
               <div><%= t('.total_price') %></div>
               <div></div>
             </div>
-            <div class="body_row" id="new_order"></div>
+            <div id="new_order"></div>
             <% @limit_orders_selling.each do |order|%>
-              <div class="body_row" id="tmarket<%= order.id%>">
+              <div class="body_row" id="tmarket<%= order.id %>">
                 <%= render 'shared/coin_icon', order: order%>
                 <div><%= order.amount%></div>
                 <div><%= order.sell_price.to_currency%></div>
