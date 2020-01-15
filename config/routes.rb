@@ -6,14 +6,6 @@ Rails.application.routes.draw do
 
   #homepage
   root 'homepage#index'
-  #careers
-  get 'career', to: 'dashboard#career', as: :career
-  #legal
-  get 'legal', to: 'dashboard#legal', as: :legal
-  #language
-  get 'language', to: 'dashboard#language', as: :language
-  #help
-  get 'help', to: 'dashboard#help', as: :help
 
   #dashboard
   resources :dashboard, only: :index do
