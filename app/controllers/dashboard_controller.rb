@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
   def index
     @currencies = Currency.tradable
     @wallets = current_user.wallets 
-    @orders = current_user.orders
+    @orders = current_user.orders.reverse
   end
 
   def career

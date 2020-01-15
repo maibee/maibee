@@ -4,10 +4,10 @@
       <ul class="navbar-nav d-flex mx-auto">
         <li class="nav-item"><p class="nav-link disabled">©2020 Maibee</a></li>
         <li class="nav-item">
-        <%= link_to "中文版", {:controller => :homepage, :action => :index, :locale => "zh-TW"},class: 'nav-link'%>
+        <%= link_to "中文版", {:controller => params[:controller], :action => params[:action], :locale => "zh-TW"},class: 'nav-link'%>
         </li>
         <li class="nav-item">
-        <%= link_to "English", {:controller => :homepage, :action => :index, :locale => "en"},class: 'nav-link'%>
+        <%= link_to "English", {:controller => params[:controller], :action => params[:action], :locale => "en"},class: 'nav-link'%>
         </li>
       </ul>
     </nav>
