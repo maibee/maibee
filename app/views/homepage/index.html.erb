@@ -5,12 +5,12 @@
       <p><%= t('.maibee') %></p>
       <h3><%= t('.join_new_and_get_10_honey_point') %></h2>
       <div class="create_account">
-        <div class="input-group input-group-lg col-6 mx-auto">
-          <input type="text" class="form-control" placeholder="email">
-            <div class="input-group-append">
-              <button class="btn btn-success" type="button">Join</button>
-            </div>
+          <%= form_with(url: '/users/sign_up', method: 'get', class: 'input-group input-group-lg col-6 mx-auto', local: true) do %>
+          <%= text_field_tag :email,"", class:"form-control", placeholder:"email"%>
+          <div class="input-group-append">
+          <%= submit_tag "Join",class:"btn btn-success"%>
           </div>
+          <% end %>
         </div>
     </div>
   </div>
