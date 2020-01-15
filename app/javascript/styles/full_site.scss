@@ -44,7 +44,8 @@ main > :first-child{
 .table_for_currency{
   height: 500px;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
+  margin-top: 5px;
 }
 .head_row, .body_row{
   display: flex;
@@ -53,7 +54,6 @@ main > :first-child{
 .body_row div, .head_row div{
   margin: auto;
   width: 20%;
-  font-size: 10px;
   text-align: center;
   overflow: auto;
 }
@@ -62,9 +62,10 @@ main > :first-child{
 }
 .head_row div:nth-child(1){
   width: 30%;
+  align-items: flex-start;
+  justify-content: center;
 }
 .body_row div:first-child{
-  font-size: 15px;
   width: 30%;
   text-align: left;
 }
@@ -93,6 +94,7 @@ main > :first-child{
     width: 10%;
   }
   .market_btn{
+    width: 70%;
     text-decoration: none!important;
     display: inline-block;
     font-weight: 400;
@@ -115,7 +117,7 @@ main > :first-child{
     border-color: #5DB7FC;
   }
   .global_market_flow{
-    display: inline-block;
+    display: table-cell;
   }
 }
 

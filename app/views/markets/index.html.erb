@@ -19,14 +19,14 @@
         <div class="col-md-9 col-12 overflow-auto market_info">
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+              <div class="head_row">
+                <div><%= t('.currency') %></div>
+                <div><%= t('.amount') %></div>
+                <div><%= t('.sell_price') %></div>
+                <div><%= t('.total_price') %></div>
+                <div></div>
+              </div> 
               <div class="table_for_currency">
-                <div class="head_row">
-                  <div><%= t('.currency') %></div>
-                  <div><%= t('.amount') %></div>
-                  <div><%= t('.sell_price') %></div>
-                  <div><%= t('.total_price') %></div>
-                  <div></div>
-                </div> 
                 <% @limit_orders.pending.reverse.each do |order|%>
                 <div class="body_row" id="market<%= order.id%>">
                   <%= render 'shared/coin_icon', order: order%>
@@ -39,13 +39,13 @@
             </div>
           </div>
             <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+              <div class="head_row">
+                <div><%= t('.currency') %></div>
+                <div><%= t('.amount') %></div>
+                <div><%= t('.sell_price') %></div>
+                <div><%= t('.total_price') %></div>
+              </div>
               <div class="table_for_currency">
-                <div class="head_row">
-                  <div><%= t('.currency') %></div>
-                  <div><%= t('.amount') %></div>
-                  <div><%= t('.sell_price') %></div>
-                  <div><%= t('.total_price') %></div>
-                </div>
               <% @limit_orders.closed_deal.reverse.each do |order|%>
                 <div class="body_row">
                   <%= render 'shared/coin_icon', order: order%>
@@ -57,13 +57,13 @@
               </div>
             </div>
             <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+              <div class="head_row">
+                <div><%= t('.currency') %></div>
+                <div><%= t('.amount') %></div>
+                <div><%= t('.sell_price') %></div>
+                <div><%= t('.total_price') %></div>
+              </div>
               <div class="table_for_currency">
-                <div class="head_row">
-                  <div><%= t('.currency') %></div>
-                  <div><%= t('.amount') %></div>
-                  <div><%= t('.sell_price') %></div>
-                  <div><%= t('.total_price') %></div>
-                </div>
                 <% @limit_orders.cancelled.reverse.each do |order|%>
                   <div class="body_row">
                     <%= render 'shared/coin_icon', order: order%>
@@ -76,7 +76,6 @@
           </div>
 
           <div class="tab-pane fade" id="list-balance" role="tabpanel" aria-labelledby="list-balance-list">
-            <h5 class="text-center"><%= t('.balance')%> </h5>
             <table class="table">
               <% @account_balance.each do |b| %>
               <tr>
@@ -100,16 +99,20 @@
     </div>
 
     <div class="col-md-5 col-12 mx-auto pl-md-0">
+      <h2 class="h5 text-center mt-3"><%= t('.global_market')%></h2>
+      <div class="overflow-auto" style="height: 35vh;">
+        <%= render 'shared/coin_list', currencies: @currencies%>
+      </div>
       <h1 class="h5 text-center"><%= t('.Maibee_Market') %></h1>
       <div class="overflow-auto" style="height: 44vh;">
+          <div class="head_row">
+            <div><%= t('.currency') %></div>
+            <div><%= t('.amount') %></div>
+            <div><%= t('.sell_price') %></div>
+            <div><%= t('.total_price') %></div>
+            <div></div>
+          </div>
         <div class="table_for_currency">
-            <div class="head_row">
-              <div><%= t('.currency') %></div>
-              <div><%= t('.amount') %></div>
-              <div><%= t('.sell_price') %></div>
-              <div><%= t('.total_price') %></div>
-              <div></div>
-            </div>
             <div id="new_order"></div>
             <% @limit_orders_selling.each do |order|%>
               <div class="body_row" id="tmarket<%= order.id %>">
@@ -125,10 +128,6 @@
               </div>
             <% end %>
         </div>
-      </div>
-      <h2 class="h5 text-center mt-3"><%= t('.global_market')%></h2>
-      <div class="overflow-auto" style="height: 35vh;">
-        <%= render 'shared/coin_list', currencies: @currencies%>
       </div>
     </div>
   </div>
