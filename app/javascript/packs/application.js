@@ -17,3 +17,12 @@ import 'styles/custom.scss'
 import '../zeroing'
 import 'chart.js'
 
+document.addEventListener('turbolinks:load',function(){
+  new Chart(document.getElementById("chart-SPQ"), {
+    type: 'line',
+    data: {
+      labels: chart_label,
+      datasets: currencies_data
+    },
+  });
+})

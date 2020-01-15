@@ -30,11 +30,6 @@
     <td>
       <%= currency.last_rate %>
     </td>
-    <td>
-      <span>
-        <%= render 'shared/charts', currency: currency%>
-      </span>
-    </td>
     <td class="w-25 ">
       <%= link_to t('.buy'), exchange_path(currency.codename), class: 'btn btn-primary btn-sm' %>
       <%= link_to t('.sell'), sell_exchange_path(currency.codename), class: 'btn btn-primary btn-sm' %>

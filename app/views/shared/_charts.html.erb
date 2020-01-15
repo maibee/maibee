@@ -1,15 +1,9 @@
-<canvas id="line-chart-<%= currency.codename %>" class="price-chart"></canvas>
+<canvas id="chart-<%= currency.codename %>" class="price-chart"></canvas>
 <script>
-  var currencies_data = [{
-      data: <%= currency.latest_prices.last(20).map{|x| x.price} %>,
-      label: "<%= currency.name %>",
-      fill: false
-    },] 
-  new Chart(document.getElementById("line-chart-<%= currency.codename %>"), {
-    type: 'line',
-    data: {
-      labels: <%= currency.latest_prices.last(20).map{|x| x.created_at.day} %>,
-      datasets: currencies_data
-    },
-  });
+var currencies_data = [{
+    data: <%= currency.latest_prices.last(20).map{|x| x.price} %>,
+    label: 'SPQ',
+    fill: false
+  },] 
+var chart_label = <%= currency.latest_prices.last(20).map{|x| x.created_at.hour }%>
 </script>
