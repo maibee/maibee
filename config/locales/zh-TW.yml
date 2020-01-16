@@ -130,6 +130,9 @@ zh-TW:
     wallet:
       buy: '購買'
       send: '匯出'
+      sell: '賣出'
+      crypto: '虛擬幣'
+      wallet: '錢包'
   transfers:
     index:
       transfers: '匯出'
