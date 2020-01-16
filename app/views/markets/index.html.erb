@@ -5,8 +5,8 @@
       <div class="w-100 mb-5">
         <%= render 'shared/charts', currency: @demo_currency%>
       </div>
-      <div class="w-100">
-       <div class="row mt-3">
+      <div class="w-100 mt-3">
+       <div class="row">
         <div class="col-md-3 col-12 pr-md-0">
           <div class="list-group" id="list-tab" role="tablist">
             <a class=" list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><%= t('.my_selling_list') %></a>
@@ -107,7 +107,7 @@
 
     <div class="col-md-5 col-12 mx-auto pl-md-0">
       <h2 class="h5 text-center mt-3"><%= t('.global_market')%></h2>
-      <div class="overflow-auto" style="height: 35vh;">
+      <div class="overflow-auto" style="height: 47vh;">
         <%= render 'shared/coin_list', currencies: @currencies%>
       </div>
       <h1 class="h5 text-center"><%= t('.Maibee_Market') %></h1>
