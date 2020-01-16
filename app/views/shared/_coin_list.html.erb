@@ -28,7 +28,7 @@
       </td>
     <% end %>
     <td>
-      $<%= currency.last_rate %>
+      <%= number_to_currency(currency.last_rate, unit: '') %>
     </td>
     <td>
       <%= link_to t('.buy'), exchange_path(currency.codename), class: 'market_btn' %>

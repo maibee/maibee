@@ -4,7 +4,7 @@
     <table class="table table-striped">
       <tbody>
         <tr><th><%= t('.order_number') %></td> <td><%= @order.number %></td></tr>
-        <tr><th><%= t('.created_date') %></td> <td><%= @order.created_at %></td></tr>
+        <tr><th><%= t('.created_date') %></td> <td><%= I18n.l(@order.created_at) %></td></tr>
         <tr><th><%= t('.amount') %></td> <td><%= @order.amount %></td></tr>
         <tr><th><%= t('.deal_price') %></td> <td><%= @order.price %></td></tr>
         <tr><th><%= t('.total_price') %></td> <td><%= @order.price * @order.amount %></td></tr>

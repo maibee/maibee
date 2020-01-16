@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :show_menu, only: [:index]
 
   def index
-    @orders = Order.where(user_id: current_user)
+    @orders = Order.where(user_id: current_user).reverse
   end
 
   def show
