@@ -1,17 +1,29 @@
 class DemoEventController < ApplicationController
   def index
-    
-    @rank = Wallet.all
-                  .map{|w| [w.user_id, (w.amount * get_rate(w.currency_id))]}
-                  .sort{|x,y| x[0] <=> y[0]}
-                  .reduce([[]]){|accu, w| (accu[-1][0] == w[0]) ? accu[0..-2].push([w[0],(accu[-1][1] + w[1])]) : accu.push(w)}[1..]
-                  .sort{|x,y| x[1] <=> y[1]}
-                  .last(10)
-                  .reverse
-
-
+    @rank = User.where(state: :demo_event)
+                .map{|user| [user, user.total_assets]}
+                .sort{|x,y| x[1]<=>y[1]}
+                .last(10).reverse
   end
+
+  def nickname
+    demo_user = current_user
+    demo_user.first_name = nickname_params[:first_name]
+    demo_user.state = :demo_event
+    if demo_user.save
+      redirect_to demo_event_path
+    else
+      render :index
+    end
+  end
+
+  private
+
   def get_rate(currency_id)
     Currency.find_by(id: currency_id).last_rate
+  end
+
+  def nickname_params
+    params.require(:user).permit(:first_name)
   end
 end

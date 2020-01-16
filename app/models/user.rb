@@ -9,13 +9,13 @@ class User < ApplicationRecord
   has_many :transaction_records
   has_many :orders
 
-  enum state: [:uncertified, :basic, :advenced, :removed, :demo]
+  enum state: [:uncertified, :basic, :advenced, :removed, :demo, :demo_event]
 
   after_create do
     if self.state == 'demo'
       self.wallets.create(currency_id: Currency.find_by(name:"HoneyPoint").id, amount: 1000000)
     else
-      self.wallets.create(currency_id: Currency.find_by(name:"HoneyPoint").id, amount: 0)
+      self.wallets.create(currency_id: Currency.find_by(name:"HoneyPoint").id, amount: 20)
     end
   end
 

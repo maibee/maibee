@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   #demo event
   get 'demo_event', to: 'demo_event#index', as: :demo_event
+  post 'set_nickname', to: 'demo_event#nickname', as: :set_nickname
 
   #dashboard
   resources :dashboard, only: :index do

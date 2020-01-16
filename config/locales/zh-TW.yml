@@ -142,3 +142,8 @@ zh-TW:
   wallets:
     index:
       wallet: '錢包'
+  demo_event:
+    index:
+      nickname: '暱稱'
+      submit: '參加'
+
