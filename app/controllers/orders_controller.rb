@@ -40,19 +40,24 @@ class OrdersController < ApplicationController
   end
 
   def create
-    currency_id = Currency.find_by(id: params["order"]["currency_id"]).slug 
+    currency_id = Currency.find_by(id: params["order"]["currency_id"]).slug
     @order = Order.new(order_params)
     @order.user_id = current_user.id
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
     @order.number = @order.generate_order_number
     my_wallet = Wallet.find_by(user_id: current_user.id, currency_id: @order.currency_id)
     if @order.is_sell == true
-      if @order.amount <= my_wallet.amount && @order.save
-      create_unread_record(@order)
-      redirect_to order_path(@order), notice: I18n.t(:order_created)
-      else
+      if @order.amount == nil
         flash[:notice] = I18n.t(:please_check_order_amount)
-        redirect_to sell_exchange_path(currency_id)
+        redirect_to sell_exchange_path(@order.currency_id)
+      else
+        if (@order.amount <= my_wallet.amount) && @order.save
+        create_unread_record(@order)
+        redirect_to order_path(@order), notice: I18n.t(:order_created)
+        else
+          flash[:notice] = I18n.t(:please_check_order_amount)
+          redirect_to sell_exchange_path(currency_id)
+        end
       end
     else
       if @order.save

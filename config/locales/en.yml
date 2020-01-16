@@ -30,4 +30,51 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  dont_have_enough_honey_point: 'dont have enough honey point'
+  order_completed: 'order completed'
+  order_created: 'order created'
+  please_check_order_amount: 'please check order amount'
+  limit_order_create_successfully: 'limit order create successfully'
+  please_check_your_balance_or_input_value: 'please check your balance or input value'
+  order_cancelled!: 'order cancelled!'
+  bit_successfully: 'bit successfully'
+  
+  shared:
+    create_limit_order: 
+      account_balance: 'account balance'
+      amount: 'amount'
+      sell_price: 'sell price'
+      submit_order: 'submit'
+    coin_list:
+      buy: 'buy'
+      sell: 'sell'
+    sell_or_buy_currency: 
+      name: 'currency code'
+      current_prices: 'current prices'
+      account_balance: 'account_balance'
+      amount: 'amount'
+      submit: 'submit'
+    limit_order_link:
+      sell_coins_in_market: 'sell coins in market'
+      view_my_information: 'view my information'
+    show:
+      your_record: 'your record'
+    user_menu:
+      orders: 'orders'
+      user_info: 'user information'
+      transfers: 'transfers'
+      account_info: 'account information'
+    wallet:
+      buy: 'buy'
+      send: 'send'
+  transfers:
+    index:
+      transfers: 'transfers'
+      to: 'to'
+    new:
+      amount: 'amount'
+      new_transfer: 'new_transfer'
+      target_address: 'target address'
+  wallets:
+    index:
+      wallet: 'wallet'
