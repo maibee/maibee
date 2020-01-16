@@ -1,4 +1,13 @@
 <table class="table">
+  <tr>
+    <td colspan="3"><h3 class="h4"><%= t('.total_assets') %></h3></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <%= current_user.total_assets %>
+    </td>
+  </tr>
+  <tr>
   <% @wallets.each do |wallet| %>
     <% if wallet.currency.codename == 'HP' %>
       <tr>

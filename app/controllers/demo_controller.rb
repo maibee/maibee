@@ -2,10 +2,10 @@ class DemoController < ApplicationController
 
   def new
     if Time.now > Time.local(2020,01,19)
-      flash[:notice] = "Demo day is over."
+      flash[:notice] = I18n.t("demo_day_is_over")
       redirect_to root_path
     elsif user_signed_in?
-      flash[:notice] = "You already have an account"
+      flash[:notice] = I18n.t("you_already_have_an_account")
       redirect_to root_path
     else
       demo_number = SecureRandom.hex(5)
@@ -13,10 +13,10 @@ class DemoController < ApplicationController
       demo_user.state = 'demo'
       if demo_user.save
         sign_in(demo_user)
-        flash[:notice] = "You are now using demo account."
-        redirect_to root_path
+        flash[:notice] = I18n.t('you_are_now_using_demo_account')
+        redirect_to demo_event_path
       else
-        flash[:notice] = "Please try again."
+        flash[:notice] = I18n.t('please_try_again')
         redirect_to root_path
       end
     end

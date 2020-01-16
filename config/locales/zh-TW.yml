@@ -133,6 +133,7 @@ zh-TW:
       sell: '賣出'
       crypto: '虛擬幣'
       wallet: '錢包'
+      total_assets: '總資產'
   transfers:
     index:
       transfers: '匯出'
