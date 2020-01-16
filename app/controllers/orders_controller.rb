@@ -46,18 +46,13 @@ class OrdersController < ApplicationController
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
     @order.number = @order.generate_order_number
     my_wallet = Wallet.find_by(user_id: current_user.id, currency_id: @order.currency_id)
-    if @order.is_sell == true
-      if @order.amount == nil
-        flash[:notice] = I18n.t(:please_check_order_amount)
-        redirect_to sell_exchange_path(@order.currency_id)
+    if @order.is_sell == true && @order.save
+      if (@order.amount <= my_wallet.amount)
+      create_unread_record(@order)
+      redirect_to order_path(@order), notice: I18n.t(:order_created)
       else
-        if (@order.amount <= my_wallet.amount) && @order.save
-        create_unread_record(@order)
-        redirect_to order_path(@order), notice: I18n.t(:order_created)
-        else
-          flash[:notice] = I18n.t(:please_check_order_amount)
-          redirect_to sell_exchange_path(currency_id)
-        end
+        flash[:notice] = I18n.t(:please_check_order_amount)
+        redirect_to sell_exchange_path(currency_id)
       end
     else
       if @order.save
