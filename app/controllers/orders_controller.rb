@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       wallet.amount -= (@order.amount)
     else
       if current_user.balance < (@order.amount * @order.price)
-        redirect_to order_path(@order), notice: 'Dont have enough honey point'
+        redirect_to order_path(@order), notice: I18n.t(:dont_have_enough_honey_point)
       end
       honey_point.amount -= (@order.amount * @order.price)
       wallet.amount += (@order.amount)
@@ -35,11 +35,12 @@ class OrdersController < ApplicationController
         end
         spq.save
       end
-      redirect_to order_path(@order), notice: 'order completed'
+      redirect_to order_path(@order), notice: I18n.t(:order_completed)
     end
   end
 
   def create
+    currency_id = Currency.find_by(id: params["order"]["currency_id"]).slug 
     @order = Order.new(order_params)
     @order.user_id = current_user.id
     @order.price = Currency.find_by(id: @order.currency_id).last_rate
@@ -48,16 +49,18 @@ class OrdersController < ApplicationController
     if @order.is_sell == true
       if @order.amount <= my_wallet.amount && @order.save
       create_unread_record(@order)
-      redirect_to order_path(@order), notice: 'Order Created'
+      redirect_to order_path(@order), notice: I18n.t(:order_created)
       else
-        render 'exchanges/sell', notice: 'Something went wrong'
+        flash[:notice] = I18n.t(:please_check_order_amount)
+        redirect_to sell_exchange_path(currency_id)
       end
     else
       if @order.save
         create_unread_record(@order)
-        redirect_to order_path(@order), notice: 'Order Created'
+        redirect_to order_path(@order), notice: I18n.t(:order_created)
       else
-        render 'exchanges/show', notice: 'Something went wrong'
+        flash[:notice] = I18n.t(:please_check_order_amount)
+        redirect_to exchange_path(currency_id)
       end
     end
   end

@@ -5,12 +5,12 @@
       <p><%= t('.maibee') %></p>
       <h3><%= t('.join_new_and_get_10_honey_point') %></h2>
       <div class="create_account">
-        <div class="input-group input-group-lg col-6 mx-auto">
-          <input type="text" class="form-control" placeholder="email">
-            <div class="input-group-append">
-              <button class="btn btn-success" type="button">Join</button>
-            </div>
+          <%= form_with(url: '/users/sign_up', method: 'get', class: 'input-group input-group-lg col-10 mx-auto', local: true) do %>
+          <%= text_field_tag :email,"", class:"form-control", placeholder:"email"%>
+          <div class="input-group-append">
+          <%= submit_tag "Join",class:"btn btn-success white"%>
           </div>
+          <% end %>
         </div>
     </div>
   </div>
@@ -18,8 +18,8 @@
 
 <section class="coin_list container-fluid bg-light">
   <div class="row">
-    <div class="col-lg-8 col-10 mx-auto price shadow px-0">
-      <%= render 'shared/coin_list', currencies: @currencies %>
+    <div class="col-lg-8 col-12 mx-auto price shadow px-0">
+      <%= render 'shared/coin_list_homepage', currencies: @currencies %>
     </div>
   </div>
 </section>

@@ -19,13 +19,14 @@ consumer.subscriptions.create("RoomChannel", {
             }
           };
     let MarketTemplate = `
-                          <td>${whichIcon(data.content[1])}</td>
-                          <td>${data.content[0].amount}</td>
-                          <td>${data.content[0].sell_price}</td>
-                          <td>${data.content[2]}</td>
-                          <td><a class= "btn btn-primary" rel="nofollow" data-method="post" href = "/markets/${data.content[0].id}/bit">購買<a></td>
+                          <div>${whichIcon(data.content[1])}</div>
+                          <div>${data.content[0].amount}</div>
+                          <div>${data.content[0].sell_price}</div>
+                          <div>${data.content[2]}</div>
+                          <div><a rel="nofollow" data-method="post" href = "/markets/${data.content[0].id}/bit">購買</a></div>
                           `
-    let node = document.createElement('tr')
+    let node = document.createElement('div')
+    node.className= 'body_row'
     node.innerHTML= MarketTemplate
     node.id = "tmarket" + data.content[0].id
     console.log(node);

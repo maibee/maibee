@@ -6,7 +6,11 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="form-group">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"col-12 form-control",placeholder: 'email'  %>
+          <% if @email == nil%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"col-12 form-control",placeholder: 'email'%>
+          <%  else %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"col-12 form-control",placeholder: 'email', value: @email || ""%>
+          <% end %>
         </div>
 
         <div class="form-group">
