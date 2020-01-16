@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-12 mx-auto">
+      <% if user_signed_in? %>
+        <% unless current_user.first_name %>
+          <h2 class="h4 mt-5 mx-auto col-lg-6 col-12 text-center">請輸入暱稱加入炒幣大賽排行</h2>
+          <div class="mb-5">
+            <%= form_with model: current_user, class: 'input-group input-group-lg col-6 mx-auto',url: set_nickname_path, method: 'post' do |form|%>
+              <%= form.text_field :first_name, class: 'form-control rounded-left'%>
+              <div class="input-group-append">
+                <%= form.submit t('.submit'), class: 'btn btn-primary white'%>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <h1 class="h4">🔥Demo Day 炒幣大賽</h1>
+
+      <table class="table table-striped">
+        <tr>
+          <th>#</td>
+          <th>暱稱</td>
+          <th>總資產</td>
+        </tr>
+      <% @rank.each_with_index do |rank, i| %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%= rank[0].first_name %></td>
+          <td><%= number_to_currency(rank[1], unit: '') %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

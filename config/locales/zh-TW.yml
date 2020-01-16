@@ -34,8 +34,7 @@ zh-TW:
       maibee_launch_special: 'Maibee開站特別活動'
       register_now_and_get: '馬上註冊並免費獲得'
       for_free: ''
-      new_member_who_is_registered_before_2020_may_will_get_10_honey_coin: '只要在2020年五月前註冊，即可馬上獲得 10 HoneyPoints'
-      new_member_who_made_a_first_transaction_will_receive_another_10_honey_coin: '再做出第一筆交易後，可獲得另外 10 HoneyPoints'
+      promo: '只要在2020年五月前註冊，即可馬上獲得 200 HoneyPoints'
   markets:
     index:
       balance: '帳戶餘額'
@@ -66,6 +65,8 @@ zh-TW:
       cancelled_orders: '已取消掛單'
       new_limit_order: '新增掛單交易'
   orders:
+    index:
+      no_order_yet: '尚未有訂單'
     order:
       order_number: '訂單編號'
       amount: '數量'
@@ -105,6 +106,7 @@ zh-TW:
       dashboard: '狀態'
       buy_and_sell: '虛擬幣買賣'
       market: '掛單交易'
+      real_time: '即時'
       invite_friends: '邀請朋友'
       earn_up_to: '獲得高達'
       all_notifications: '所有通知'
@@ -128,10 +130,14 @@ zh-TW:
     wallet:
       buy: '購買'
       send: '匯出'
+      sell: '賣出'
+      crypto: '虛擬幣'
+      wallet: '錢包'
   transfers:
     index:
       transfers: '匯出'
       to: '至'
+      no_transfer_record_yet: '尚未有匯出紀錄'
     new:
       amount: '金額'
       new_transfer: '匯出貨幣'
@@ -139,3 +145,8 @@ zh-TW:
   wallets:
     index:
       wallet: '錢包'
+  demo_event:
+    index:
+      nickname: '暱稱'
+      submit: '參加'
+

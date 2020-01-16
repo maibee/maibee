@@ -1,5 +1,23 @@
 <table class="table">
   <% @wallets.each do |wallet| %>
+    <% if wallet.currency.codename == 'HP' %>
+      <tr>
+        <td colspan="3"><h3 class="h4"><%= t('.wallet') %></h3></td>
+      </tr>
+      <tr>
+        <td>
+          <%= wallet.currency.name %>
+        </td>
+        <td>
+          <%= wallet.amount %>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3"><h3 class="h4"><%= t('.crypto') %></h3></td>
+      </tr>
+    <% else %>
   <tr>
     <td>
       <%= wallet.currency.name %>
@@ -8,10 +26,12 @@
       <%= wallet.amount %>
     </td>
     <td>
-      <%= link_to t('.buy'), exchange_path(wallet.currency), class: 'btn btn-primary btn-sm' %>
-      <%= link_to t('.send'), new_transfer_path(wallet.currency),  class: 'btn btn-primary btn-sm'%>
+        <%= link_to t('.buy'), exchange_path(wallet.currency), class: 'btn btn-primary btn-sm' %>
+        <%= link_to t('.sell'), sell_exchange_path(wallet.currency), class: 'btn btn-primary btn-sm' %>
+        <%= link_to t('.send'), new_transfer_path(wallet.currency),  class: 'btn btn-primary btn-sm'%>
     </td>
   </tr>
+  <% end %>
   <% end %>
 </table>
 <div class="my-3 container">
