@@ -1,4 +1,4 @@
-<div class="col-12 mx-auto">
+<div class="col-12 mx-auto mt-3">
   <%= form_with url: markets_path, remote: true do |f|%>
     <div class="d-flex justify-content-between">
       <%= f.select(:currency_id, currencies, {},  { :class => 'btn btn-warning w-50' }) %>
