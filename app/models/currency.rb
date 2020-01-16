@@ -4,6 +4,7 @@ class Currency < ApplicationRecord
   friendly_id :codename, use: :slugged
   has_many :latest_prices
 
+
   def last_rate
     self.latest.price
   end
