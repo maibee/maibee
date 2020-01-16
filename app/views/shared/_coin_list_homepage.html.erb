@@ -30,7 +30,7 @@
     <td>
       <%= number_to_currency(currency.last_rate, unit: '$') %>
     </td>
-    <td class="global_market_flow <%= currency.latest_prices.last.percent_change_7d >= 0 ? 'text-danger' : 'text-success' %>">
+    <td class="global_market_flow <%= currency.latest_prices.last.percent_change_7d >= 0 ? 'text-danger' : 'text-success' if currency.latest_prices.last.percent_change_7d%>">
       <%= currency.latest_prices.last.percent_change_7d %>
     </td>
     <td>
