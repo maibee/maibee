@@ -3,8 +3,8 @@
     <div class="d-flex justify-content-between">
       <%= f.select(:currency_id, currencies, {},  { :class => 'btn btn-warning w-50' }) %>
     </div>
-    <%= f.number_field :amount, step: :any,class:"col-12 form-control mt-3",placeholder:"#{t('.amount')}"%>
-    <%= f.number_field :sell_price, step: :any,class:"col-12 form-control mt-3",placeholder:"#{t('.sell_price')}"%>
+    <%= f.number_field :amount ,class:"col-12 form-control mt-3",placeholder:"#{t('.amount')}",max: 100000%>
+    <%= f.number_field :sell_price, step: :any,class:"col-12 form-control mt-3",placeholder:"#{t('.sell_price')}",max: 1000000%>
     <%= f.submit "#{t('.submit_order')}", class:"btn btn-primary w-100 mt-3" %>
   <% end %>
 </div>

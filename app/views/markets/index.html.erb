@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
 
     <div class="col-md-7 col-12 mx-lg-auto mb-5">
-      <div class="w-100">
+      <div class="w-100 mb-5">
         <%= render 'shared/charts', currency: @demo_currency%>
       </div>
       <div class="w-100">
@@ -16,7 +16,7 @@
             <a class=" list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"><%= t('.new_limit_order') %></a>
           </div>
         </div>
-        <div class="col-md-9 col-12 overflow-auto market_info">
+        <div class="col-md-9 col-12 market_info pr-2">
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
               <div class="head_row">
@@ -32,7 +32,8 @@
                   <%= render 'shared/coin_icon', order: order%>
                   <div><%= order.amount%></div>
                   <div><%= number_to_currency(order.sell_price, unit: '')%></div>
-                  <div><%= number_to_currency(order.price, unit: '')%></div>
+                  <div><%= number_to_currency(order.price, unit: '')%>
+                  </div>
                   <div><%= link_to t('.cancel'), edit_market_path(order)%></div>
                 </div>
                 <% end %>
@@ -51,7 +52,8 @@
                   <%= render 'shared/coin_icon', order: order%>
                   <div><%= order.amount%></div>
                   <div><%= number_to_currency(order.sell_price, unit: '')%></div>
-                  <div><%= number_to_currency(order.price, unit: '')%></div>
+                  <div><%= number_to_currency(order.price, unit: '')%>
+                  </div>
                 </div>
                 <% end %>
               </div>
@@ -69,7 +71,12 @@
                     <%= render 'shared/coin_icon', order: order%>
                     <div><%= order.amount%></div>
                     <div><%= number_to_currency(order.sell_price, unit: '')%></div>
-                    <div><%= number_to_currency(order.price, unit: '')%></div>
+                    <div><% if order.price > 1000000 %>
+                      <%= number_to_human(order.price) %>
+                      <% else %>
+                      <%= number_to_currency(order.price, unit: '')%>
+                      <% end %>
+                    </div>
                   </div>
                 <% end %>
             </div>
@@ -104,7 +111,7 @@
         <%= render 'shared/coin_list', currencies: @currencies%>
       </div>
       <h1 class="h5 text-center"><%= t('.Maibee_Market') %></h1>
-      <div class="overflow-auto" style="height: 44vh;">
+      <div style="height: 44vh;">
           <div class="head_row">
             <div><%= t('.currency') %></div>
             <div><%= t('.amount') %></div>
@@ -119,7 +126,8 @@
                 <%= render 'shared/coin_icon', order: order%>
                 <div><%= order.amount%></div>
                 <div><%= number_to_currency(order.sell_price, unit: '')%></div>
-                <div><%= number_to_currency(order.price, unit: '')%></div>
+                <div><%= number_to_currency(order.price, unit: '')%>
+                </div>
                 <% if order.user_id == current_user.id%>
                 <div><%=t('.my_order')%></div>
                 <% else %>

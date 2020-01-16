@@ -42,10 +42,13 @@ main > :first-child{
   height: 40vh;
 }
 .table_for_currency{
-  height: 500px;
+  height: 40vh;
   width: 100%;
   overflow: auto;
   margin-top: 5px;
+}
+.table_for_currency::-webkit-scrollbar{
+  width: 0 !important ;
 }
 .head_row, .body_row{
   display: flex;
@@ -61,15 +64,22 @@ main > :first-child{
   font-size: 15px;
 }
 .head_row div:nth-child(1){
-  width: 30%;
+  width: 20%;
   align-items: flex-start;
   justify-content: center;
 }
 .body_row div:first-child{
-  width: 30%;
+  width: 20%;
   text-align: left;
 }
 .body_row div:nth-child(3), .head_row div:nth-child(3){
+  display: none;
+}
+.body_row div:nth-child(4), .head_row div:nth-child(4){
+  width: 30%;
+}
+.body_row div::-webkit-scrollbar{
+  width: 0 !important;
   display: none;
 }
 .market_board{
