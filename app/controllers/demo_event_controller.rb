@@ -11,4 +11,7 @@ class DemoEventController < ApplicationController
 
 
   end
+  def get_rate(currency_id)
+    Currency.find_by(id: currency_id).last_rate
+  end
 end

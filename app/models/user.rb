@@ -19,6 +19,15 @@ class User < ApplicationRecord
     end
   end
 
+  def total_assets
+    self.wallets.map{|w| w.amount * get_rate(w.currency_id)}
+        .reduce(0){|accu, w| accu+w }
+  end
+
+  def get_rate(currency_id)
+    Currency.find_by(id: currency_id).last_rate
+  end
+
   def honey_point
     self.wallets.find_by(currency_id: Currency.find_by(name: 'HoneyPoint').id)
   end
