@@ -7,4 +7,7 @@
       <p><%= t('.transfers') %> <%= transfer.amount %> <%= t('.to') %> <%= transfer.target %>.</p>
     </li>
   <% end %>
+  <% unless @order %>
+    <h1 class="h4"><%= t('.no_transfer_record_yet') %></h1>
+  <% end %>
 </ul>

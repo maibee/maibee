@@ -18,11 +18,14 @@
             <%= link_to t('.buy_and_sell'), exchanges_path, class:'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to t('.market'), markets_path, class:'nav-link' %>
+            <%= link_to  markets_path, class:'nav-link' do %>
+              <%= t('.market') %><span class="badge badge-danger"><%= t('.real_time') %>
+            </span>
+          <% end %>
           </li>
           <li class="nav-item">
             <%= link_to invite_friend_index_path, class: 'nav-link' do %>
-              <%= t('.invite_friends') %><span class="badge badge-warning"><%= t('.earn_up_to') %> 20HP</span>
+              <%= t('.invite_friends') %><span class="badge badge-warning"><%= t('.earn_up_to') %> 200HP</span>
             <% end %>
           </li>
           <li class="nav-item">
