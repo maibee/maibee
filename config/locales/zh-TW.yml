@@ -119,6 +119,7 @@ zh-TW:
       sign_up: '註冊'
       wallet: '錢包'
       clear: '清除'
+      rank: '🔥Demo Day 炒幣排行'
     limit_order_link:
       sell_coins_in_market: '新增售出交易掛單'
       view_my_information: '檢視目前掛單資訊'

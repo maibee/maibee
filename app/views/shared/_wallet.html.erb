@@ -34,10 +34,10 @@
     <td>
       <%= wallet.amount %>
     </td>
-    <td class= "wallet_btn">
-        <%= link_to t('.buy'), exchange_path(wallet.currency), class: 'wallet_three_btn' %>
-        <%= link_to t('.sell'), sell_exchange_path(wallet.currency), class: 'wallet_three_btn' %>
-        <%= link_to t('.send'), new_transfer_path(wallet.currency),  class: 'wallet_three_btn'%>
+    <td class= "wallet_btn d-flex">
+        <%= link_to t('.buy'), exchange_path(wallet.currency), class: 'wallet_three_btn mx-1' %>
+        <%= link_to t('.sell'), sell_exchange_path(wallet.currency), class: 'wallet_three_btn mx-1' %>
+        <%= link_to t('.send'), new_transfer_path(wallet.currency),  class: 'wallet_three_btn mx-1'%>
     </td>
   </tr>
   <% end %>
