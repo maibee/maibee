@@ -6,12 +6,23 @@
         <tr><th><%= t('.order_number') %></td> <td><%= @order.number %></td></tr>
         <tr><th><%= t('.created_date') %></td> <td><%= I18n.l(@order.created_at) %></td></tr>
         <tr><th><%= t('.amount') %></td> <td><%= @order.amount %></td></tr>
-        <tr><th><%= t('.deal_price') %></td> <td><%= @order.price %></td></tr>
-        <tr><th><%= t('.total_price') %></td> <td><%= @order.price * @order.amount %></td></tr>
+        <tr><th><%= t('.deal_price') %></td> <td><%= number_to_currency(@order.price, unit: '$',precision: 5) %></td></tr>
+        <tr><th><%= t('.total_price') %></td> <td><%= number_to_currency(@order.price * @order.amount, unit: '$',precision: 5) %></td></tr>
         <tr>
           <th><%= t('.status') %></td>
           <td>
-            <%= @order.state %> <%= link_to 'Pay now', pay_order_path(@order), method: 'post', class: 'btn btn-primary btn-sm' if @order.state == 'unpaid'%>
+              <%= @order.state %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <% if @order.state == 'unpaid' %>
+              <%= link_to t('.confirm'), pay_order_path(@order), method: 'post', class: 'btn btn-primary btn-sm'%>
+            <% else %>
+              <%= link_to t('.wallet'), wallets_path, class: 'btn btn-primary btn-sm'%>
+              <%= link_to t('.to_market'), markets_path, class: 'btn btn-primary btn-sm'%>
+            <% end %>
           </td>
         </tr>
       </tbody>
