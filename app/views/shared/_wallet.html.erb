@@ -18,7 +18,7 @@
           <%= wallet.currency.name %>
         </td>
         <td>
-          <%= wallet.amount %>
+          <%= number_to_currency(wallet.amount, unit:'') %>
         </td>
         <td>
         </td>
@@ -32,7 +32,7 @@
       <%= wallet.currency.name %>
     </td>
     <td>
-      <%= wallet.amount %>
+      <%= number_to_currency(wallet.amount, unit:'') %>
     </td>
     <td class= "wallet_btn d-flex">
         <%= link_to t('.buy'), exchange_path(wallet.currency), class: 'wallet_three_btn mx-1' %>

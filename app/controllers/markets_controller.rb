@@ -9,9 +9,19 @@ class MarketsController < ApplicationController
     @limit_orders = LimitOrder.where(user_id: current_user.id)
     @account_balance = Wallet.where(user_id: current_user.id)
     @currencies_to_trade = Currency.tradable.map{|c| [c.name, c.id] }
+    @wallets = current_user.wallets.reduce({}) do |rs, wallet|
+      rs[wallet.currency_id] = wallet.amount
+      rs
+    end
+    # @first = current_user.wallets.find_by(currency_id: (Currency.tradable.first.id)).amount
   end
 
   def new
+    # @wallets = current_user.wallets.map{|w| {w.currency_id=> w.amount}}
+    @wallets = current_user.wallets.reduce({}) do |rs, wallet|
+      rs[wallet.currency_id] = wallet.amount
+      rs
+    end
     @currencies_to_trade = Currency.tradable.map{|c| [c.name, c.id] }
     @account_balance = Wallet.where(user_id: current_user.id)
   end

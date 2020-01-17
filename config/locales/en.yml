@@ -98,7 +98,7 @@ en:
     sell_or_buy_currency: 
       name: 'currency code'
       current_prices: 'current prices'
-      account_balance: 'account_balance'
+      account_balance: 'account balance'
       amount: 'amount'
       submit: 'submit'
     header:
