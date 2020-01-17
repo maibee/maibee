@@ -5,7 +5,7 @@
       <tbody>
         <tr><th><%= t('.order_number') %></td> <td><%= @order.number %></td></tr>
         <tr><th><%= t('.created_date') %></td> <td><%= I18n.l(@order.created_at) %></td></tr>
-        <tr><th><%= t('.amount') %></td> <td><%= @order.amount %></td></tr>
+        <tr><th><%= t('.amount') %></td> <td><%= number_to_currency(@order.amount, unit: '') %></td></tr>
         <tr><th><%= t('.deal_price') %></td> <td><%= number_to_currency(@order.price, unit: '$',precision: 5) %></td></tr>
         <tr><th><%= t('.total_price') %></td> <td><%= number_to_currency(@order.price * @order.amount, unit: '$',precision: 5) %></td></tr>
         <tr>

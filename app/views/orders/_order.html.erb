@@ -9,7 +9,7 @@
   <div class="row">
   </div>
   <p class="mb-1"><%= t('.amount') %>: <%= number_to_currency(order.amount, unit: '') %></p>
-  <p class="mb-1"><%= t('.deal_price') %>: <%= order.price %></p>
+  <p class="mb-1"><%= t('.deal_price') %>: <%= number_to_currency(order.price, unit: '') %></p>
   <p class="mb-1"><%= t('.total_price') %>: <%= number_to_currency(order.price * order.amount, unit: '')%></p>
   <p class="mb-1"><%= t('.status') %>: <%= order.state %></p>
   <p class="mb-1"><%= link_to t('.pay_now'), pay_order_path(order), method: 'post'  if order.state == 'unpaid'%></p>
