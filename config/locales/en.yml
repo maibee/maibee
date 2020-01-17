@@ -1,34 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t('hello')
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   dont_have_enough_honey_point: 'dont have enough honey point'
   order_completed: 'order completed'
@@ -39,6 +8,81 @@ en:
   order_cancelled!: 'order cancelled!'
   bit_successfully: 'bit successfully'
   
+  homepage:
+    index:
+      maibee: 'maibee'
+      join_new_and_get_10_honey_point: 'join and get 10 honey point'
+      buy_and_sell_cryptocurrency: 'buy and sell cryptocurrency'
+  exchanges:
+    show:
+      buy: 'buy'
+    sell:
+      sell: 'sell'
+  dashboard:
+    career:
+      career: 'career'
+    help:
+      help: 'help'
+    index:
+      my_assets: 'my assets'
+      chart: 'chart'
+      orders: 'orders'
+    language:
+      language: 'language'
+      legal: 'legal'
+  invite_friend:
+    invite:
+      maibee_launch_special: 'maibee launch special'
+      register_now_and_get: 'register now and get'
+      for_free: ''
+      promo: 'join us to get 200 HoneyPoints right now'
+  markets:
+    index:
+      balance: 'balance'
+      Maibee_Market: 'Maibee Market' 
+      currency: 'currency'
+      amount: 'amount'
+      sell_price: 'sell price'
+      total_price: 'total_price'
+      order_number: 'order_number'
+      buy: 'buy'
+      my_order: 'my order'
+      my_selling_list: 'my selling list'
+      deal: 'deal'
+      cancelled_orders: 'cancelled orders'
+      new_limit_order: 'new limit order'
+      global_market: 'global market'
+      cancel: 'cancel'
+    new:
+      new_limit_order: 'new limit order'
+    show:
+      currency: 'currency'
+      amount: 'amount'
+      sell_price: 'sell price'
+      total_price: 'total price'
+      cancel: 'cancel'
+      my_selling_list: 'my selling list'
+      deal: 'deal'
+      cancelled_orders: 'cancelled orders'
+      new_limit_order: 'new limit order'
+  orders:
+    index:
+      no_order_yet: 'no order yet'
+    order:
+      order_number: 'order number'
+      amount: 'amount'
+      deal_price: 'deal price'
+      total_price: 'total price'
+      status: 'status'
+      pay_now: 'pay now'
+    show:
+      order_details: 'order details'
+      order_number: 'order number'
+      created_date: 'created date'
+      amount: 'amount'
+      deal_price: 'deal price'
+      total_price: 'total price'
+      status: 'status'
   shared:
     create_limit_order: 
       account_balance: 'account balance'
@@ -48,12 +92,30 @@ en:
     coin_list:
       buy: 'buy'
       sell: 'sell'
+    coin_list_homepage:
+      buy: 'buy'
+      sell: 'sell'
     sell_or_buy_currency: 
       name: 'currency code'
       current_prices: 'current prices'
       account_balance: 'account_balance'
       amount: 'amount'
       submit: 'submit'
+    header:
+      dashboard: 'dashboard'
+      buy_and_sell: 'buy and sell'
+      market: 'market'
+      real_time: 'real time'
+      invite_friends: 'invite friends'
+      earn_up_to: 'earn up to'
+      all_notifications: 'all notifications'
+      orders: 'orders'
+      transfers: 'transfers'
+      log_out: 'log out'
+      log_in: 'log in'
+      sign_up: 'sign up'
+      wallet: 'wallet'
+      clear: 'clear'
     limit_order_link:
       sell_coins_in_market: 'sell coins in market'
       view_my_information: 'view my information'
@@ -67,10 +129,15 @@ en:
     wallet:
       buy: 'buy'
       send: 'send'
+      sell: 'sell'
+      crypto: 'crypto'
+      wallet: 'wallet'
+      total_assets: 'total assets'
   transfers:
     index:
       transfers: 'transfers'
       to: 'to'
+      no_transfer_record_yet: 'no transfer record yet'
     new:
       amount: 'amount'
       new_transfer: 'new_transfer'
@@ -78,3 +145,7 @@ en:
   wallets:
     index:
       wallet: 'wallet'
+  demo_event:
+    index:
+      nickname: 'nickname'
+      submit: 'submit'

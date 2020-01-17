@@ -1,15 +1,15 @@
 <footer class="bg-light">
   <div class="container">
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-      <ul class="navbar-nav d-flex mx-auto">
-        <li class="nav-item"><p class="nav-link disabled">©2020 Maibee</a></li>
-        <li class="nav-item">
+      <div class="navbar-nav d-flex mx-auto footer-bar">
+        <div class="nav-item footer-item nav-link disabled">©2020 Maibee</div>
+        <div class="nav-item footer-item ">
         <%= link_to "中文版", {:controller => params[:controller], :action => params[:action], :locale => "zh-TW"},class: 'nav-link'%>
-        </li>
-        <li class="nav-item">
+        </div>
+        <div class="nav-item footer-item ">
         <%= link_to "English", {:controller => params[:controller], :action => params[:action], :locale => "en"},class: 'nav-link'%>
-        </li>
-      </ul>
+        </div>
+      </div>
     </nav>
   </div>
 </footer>

@@ -7,6 +7,7 @@ zh-TW:
   please_check_your_balance_or_input_value: '請確認您的餘額或是輸入額度'
   order_cancelled!: '掛單交易取消'
   bit_successfully: '購買成功!'
+
   homepage:
     index:
       maibee: '買幣是一個容易買賣，且容易管理數位資產的平台'
@@ -94,11 +95,9 @@ zh-TW:
     coin_list:
       buy: '購買'
       sell: '賣出'
-    footer:
-      career: '職缺'
-      legal_&_privacy: '隱私條款'
-      language: '語言'
-      need_help?: '幫助'
+    coin_list_homepage:
+      buy: '購買'
+      sell: '賣出'  
     sell_or_buy_currency: 
       name: '幣名'
       current_prices: '目前價格'

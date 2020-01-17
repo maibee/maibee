@@ -1,4 +1,6 @@
 <% if current_user.state != 'uncertified' && params[:controller] != "homepage"%>
-<%= link_to t('.sell_coins_in_market'), new_market_path, class: 'btn btn-primary'%>
-<%= link_to t('.view_my_information'), markets_path, class: 'btn btn-primary'%>
+<div class=" d-flex w-100 justify-content-around">
+  <%= link_to t('.sell_coins_in_market'), new_market_path, class: 'btn btn-primary mx-1'%>
+  <%= link_to t('.view_my_information'), markets_path, class: 'btn btn-primary mx-1'%>
+</div>
 <% end %>
