@@ -98,6 +98,10 @@ main > :first-child{
 .notice{
   position: static !important;
 }
+.wallet_btn{
+  padding-right: 0px !important;
+  padding-left: 0px !important; 
+}
 @media (min-width: 992px){
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     right: 0;
@@ -139,8 +143,35 @@ main > :first-child{
     background-color: #5DB7FC;
     border-color: #5DB7FC;
   }
+  .wallet_three_btn{
+    width: 20%;
+    text-decoration: none!important;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    color: #000;
+    background-color: #5DB7FC;
+    border-color: #5DB7FC;
+  }
   .global_market_flow{
     display: table-cell;
+  }
+  .wallet_btn{
+    padding-right: 5px !important;
+    padding-left: 5px !important; 
   }
 }
 
