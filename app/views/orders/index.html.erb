@@ -2,7 +2,7 @@
   <% @orders.each do |order| %>
     <%= render 'order', order: order %>
   <% end %>
-  <% unless @order %>
+  <% if @order == nil %>
     <h1 class="h4"><%= t('.no_order_yet') %></h1>
   <% end %>
 </div>
