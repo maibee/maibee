@@ -3,8 +3,8 @@
     <div class=" d-flex justify-content-between">
       <%= form.select(:currency_id, currencies, {},  { :class => 'btn btn-warning w-25' })  %>
       <div>
-        <div><%= t('.current_prices') %>: <%= currency.last_rate %></div>
-        <div><%= t('.account_balance') %>: <%= amount %></div>
+        <div><%= t('.current_prices') %>: number_to_currency(<%= currency.last_rate %>,unit:'' )</div>
+        <div><%= t('.account_balance') %>: number_to_currency(<%= amount %>, unit: '')</div>
       </div>
     </div>
     <% if params["action"] == "sell"%>
