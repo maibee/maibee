@@ -83,7 +83,8 @@ zh-TW:
       total_price: '總金額'
       status: '訂單狀態'
       confirm: '送出訂單'
-      wallet: '檢視錢包'
+      wallet: '檢視我的錢包'
+      to_market: '前往掛單交易'
   shared:
     create_limit_order: 
       account_balance: '帳戶餘額'

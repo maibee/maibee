@@ -21,6 +21,7 @@
               <%= link_to t('.confirm'), pay_order_path(@order), method: 'post', class: 'btn btn-primary btn-sm'%>
             <% else %>
               <%= link_to t('.wallet'), wallets_path, class: 'btn btn-primary btn-sm'%>
+              <%= link_to t('.to_market'), markets_path, class: 'btn btn-primary btn-sm'%>
             <% end %>
           </td>
         </tr>
