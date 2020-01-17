@@ -4,7 +4,7 @@
   </tr>
   <tr>
     <td colspan="3">
-      <%= current_user.total_assets %>
+      <%= number_to_currency(current_user.total_assets, unit: '') %>
     </td>
   </tr>
   <tr>

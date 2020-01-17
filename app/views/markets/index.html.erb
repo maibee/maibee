@@ -90,7 +90,7 @@
                   <%= b.currency[:name] %>
                 </td>
                 <td>
-                  <%= b[:amount] %>
+                  <%= number_to_currency(b[:amount],unit: '') %>
                 </td>
               </tr>
               <% end %>
