@@ -92,6 +92,9 @@ en:
     coin_list:
       buy: 'buy'
       sell: 'sell'
+    coin_list_homepage:
+      buy: 'buy'
+      sell: 'sell'
     sell_or_buy_currency: 
       name: 'currency code'
       current_prices: 'current prices'

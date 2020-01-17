@@ -95,6 +95,9 @@ zh-TW:
     coin_list:
       buy: '購買'
       sell: '賣出'
+    coin_list_homepage:
+      buy: '購買'
+      sell: '賣出'  
     sell_or_buy_currency: 
       name: '幣名'
       current_prices: '目前價格'
