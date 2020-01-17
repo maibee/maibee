@@ -102,7 +102,21 @@ main > :first-child{
   padding-right: 0px !important;
   padding-left: 0px !important; 
 }
+.footer-bar{
+  display: flex;
+  flex-direction: row !important;
+}
+.footer-item{
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: auto;
+  text-align: center;
+}
 @media (min-width: 992px){
+  .footer-bar{
+    display: flex;
+    flex-direction: row !important;
+  }
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     right: 0;
     left: auto;
