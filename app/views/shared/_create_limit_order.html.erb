@@ -5,7 +5,11 @@
       <%= f.select(:currency_id, currencies, {},  { :class => 'btn btn-warning w-50', id:'target_currency' }) %>
       <div>
           <span><%= t('.account_balance')%> : </span>
+          <% if current_user.wallets.find_by(currency_id: (currencies[0][1])) %>
           <span id="account_balance"><%= number_to_currency(current_user.wallets.find_by(currency_id: (currencies[0][1])).amount, unit: '') %></span>
+          <% else %>
+            0
+          <% end %>
       </div>
     </div>
     <%= f.number_field :amount ,class:"col-12 form-control mt-3",placeholder:"#{t('.amount')}",max: 100000%>
