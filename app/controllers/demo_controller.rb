@@ -1,10 +1,7 @@
 class DemoController < ApplicationController
 
   def new
-    if Time.now > Time.local(2020,01,19)
-      flash[:notice] = I18n.t("demo_day_is_over")
-      redirect_to root_path
-    elsif user_signed_in?
+    if user_signed_in?
       flash[:notice] = I18n.t("you_already_have_an_account")
       redirect_to root_path
     else
